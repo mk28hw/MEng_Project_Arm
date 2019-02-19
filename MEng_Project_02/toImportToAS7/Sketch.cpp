@@ -139,6 +139,12 @@ void readServo(byte pcktID, byte pcktCmnd);
 #define RS485_RX_EN_PIN 2 // this is actually disable pin (not enable) for RX
 #define RS485_TX_EN_PIN 3 // enable pin for TX
 
+#define ARM_ID4_ANGLE_MIN 740	// exactly 752 = 65 degrees
+#define ARM_ID4_ANGLE_MAX 1700	// exactly 1762 = 157 degrees
+
+#define ARM_ID5_ANGLE_MIN 740	// exactly 749 = 65 degrees
+#define ARM_ID5_ANGLE_MAX 1700	// exactly 1744 = 155 degrees
+
 #define RS485_TX_ON \
 	digitalWrite(RS485_RX_EN_PIN, HIGH);	/* Notify max485 transceiver to accept tx */ \
 	digitalWrite(RS485_TX_EN_PIN, HIGH);	/* Notify max485 transceiver to accept tx */ \
@@ -180,6 +186,8 @@ int flag =0;
 int minutes = 1000;
 int position_old = 0;
 int rotations = 0;
+byte id = 3;
+int angle = 10;
 LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_ROWS, LCD_COLS);  // set the LCD address to 0x27 for a 20 chars and 4 line display
 //========================SETUP============================
 void setup() {
@@ -192,9 +200,15 @@ void setup() {
 	Serial.begin(57600);
 	Serial1.begin(57143);
 	Serial1.flush();
-	setEndless(2, ON);
-	setMaxTorque (0,1023);
-	moveSpeed(2, 0000, 1500);
+	
+	if (id == 4) {
+		angle = angle > ARM_ID4_ANGLE_MAX ? ARM_ID4_ANGLE_MAX : angle < ARM_ID4_ANGLE_MIN ? ARM_ID4_ANGLE_MIN : angle; 
+	} else if (id == 5) {
+		angle = angle > ARM_ID5_ANGLE_MAX ? ARM_ID5_ANGLE_MAX : angle < ARM_ID5_ANGLE_MIN ? ARM_ID5_ANGLE_MIN : angle;
+	} 
+	setEndless(id, OFF);
+	setMaxTorque(id,1023);
+	moveSpeed(id, angle, 1500);
 	lcd.setCursor(0,0);
 	lcd.print("sID:");
 	lcd.setCursor(0,1);
@@ -203,10 +217,10 @@ void setup() {
 	lcd.print("rpm:");
 	lcd.setCursor(0,3);
 	lcd.print("ld%:");
-	setID(4);
+	//setID(3);
 	//reset();
 	delay(2);
-	//turn(2,LEFT,50);
+	//turn(id,LEFT,50);
 }
 //=========================================================
 //========================LOOP=============================
@@ -220,7 +234,7 @@ void loop() {
 	//  x =readLoad(3);
 	 
 	delay(2);
-	readServo(4, 0x24, 6);
+	readServo(id, 0x24, 6);
 	printDataLCD();
 	delay(200);
 }
@@ -373,10 +387,10 @@ void printDataLCD() {
 			lcd.print((byte)servoID);
 			lcd.print("  ");
 			lcd.setCursor(4,1);
-			lcd.print((int)(position * MX_PRESENT_POSITION_DEGREE));
+			lcd.print((int)(position));
 			lcd.print(position > 9 ? position > 99 ? "    " : "   " : "  ");
-			lcd.setCursor(10,1);
-			lcd.print(rotations);
+			//lcd.setCursor(10,1);
+			//lcd.print(rotations);
 			lcd.setCursor(4,2);
 			lcd.print((int)(speed * MX_PRESENT_SPEED_RPM));
 			lcd.print(speedDirection ? " CW  " : " CCW  ");
