@@ -38,6 +38,8 @@ C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\Ar
                               Sketch.o (millis)
 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
                               Sketch.o (pinMode)
+C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+                              Sketch.o (_ZN6StringD1Ev)
 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
                               Sketch.o (_ZN17LiquidCrystal_I2CC1Ehhh)
 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
@@ -76,8 +78,101 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               Sketch.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_ctors.o)
                               Sketch.o (__do_global_ctors)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (dtostrf)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (free)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (realloc)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
                               C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(abi.o) (abort)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atof.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (atof)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atol.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (atol)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(isspace.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (isspace)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(tolower.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (tolower)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (toupper)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy_P.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strcpy_P)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strlen_P.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__strlen_P)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (memcpy)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memmove.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (memmove)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strchr.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strchr)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcmp.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strcmp)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strcpy)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncmp.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strncmp)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncpy.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strncpy)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrchr.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strrchr)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strstr.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (strstr)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__itoa)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa_ncheck.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__itoa_ncheck)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__ltoa)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa_ncheck.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__ltoa_ncheck)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(mulsi10.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atol.o) (__mulsi_const_10)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__ultoa)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_ncheck.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__ultoa_ncheck)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__utoa)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa_ncheck.o)
+                              C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o) (__utoa_ncheck)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+                              Sketch.o (sprintf)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o) (vfprintf)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o) (dtoa_prf)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atof.o) (strtod)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o) (__ftoa_engine)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(cty_isfalse.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(isspace.o) (__ctype_isfalse)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncasecmp_P.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o) (strncasecmp_P)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (strnlen_P)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (strnlen)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrev.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_ncheck.o) (strrev)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (fputc)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o) (__ultoa_invert)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(errno.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o) (errno)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o) (__muluhisi3)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o) (__umulhisi3)
+
+Allocating common symbols
+Common symbol       size              file
+
+errno               0x2               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(errno.o)
+__brkval            0x2               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+__flp               0x2               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
 
 Discarded input sections
 
@@ -87,6 +182,12 @@ Discarded input sections
  .text          0x00000000        0x0 Sketch.o
  .data          0x00000000        0x0 Sketch.o
  .bss           0x00000000        0x0 Sketch.o
+ .text._Z11setupSwitchv
+                0x00000000       0x20 Sketch.o
+ .text._Z12error_decodeh
+                0x00000000       0xea Sketch.o
+ .text._Z9printLCD2hhi
+                0x00000000       0x66 Sketch.o
  .text._Z5resetv
                 0x00000000       0x88 Sketch.o
  .text._Z9readServohh
@@ -101,26 +202,32 @@ Discarded input sections
                 0x00000000       0xd4 Sketch.o
  .text._Z5reseth
                 0x00000000       0x90 Sketch.o
+ .text._Z10setEndlesshb.part.0
+                0x00000000       0xc2 Sketch.o
+ .text._Z10setEndlesshb
+                0x00000000       0x42 Sketch.o
  .text._Z5turn_hbi
                 0x00000000      0x170 Sketch.o
+ .text._Z4turnhbi
+                0x00000000       0xc8 Sketch.o
  .text._Z10moveSpeed_hii
                 0x00000000      0x146 Sketch.o
+ .text._Z12setMaxTorquehi
+                0x00000000       0xd4 Sketch.o
  .text._Z8rotateoni
-                0x00000000       0x2e Sketch.o
+                0x00000000       0x2c Sketch.o
  .text._Z9rotateoffi
                 0x00000000       0x2e Sketch.o
  .text._Z6Downonv
-                0x00000000       0x1e Sketch.o
+                0x00000000       0x1c Sketch.o
  .text._Z7Downoffv
                 0x00000000       0x1e Sketch.o
  .text._Z4Uponv
-                0x00000000       0x1e Sketch.o
+                0x00000000       0x1c Sketch.o
  .text._Z5Upoffv
                 0x00000000       0x1e Sketch.o
  .text._Z12torqueStatushb
                 0x00000000       0xb0 Sketch.o
- .text._Z11printBufferv
-                0x00000000       0x5c Sketch.o
  .text._Z14printBufferLCDv
                 0x00000000       0xec Sketch.o
  .data.minutes  0x00000000        0x2 Sketch.o
@@ -234,15 +341,9 @@ Discarded input sections
                 0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .text._ZN5Print5printERK9Printable
                 0x00000000       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .rodata.str1.1
-                0x00000000        0xf C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .text._ZN5Print7printlnEv
-                0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .text._ZN5Print7printlnEPK19__FlashStringHelper
                 0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .text._ZN5Print7printlnERK6String
-                0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .text._ZN5Print7printlnEPKc
                 0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .text._ZN5Print7printlnEc
                 0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
@@ -255,8 +356,6 @@ Discarded input sections
  .text._ZN5Print7printlnEji
                 0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .text._ZN5Print7printlnEmi
-                0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .text._ZN5Print7printlnEii
                 0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .text._ZN5Print7printlnEli
                 0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
@@ -278,6 +377,192 @@ Discarded input sections
                 0x00000000       0x52 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
  .progmem.data.port_to_input_PGM
                 0x00000000       0x1a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .group         0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text          0x00000000        0x0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .data          0x00000000        0x0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .bss           0x00000000        0x0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String14StringIfHelperEv
+                0x00000000        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringD2Ev
+                0x00000000        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String10invalidateEv
+                0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String12changeBufferEj
+                0x00000000       0x34 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String7reserveEj
+                0x00000000       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String4copyEPKcj
+                0x00000000       0x42 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2EPKc
+                0x00000000       0x2a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String4copyEPK19__FlashStringHelperj
+                0x00000000       0x42 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String4moveERS_
+                0x00000000       0x7a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2EOS_
+                0x00000000       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2EO15StringSumHelper
+                0x00000000       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringaSERKS_
+                0x00000000       0x2e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2ERKS_
+                0x00000000       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringaSEOS_
+                0x00000000       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringaSEO15StringSumHelper
+                0x00000000       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringaSEPKc
+                0x00000000       0x2e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Ec
+                0x00000000       0x32 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Ehh
+                0x00000000       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Eih
+                0x00000000       0x58 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Ejh
+                0x00000000       0x58 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Elh
+                0x00000000       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Emh
+                0x00000000       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Efh
+                0x00000000       0x60 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2Edh
+                0x00000000       0x60 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringaSEPK19__FlashStringHelper
+                0x00000000       0x34 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringC2EPK19__FlashStringHelper
+                0x00000000       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEPKcj
+                0x00000000       0x5c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatERKS_
+                0x00000000        0xe C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEPKc
+                0x00000000       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEc
+                0x00000000       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEh
+                0x00000000       0x56 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEi
+                0x00000000       0x60 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEj
+                0x00000000       0x60 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEl
+                0x00000000       0x62 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEm
+                0x00000000       0x62 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEf
+                0x00000000       0x62 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEd
+                0x00000000       0x62 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6concatEPK19__FlashStringHelper
+                0x00000000       0x60 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperRK6String
+                0x00000000       0x26 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperPKc
+                0x00000000       0x32 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperc
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperh
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperi
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperj
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperl
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperm
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperf
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperd
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZplRK15StringSumHelperPK19__FlashStringHelper
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String9compareToERKS_
+                0x00000000       0x60 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String6equalsERKS_
+                0x00000000       0x22 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String6equalsEPKc
+                0x00000000       0x3e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6StringltERKS_
+                0x00000000        0xe C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6StringgtERKS_
+                0x00000000       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6StringleERKS_
+                0x00000000       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6StringgeERKS_
+                0x00000000       0x10 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String16equalsIgnoreCaseERKS_
+                0x00000000       0x66 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String10startsWithERKS_j
+                0x00000000       0x4c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String10startsWithERKS_
+                0x00000000       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String8endsWithERKS_
+                0x00000000       0x40 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String9setCharAtEjc
+                0x00000000       0x1a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6StringixEj
+                0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6StringixEj
+                0x00000000       0x22 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String6charAtEj
+                0x00000000        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String8getBytesEPhjj
+                0x00000000       0x5e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String7indexOfEcj
+                0x00000000       0x34 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String7indexOfEc
+                0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String7indexOfERKS_j
+                0x00000000       0x3a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String7indexOfERKS_
+                0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String11lastIndexOfEcj
+                0x00000000       0x6a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String11lastIndexOfEc
+                0x00000000        0xe C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String11lastIndexOfERKS_j
+                0x00000000       0x9c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String11lastIndexOfERKS_
+                0x00000000       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .rodata.str1.1
+                0x00000000        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String9substringEjj
+                0x00000000       0x8a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String7replaceEcc
+                0x00000000       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String7replaceERKS_S1_
+                0x00000000      0x1f4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6removeEjj
+                0x00000000       0x66 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String6removeEj
+                0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String11toLowerCaseEv
+                0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String11toUpperCaseEv
+                0x00000000       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZN6String4trimEv
+                0x00000000       0xb8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String5toIntEv
+                0x00000000       0x16 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String8toDoubleEv
+                0x00000000       0x16 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .text._ZNK6String7toFloatEv
+                0x00000000        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .bss._ZZN6StringixEjE19dummy_writable_char
+                0x00000000        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_info    0x00000000     0x4338 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_abbrev  0x00000000      0x4c2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_loc     0x00000000     0x422d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_aranges
+                0x00000000      0x2b8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_ranges  0x00000000      0x2f8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_line    0x00000000     0x1355 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_str     0x00000000     0x11a7 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .comment       0x00000000       0x31 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
+ .debug_frame   0x00000000      0xa60 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(WString.o)
  .group         0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
  .group         0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
  .group         0x00000000        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
@@ -547,11 +832,244 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_ctors.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_ctors.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
+ .text.avr-libc
+                0x00000000       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
+ .comment       0x00000000       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtostrf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+ .data          0x00000000        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+ .text.avr-libc
+                0x00000000      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+ .comment       0x00000000       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+ COMMON         0x00000000        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(malloc.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
+ .text.avr-libc
+                0x00000000      0x1ca c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
+ .comment       0x00000000       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(realloc.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
  .text.avr-libc
                 0x00000000        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(abort.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atof.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atof.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atof.o)
+ .text.avr-libc
+                0x00000000        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atof.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atol.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atol.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atol.o)
+ .text.avr-libc
+                0x00000000       0x4e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(atol.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(isspace.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(isspace.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(isspace.o)
+ .text.avr-libc
+                0x00000000       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(isspace.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(tolower.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(tolower.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(tolower.o)
+ .text.avr-libc
+                0x00000000       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(tolower.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+ .text.avr-libc
+                0x00000000       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(toupper.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy_P.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy_P.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy_P.o)
+ .text.avr-libc
+                0x00000000        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy_P.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strlen_P.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strlen_P.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strlen_P.o)
+ .text.avr-libc
+                0x00000000       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strlen_P.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+ .text.avr-libc
+                0x00000000       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memmove.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memmove.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memmove.o)
+ .text.avr-libc
+                0x00000000       0x24 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memmove.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strchr.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strchr.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strchr.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strchr.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcmp.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcmp.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcmp.o)
+ .text.avr-libc
+                0x00000000       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcmp.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
+ .text.avr-libc
+                0x00000000        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strcpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncmp.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncmp.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncmp.o)
+ .text.avr-libc
+                0x00000000       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncmp.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncpy.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncpy.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncpy.o)
+ .text.avr-libc
+                0x00000000       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncpy.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrchr.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrchr.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrchr.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrchr.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strstr.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strstr.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strstr.o)
+ .text.avr-libc
+                0x00000000       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strstr.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa_ncheck.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa_ncheck.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa_ncheck.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(itoa_ncheck.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa_ncheck.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa_ncheck.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa_ncheck.o)
+ .text.avr-libc
+                0x00000000       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ltoa_ncheck.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(mulsi10.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(mulsi10.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(mulsi10.o)
+ .text.avr-libc
+                0x00000000       0x2a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(mulsi10.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_ncheck.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_ncheck.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_ncheck.o)
+ .text.avr-libc
+                0x00000000       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_ncheck.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa_ncheck.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa_ncheck.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa_ncheck.o)
+ .text.avr-libc
+                0x00000000       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(utoa_ncheck.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
+ .text.avr-libc
+                0x00000000      0x2ee c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
+ .comment       0x00000000       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(dtoa_prf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o)
+ .text.avr-libc
+                0x00000000      0x2b8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o)
+ .progmem.data  0x00000000       0x3b c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o)
+ .comment       0x00000000       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strtod.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
+ .text.avr-libc
+                0x00000000      0x1b0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
+ .progmem.data  0x00000000       0xfa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ftoa_engine.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(cty_isfalse.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(cty_isfalse.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(cty_isfalse.o)
+ .text.avr-libc
+                0x00000000        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(cty_isfalse.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncasecmp_P.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncasecmp_P.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncasecmp_P.o)
+ .text.avr-libc
+                0x00000000       0x30 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strncasecmp_P.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrev.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrev.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrev.o)
+ .text.avr-libc
+                0x00000000       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strrev.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(errno.o)
+ .comment       0x00000000       0x2d c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(errno.o)
+ COMMON         0x00000000        0x2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text.libgcc.mul
+                0x00000000       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_muluhisi3.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .text.libgcc.mul
+                0x00000000       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_umulhisi3.o)
 
 Memory Configuration
 
@@ -680,7 +1198,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1f54
+.text           0x00000000     0x263a
  *(.vectors)
  .vectors       0x00000000       0xe4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
                 0x00000000                __vector_default
@@ -758,369 +1276,401 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000270        0x6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ .init9         0x00000270        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
  *(.init9)
  *(.text)
- .text          0x00000276        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
-                0x00000276                __vector_38
-                0x00000276                __vector_22
-                0x00000276                __vector_28
-                0x00000276                __vector_1
-                0x00000276                __vector_32
-                0x00000276                __vector_34
-                0x00000276                __vector_24
-                0x00000276                __vector_12
-                0x00000276                __vector_55
-                0x00000276                __vector_46
-                0x00000276                __bad_interrupt
-                0x00000276                __vector_6
-                0x00000276                __vector_31
-                0x00000276                __vector_35
-                0x00000276                __vector_3
-                0x00000276                __vector_30
-                0x00000276                __vector_45
-                0x00000276                __vector_11
-                0x00000276                __vector_54
-                0x00000276                __vector_13
-                0x00000276                __vector_17
-                0x00000276                __vector_19
-                0x00000276                __vector_56
-                0x00000276                __vector_7
-                0x00000276                __vector_49
-                0x00000276                __vector_41
-                0x00000276                __vector_43
-                0x00000276                __vector_27
-                0x00000276                __vector_5
-                0x00000276                __vector_33
-                0x00000276                __vector_47
-                0x00000276                __vector_52
-                0x00000276                __vector_4
-                0x00000276                __vector_44
-                0x00000276                __vector_51
-                0x00000276                __vector_9
-                0x00000276                __vector_2
-                0x00000276                __vector_21
-                0x00000276                __vector_15
-                0x00000276                __vector_29
-                0x00000276                __vector_40
-                0x00000276                __vector_8
-                0x00000276                __vector_48
-                0x00000276                __vector_14
-                0x00000276                __vector_53
-                0x00000276                __vector_10
-                0x00000276                __vector_50
-                0x00000276                __vector_16
-                0x00000276                __vector_18
-                0x00000276                __vector_20
-                0x00000276                __vector_42
-                0x00000278                . = ALIGN (0x2)
+ .text          0x00000278        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
+                0x00000278                __vector_38
+                0x00000278                __vector_22
+                0x00000278                __vector_28
+                0x00000278                __vector_1
+                0x00000278                __vector_32
+                0x00000278                __vector_34
+                0x00000278                __vector_24
+                0x00000278                __vector_12
+                0x00000278                __vector_55
+                0x00000278                __vector_46
+                0x00000278                __bad_interrupt
+                0x00000278                __vector_6
+                0x00000278                __vector_31
+                0x00000278                __vector_35
+                0x00000278                __vector_3
+                0x00000278                __vector_30
+                0x00000278                __vector_45
+                0x00000278                __vector_11
+                0x00000278                __vector_54
+                0x00000278                __vector_13
+                0x00000278                __vector_17
+                0x00000278                __vector_19
+                0x00000278                __vector_56
+                0x00000278                __vector_7
+                0x00000278                __vector_49
+                0x00000278                __vector_41
+                0x00000278                __vector_43
+                0x00000278                __vector_27
+                0x00000278                __vector_5
+                0x00000278                __vector_33
+                0x00000278                __vector_47
+                0x00000278                __vector_52
+                0x00000278                __vector_4
+                0x00000278                __vector_44
+                0x00000278                __vector_51
+                0x00000278                __vector_2
+                0x00000278                __vector_21
+                0x00000278                __vector_15
+                0x00000278                __vector_29
+                0x00000278                __vector_40
+                0x00000278                __vector_8
+                0x00000278                __vector_48
+                0x00000278                __vector_14
+                0x00000278                __vector_53
+                0x00000278                __vector_10
+                0x00000278                __vector_50
+                0x00000278                __vector_16
+                0x00000278                __vector_18
+                0x00000278                __vector_20
+                0x00000278                __vector_42
+                0x0000027a                . = ALIGN (0x2)
  *(.text.*)
  .text._ZN14HardwareSerial5writeEi
-                0x00000278        0xe Sketch.o
-                0x00000278                _ZN14HardwareSerial5writeEi
+                0x0000027a        0xe Sketch.o
+                0x0000027a                _ZN14HardwareSerial5writeEi
+ .text._Z9printLCD1hhi
+                0x00000288       0x62 Sketch.o
+                0x00000288                _Z9printLCD1hhi
+ .text._Z9printLCD3hhi
+                0x000002ea       0x64 Sketch.o
+                0x000002ea                _Z9printLCD3hhi
+ .text._Z9printLCD4hhi
+                0x0000034e       0x68 Sketch.o
+                0x0000034e                _Z9printLCD4hhi
  .text._Z8sumBytesPhh
-                0x00000286       0x1a Sketch.o
-                0x00000286                _Z8sumBytesPhh
+                0x000003b6       0x1a Sketch.o
+                0x000003b6                _Z8sumBytesPhh
  .text.startup._GLOBAL__sub_I_Load_High_Byte
-                0x000002a0       0x22 Sketch.o
+                0x000003d0       0x32 Sketch.o
  .text._Z10writeServohhPhh
-                0x000002c2       0xcc Sketch.o
-                0x000002c2                _Z10writeServohhPhh
+                0x00000402       0xcc Sketch.o
+                0x00000402                _Z10writeServohhPhh
  .text._Z9moveSpeedhii
-                0x0000038e       0x2e Sketch.o
-                0x0000038e                _Z9moveSpeedhii
+                0x000004ce       0x5e Sketch.o
+                0x000004ce                _Z9moveSpeedhii
+ .text.__vector_9
+                0x0000052c       0xc6 Sketch.o
+                0x0000052c                __vector_9
  .text._Z9readServohhh
-                0x000003bc       0xa2 Sketch.o
-                0x000003bc                _Z9readServohhh
- .text._Z4turnhbi
-                0x0000045e       0xb2 Sketch.o
-                0x0000045e                _Z4turnhbi
- .text._Z10setEndlesshb
-                0x00000510      0x11c Sketch.o
-                0x00000510                _Z10setEndlesshb
- .text._Z12setMaxTorquehi
-                0x0000062c       0xbc Sketch.o
-                0x0000062c                _Z12setMaxTorquehi
- .text.setup    0x000006e8      0x108 Sketch.o
-                0x000006e8                setup
+                0x000005f2       0x9e Sketch.o
+                0x000005f2                _Z9readServohhh
+ .text._Z11printBufferv
+                0x00000690       0x7e Sketch.o
+                0x00000690                _Z11printBufferv
+ .text.setup    0x0000070e      0x126 Sketch.o
+                0x0000070e                setup
  .text._Z12printDataLCDv
-                0x000007f0      0x224 Sketch.o
-                0x000007f0                _Z12printDataLCDv
- .text.loop     0x00000a14       0x20 Sketch.o
-                0x00000a14                loop
+                0x00000834      0x2de Sketch.o
+                0x00000834                _Z12printDataLCDv
+ .text.loop     0x00000b12        0xc Sketch.o
+                0x00000b12                loop
  .text.avr-libc.fplib
-                0x00000a34        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
-                0x00000a34                __fixsfsi
+                0x00000b1e        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixsfsi.o)
+                0x00000b1e                __fixsfsi
  .text.avr-libc.fplib
-                0x00000a3e       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
-                0x00000a3e                __fixunssfsi
+                0x00000b28       0x58 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fixunssfsi.o)
+                0x00000b28                __fixunssfsi
  .text.avr-libc.fplib
-                0x00000a96       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
-                0x00000a96                __floatunsisf
-                0x00000a9a                __floatsisf
+                0x00000b80       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
+                0x00000b80                __floatunsisf
+                0x00000b84                __floatsisf
  .text.avr-libc.fplib
-                0x00000b10       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
-                0x00000b10                __fp_split3
-                0x00000b20                __fp_splitA
+                0x00000bfa       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_split3.o)
+                0x00000bfa                __fp_split3
+                0x00000c0a                __fp_splitA
  .text.avr-libc.fplib
-                0x00000b54        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
-                0x00000b54                __fp_zero
-                0x00000b56                __fp_szero
+                0x00000c3e        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_zero.o)
+                0x00000c3e                __fp_zero
+                0x00000c40                __fp_szero
  .text.avr-libc.fplib
-                0x00000b62        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
-                0x00000b62                __mulsf3
+                0x00000c4c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3.o)
+                0x00000c4c                __mulsf3
  .text.avr-libc.fplib
-                0x00000b66       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
-                0x00000b7a                __mulsf3x
-                0x00000b7e                __mulsf3_pse
+                0x00000c50       0xc2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(mulsf3x.o)
+                0x00000c64                __mulsf3x
+                0x00000c68                __mulsf3_pse
  .text.avr-libc.fplib
-                0x00000c28        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
-                0x00000c28                __fp_inf
+                0x00000d12        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
+                0x00000d12                __fp_inf
  .text.avr-libc.fplib
-                0x00000c34        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
-                0x00000c34                __fp_nan
+                0x00000d1e        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
+                0x00000d1e                __fp_nan
  .text.avr-libc.fplib
-                0x00000c3a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
-                0x00000c3a                __fp_pscA
+                0x00000d24        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscA.o)
+                0x00000d24                __fp_pscA
  .text.avr-libc.fplib
-                0x00000c48        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
-                0x00000c48                __fp_pscB
+                0x00000d32        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_pscB.o)
+                0x00000d32                __fp_pscB
  .text.avr-libc.fplib
-                0x00000c56       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
-                0x00000c56                __fp_round
+                0x00000d40       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_round.o)
+                0x00000d40                __fp_round
  .text._ZN14HardwareSerial9availableEv
-                0x00000c78       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000c78                _ZN14HardwareSerial9availableEv
+                0x00000d62       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000d62                _ZN14HardwareSerial9availableEv
  .text._ZN14HardwareSerial4peekEv
-                0x00000c90       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000c90                _ZN14HardwareSerial4peekEv
+                0x00000d7a       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000d7a                _ZN14HardwareSerial4peekEv
  .text._ZN14HardwareSerial4readEv
-                0x00000cac       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000cac                _ZN14HardwareSerial4readEv
+                0x00000d96       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000d96                _ZN14HardwareSerial4readEv
  .text._ZN14HardwareSerial17availableForWriteEv
-                0x00000cd4       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000cd4                _ZN14HardwareSerial17availableForWriteEv
+                0x00000dbe       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000dbe                _ZN14HardwareSerial17availableForWriteEv
  .text._Z14serialEventRunv
-                0x00000cf2       0x76 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000cf2                _Z14serialEventRunv
+                0x00000ddc       0x76 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000ddc                _Z14serialEventRunv
  .text._ZN14HardwareSerial17_tx_udr_empty_irqEv
-                0x00000d68       0x44 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000d68                _ZN14HardwareSerial17_tx_udr_empty_irqEv
+                0x00000e52       0x44 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000e52                _ZN14HardwareSerial17_tx_udr_empty_irqEv
  .text._ZN14HardwareSerial5writeEh
-                0x00000dac       0x98 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000dac                _ZN14HardwareSerial5writeEh
+                0x00000e96       0x98 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000e96                _ZN14HardwareSerial5writeEh
  .text._ZN14HardwareSerial5flushEv
-                0x00000e44       0x42 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000e44                _ZN14HardwareSerial5flushEv
+                0x00000f2e       0x42 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000f2e                _ZN14HardwareSerial5flushEv
  .text._ZN14HardwareSerial5beginEmh
-                0x00000e86       0xca C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00000e86                _ZN14HardwareSerial5beginEmh
+                0x00000f70       0xca C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000f70                _ZN14HardwareSerial5beginEmh
  .text._ZN5Print17availableForWriteEv
-                0x00000f50        0x6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00000f50                _ZN5Print17availableForWriteEv
+                0x0000103a        0x6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x0000103a                _ZN5Print17availableForWriteEv
  .text._ZN5Print5flushEv
-                0x00000f56        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00000f56                _ZN5Print5flushEv
+                0x00001040        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00001040                _ZN5Print5flushEv
  .text.__vector_25
-                0x00000f58       0x6c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00000f58                __vector_25
+                0x00001042       0x6c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00001042                __vector_25
  .text.__vector_26
-                0x00000fc4       0x52 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00000fc4                __vector_26
+                0x000010ae       0x52 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x000010ae                __vector_26
  .text._Z17Serial0_availablev
-                0x00001016       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x00001016                _Z17Serial0_availablev
+                0x00001100       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00001100                _Z17Serial0_availablev
  .text.startup._GLOBAL__sub_I___vector_25
-                0x00001028       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00001112       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
  .text.__vector_36
-                0x00001082       0x6c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
-                0x00001082                __vector_36
+                0x0000116c       0x6c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+                0x0000116c                __vector_36
  .text.__vector_37
-                0x000010ee       0x52 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
-                0x000010ee                __vector_37
+                0x000011d8       0x52 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+                0x000011d8                __vector_37
  .text._Z17Serial1_availablev
-                0x00001140       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
-                0x00001140                _Z17Serial1_availablev
+                0x0000122a       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+                0x0000122a                _Z17Serial1_availablev
  .text.startup._GLOBAL__sub_I___vector_36
-                0x00001152       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+                0x0000123c       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
  .text.initVariant
-                0x000011ac        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
-                0x000011ac                initVariant
+                0x00001296        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x00001296                initVariant
  .text.startup.main
-                0x000011ae       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
-                0x000011ae                main
+                0x00001298       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x00001298                main
  .text._ZN5Print5writeEPKhj
-                0x000011c2       0x54 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x000011c2                _ZN5Print5writeEPKhj
+                0x000012ac       0x54 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x000012ac                _ZN5Print5writeEPKhj
  .text._ZN5Print5writeEPKc
-                0x00001216       0x2a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x00001216                _ZN5Print5writeEPKc
+                0x00001300       0x2a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x00001300                _ZN5Print5writeEPKc
  .text._ZN5Print5printEPKc
-                0x00001240        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x00001240                _ZN5Print5printEPKc
+                0x0000132a        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x0000132a                _ZN5Print5printEPKc
  .text._ZN5Print5printEc
-                0x00001242        0xe C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x00001242                _ZN5Print5printEc
+                0x0000132c        0xe C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x0000132c                _ZN5Print5printEc
+ .text._ZN5Print7printlnEv
+                0x0000133a        0x6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x0000133a                _ZN5Print7printlnEv
+ .text._ZN5Print7printlnEPKc
+                0x00001340       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x00001340                _ZN5Print7printlnEPKc
  .text._ZN5Print11printNumberEmh
-                0x00001250       0x8e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x00001250                _ZN5Print11printNumberEmh
+                0x00001360       0x8e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x00001360                _ZN5Print11printNumberEmh
  .text._ZN5Print5printEmi
-                0x000012de       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x000012de                _ZN5Print5printEmi
+                0x000013ee       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x000013ee                _ZN5Print5printEmi
  .text._ZN5Print5printEhi
-                0x000012f6        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x000012f6                _ZN5Print5printEhi
+                0x00001406        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x00001406                _ZN5Print5printEhi
  .text._ZN5Print5printEli
-                0x00001302       0x8a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x00001302                _ZN5Print5printEli
+                0x00001412       0x8a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x00001412                _ZN5Print5printEli
  .text._ZN5Print5printEii
-                0x0000138c        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
-                0x0000138c                _ZN5Print5printEii
+                0x0000149c        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x0000149c                _ZN5Print5printEii
+ .text._ZN5Print7printlnEii
+                0x000014a8       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x000014a8                _ZN5Print7printlnEii
  .text.__vector_23
-                0x00001398       0x94 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001398                __vector_23
- .text.millis   0x0000142c       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x0000142c                millis
- .text.micros   0x00001444       0x4a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001444                micros
- .text.delay    0x0000148e       0x72 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x0000148e                delay
+                0x000014c8       0x94 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x000014c8                __vector_23
+ .text.millis   0x0000155c       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x0000155c                millis
+ .text.micros   0x00001574       0x4a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00001574                micros
+ .text.delay    0x000015be       0x72 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x000015be                delay
  .text.delayMicroseconds
-                0x00001500       0x16 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001500                delayMicroseconds
- .text.init     0x00001516       0xc4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x00001516                init
+                0x00001630       0x16 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00001630                delayMicroseconds
+ .text.init     0x00001646       0xc4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00001646                init
  .text.turnOffPWM
-                0x000015da       0xaa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .text.pinMode  0x00001684       0x78 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x00001684                pinMode
+                0x0000170a       0xaa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .text.pinMode  0x000017b4       0x78 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000017b4                pinMode
  .text.digitalWrite
-                0x000016fc       0x5c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
-                0x000016fc                digitalWrite
+                0x0000182c       0x5c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x0000182c                digitalWrite
  .text._ZN17LiquidCrystal_I2CC2Ehhh
-                0x00001758       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00001758                _ZN17LiquidCrystal_I2CC1Ehhh
-                0x00001758                _ZN17LiquidCrystal_I2CC2Ehhh
+                0x00001888       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x00001888                _ZN17LiquidCrystal_I2CC1Ehhh
+                0x00001888                _ZN17LiquidCrystal_I2CC2Ehhh
  .text._ZN17LiquidCrystal_I2C13expanderWriteEh
-                0x00001770       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00001770                _ZN17LiquidCrystal_I2C13expanderWriteEh
+                0x000018a0       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000018a0                _ZN17LiquidCrystal_I2C13expanderWriteEh
  .text._ZN17LiquidCrystal_I2C9backlightEv
-                0x00001798        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00001798                _ZN17LiquidCrystal_I2C9backlightEv
+                0x000018c8        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000018c8                _ZN17LiquidCrystal_I2C9backlightEv
  .text._ZN17LiquidCrystal_I2C11pulseEnableEh
-                0x000017a2       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x000017a2                _ZN17LiquidCrystal_I2C11pulseEnableEh
+                0x000018d2       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000018d2                _ZN17LiquidCrystal_I2C11pulseEnableEh
  .text._ZN17LiquidCrystal_I2C10write4bitsEh
-                0x000017ca       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x000017ca                _ZN17LiquidCrystal_I2C10write4bitsEh
+                0x000018fa       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000018fa                _ZN17LiquidCrystal_I2C10write4bitsEh
  .text._ZN17LiquidCrystal_I2C4sendEhh
-                0x000017e2       0x2a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x000017e2                _ZN17LiquidCrystal_I2C4sendEhh
+                0x00001912       0x2a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x00001912                _ZN17LiquidCrystal_I2C4sendEhh
  .text._ZN17LiquidCrystal_I2C7commandEh
-                0x0000180c        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x0000180c                _ZN17LiquidCrystal_I2C7commandEh
+                0x0000193c        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x0000193c                _ZN17LiquidCrystal_I2C7commandEh
  .text._ZN17LiquidCrystal_I2C5clearEv
-                0x00001810        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00001810                _ZN17LiquidCrystal_I2C5clearEv
+                0x00001940        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x00001940                _ZN17LiquidCrystal_I2C5clearEv
  .text._ZN17LiquidCrystal_I2C4homeEv
-                0x0000181a        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x0000181a                _ZN17LiquidCrystal_I2C4homeEv
+                0x0000194a        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x0000194a                _ZN17LiquidCrystal_I2C4homeEv
  .text._ZN17LiquidCrystal_I2C9setCursorEhh
-                0x00001824       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00001824                _ZN17LiquidCrystal_I2C9setCursorEhh
+                0x00001954       0x5a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x00001954                _ZN17LiquidCrystal_I2C9setCursorEhh
  .text._ZN17LiquidCrystal_I2C7displayEv
-                0x0000187e        0xe C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x0000187e                _ZN17LiquidCrystal_I2C7displayEv
+                0x000019ae        0xe C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000019ae                _ZN17LiquidCrystal_I2C7displayEv
  .text._ZN17LiquidCrystal_I2C5writeEh
-                0x0000188c        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x0000188c                _ZN17LiquidCrystal_I2C5writeEh
+                0x000019bc        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000019bc                _ZN17LiquidCrystal_I2C5writeEh
  .text._ZN17LiquidCrystal_I2C5beginEhhh
-                0x00001896       0x8a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00001896                _ZN17LiquidCrystal_I2C5beginEhhh
+                0x000019c6       0x8a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000019c6                _ZN17LiquidCrystal_I2C5beginEhhh
  .text._ZN17LiquidCrystal_I2C9init_privEv
-                0x00001920       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00001920                _ZN17LiquidCrystal_I2C9init_privEv
+                0x00001a50       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x00001a50                _ZN17LiquidCrystal_I2C9init_privEv
  .text._ZN17LiquidCrystal_I2C4initEv
-                0x0000193c        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x0000193c                _ZN17LiquidCrystal_I2C4initEv
+                0x00001a6c        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x00001a6c                _ZN17LiquidCrystal_I2C4initEv
  .text._ZN7TwoWire9availableEv
-                0x0000193e       0x10 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x0000193e                _ZN7TwoWire9availableEv
+                0x00001a6e       0x10 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001a6e                _ZN7TwoWire9availableEv
  .text._ZN7TwoWire4readEv
-                0x0000194e       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x0000194e                _ZN7TwoWire4readEv
+                0x00001a7e       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001a7e                _ZN7TwoWire4readEv
  .text._ZN7TwoWire4peekEv
-                0x00001976       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001976                _ZN7TwoWire4peekEv
+                0x00001aa6       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001aa6                _ZN7TwoWire4peekEv
  .text._ZN7TwoWire5flushEv
-                0x00001994        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001994                _ZN7TwoWire5flushEv
+                0x00001ac4        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001ac4                _ZN7TwoWire5flushEv
  .text._ZN7TwoWire16onReceiveServiceEPhi
-                0x00001996       0x54 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001996                _ZN7TwoWire16onReceiveServiceEPhi
+                0x00001ac6       0x54 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001ac6                _ZN7TwoWire16onReceiveServiceEPhi
  .text._ZN7TwoWire16onRequestServiceEv
-                0x000019ea       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x000019ea                _ZN7TwoWire16onRequestServiceEv
+                0x00001b1a       0x18 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001b1a                _ZN7TwoWire16onRequestServiceEv
  .text._ZN7TwoWire5writeEPKhj
-                0x00001a02       0x58 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001a02                _ZN7TwoWire5writeEPKhj
+                0x00001b32       0x58 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001b32                _ZN7TwoWire5writeEPKhj
  .text._ZN7TwoWire5writeEh
-                0x00001a5a       0x5c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001a5a                _ZN7TwoWire5writeEh
+                0x00001b8a       0x5c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001b8a                _ZN7TwoWire5writeEh
  .text._ZN7TwoWireC2Ev
-                0x00001ab6       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001ab6                _ZN7TwoWireC1Ev
-                0x00001ab6                _ZN7TwoWireC2Ev
+                0x00001be6       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001be6                _ZN7TwoWireC1Ev
+                0x00001be6                _ZN7TwoWireC2Ev
  .text._ZN7TwoWire5beginEv
-                0x00001ad6       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001ad6                _ZN7TwoWire5beginEv
+                0x00001c06       0x1e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001c06                _ZN7TwoWire5beginEv
  .text._ZN7TwoWire17beginTransmissionEh
-                0x00001af4       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001af4                _ZN7TwoWire17beginTransmissionEh
+                0x00001c24       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001c24                _ZN7TwoWire17beginTransmissionEh
  .text._ZN7TwoWire15endTransmissionEh
-                0x00001b08       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001b08                _ZN7TwoWire15endTransmissionEh
+                0x00001c38       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001c38                _ZN7TwoWire15endTransmissionEh
  .text._ZN7TwoWire15endTransmissionEv
-                0x00001b2c        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00001b2c                _ZN7TwoWire15endTransmissionEv
+                0x00001c5c        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00001c5c                _ZN7TwoWire15endTransmissionEv
  .text.startup._GLOBAL__sub_I__ZN7TwoWire8rxBufferE
-                0x00001b30        0x6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
- .text.__empty  0x00001b36        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
-                0x00001b36                yield
+                0x00001c60        0x6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .text.__empty  0x00001c66        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+                0x00001c66                yield
  .text.twi_init
-                0x00001b38       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001b38                twi_init
+                0x00001c68       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001c68                twi_init
  .text.twi_writeTo
-                0x00001b70       0xac C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001b70                twi_writeTo
+                0x00001ca0       0xac C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001ca0                twi_writeTo
  .text.twi_transmit
-                0x00001c1c       0x50 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001c1c                twi_transmit
+                0x00001d4c       0x50 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001d4c                twi_transmit
  .text.twi_attachSlaveRxEvent
-                0x00001c6c        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001c6c                twi_attachSlaveRxEvent
+                0x00001d9c        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001d9c                twi_attachSlaveRxEvent
  .text.twi_attachSlaveTxEvent
-                0x00001c76        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001c76                twi_attachSlaveTxEvent
+                0x00001da6        0xa C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001da6                twi_attachSlaveTxEvent
  .text.twi_stop
-                0x00001c80       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001c80                twi_stop
+                0x00001db0       0x14 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001db0                twi_stop
  .text.twi_releaseBus
-                0x00001c94        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001c94                twi_releaseBus
+                0x00001dc4        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001dc4                twi_releaseBus
  .text.__vector_39
-                0x00001ca0      0x25c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
-                0x00001ca0                __vector_39
+                0x00001dd0      0x25c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00001dd0                __vector_39
  .text.libgcc.div
-                0x00001efc       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
-                0x00001efc                __udivmodsi4
- .text.libgcc   0x00001f40       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_tablejump2.o)
-                0x00001f40                __tablejump2__
-                0x00001f50                . = ALIGN (0x2)
+                0x0000202c       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
+                0x0000202c                __udivmodsi4
+ .text.libgcc   0x00002070       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_tablejump2.o)
+                0x00002070                __tablejump2__
+ .text.avr-libc
+                0x00002080       0x5c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+                0x00002080                sprintf
+ .text.avr-libc
+                0x000020dc      0x3fa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+                0x000020dc                vfprintf
+ .text.avr-libc
+                0x000024d6       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen_P.o)
+                0x000024d6                strnlen_P
+ .text.avr-libc
+                0x000024ec       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(strnlen.o)
+                0x000024ec                strnlen
+ .text.avr-libc
+                0x00002502       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
+                0x00002502                fputc
+ .text.avr-libc
+                0x0000257a       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(ultoa_invert.o)
+                0x0000257a                __ultoa_invert
+                0x00002636                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001f50        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
-                0x00001f50                _exit
-                0x00001f50                exit
+ .fini9         0x00002636        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+                0x00002636                _exit
+                0x00002636                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1139,11 +1689,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001f50        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x00002636        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001f54                _etext = .
+                0x0000263a                _etext = .
 
-.data           0x00800200       0x98 load address 0x00001f54
+.data           0x00800200      0x12e load address 0x0000263a
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -1156,123 +1706,136 @@ END GROUP
  .rodata        0x00800203        0x8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
  *(.rodata*)
  .rodata.str1.1
-                0x0080020b       0x5c Sketch.o
-                                 0x63 (size before relaxing)
+                0x0080020b       0xe3 Sketch.o
+                                 0xe8 (size before relaxing)
  .rodata._ZTV14HardwareSerial
-                0x00800267       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
-                0x00800267                _ZTV14HardwareSerial
+                0x008002ee       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x008002ee                _ZTV14HardwareSerial
+ .rodata.str1.1
+                0x00800300        0xf C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .rodata._ZTV17LiquidCrystal_I2C
-                0x00800279        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
-                0x00800279                _ZTV17LiquidCrystal_I2C
+                0x0080030f        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x0080030f                _ZTV17LiquidCrystal_I2C
  .rodata._ZTV7TwoWire
-                0x00800285       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800285                _ZTV7TwoWire
+                0x0080031b       0x12 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x0080031b                _ZTV7TwoWire
  *(.gnu.linkonce.r*)
-                0x00800298                . = ALIGN (0x2)
- *fill*         0x00800297        0x1 
-                0x00800298                _edata = .
-                0x00800298                PROVIDE (__data_end, .)
+                0x0080032e                . = ALIGN (0x2)
+ *fill*         0x0080032d        0x1 
+                0x0080032e                _edata = .
+                0x0080032e                PROVIDE (__data_end, .)
 
-.bss            0x00800298      0x21b
-                0x00800298                PROVIDE (__bss_start, .)
+.bss            0x0080032e      0x222
+                0x0080032e                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.lcd       0x00800298        0xc Sketch.o
-                0x00800298                lcd
+ .bss.lcd       0x0080032e        0xc Sketch.o
+                0x0080032e                lcd
+ .bss.cycle_counter
+                0x0080033a        0x2 Sketch.o
+                0x0080033a                cycle_counter
+ .bss.error_counter
+                0x0080033c        0x2 Sketch.o
+                0x0080033c                error_counter
+ .bss.error_byte_old
+                0x0080033e        0x1 Sketch.o
+                0x0080033e                error_byte_old
+ .bss.currPos   0x0080033f        0x2 Sketch.o
+                0x0080033f                currPos
  .bss.rotations
-                0x008002a4        0x2 Sketch.o
-                0x008002a4                rotations
+                0x00800341        0x2 Sketch.o
+                0x00800341                rotations
  .bss.position_old
-                0x008002a6        0x2 Sketch.o
-                0x008002a6                position_old
+                0x00800343        0x2 Sketch.o
+                0x00800343                position_old
  .bss.startTime
-                0x008002a8        0x4 Sketch.o
-                0x008002a8                startTime
- .bss.Serial    0x008002ac       0x9d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
-                0x008002ac                Serial
- .bss.Serial1   0x00800349       0x9d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
-                0x00800349                Serial1
+                0x00800345        0x4 Sketch.o
+                0x00800345                startTime
+ .bss.Serial    0x00800349       0x9d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x00800349                Serial
+ .bss.Serial1   0x008003e6       0x9d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+                0x008003e6                Serial1
  .bss.timer0_fract
-                0x008003e6        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00800483        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
  .bss.timer0_millis
-                0x008003e7        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x008003e7                timer0_millis
+                0x00800484        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00800484                timer0_millis
  .bss.timer0_overflow_count
-                0x008003eb        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
-                0x008003eb                timer0_overflow_count
- .bss.Wire      0x008003ef        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x008003ef                Wire
+                0x00800488        0x4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00800488                timer0_overflow_count
+ .bss.Wire      0x0080048c        0xc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x0080048c                Wire
  .bss._ZN7TwoWire14user_onReceiveE
-                0x008003fb        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x008003fb                _ZN7TwoWire14user_onReceiveE
+                0x00800498        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00800498                _ZN7TwoWire14user_onReceiveE
  .bss._ZN7TwoWire14user_onRequestE
-                0x008003fd        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x008003fd                _ZN7TwoWire14user_onRequestE
+                0x0080049a        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x0080049a                _ZN7TwoWire14user_onRequestE
  .bss._ZN7TwoWire12transmittingE
-                0x008003ff        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x008003ff                _ZN7TwoWire12transmittingE
+                0x0080049c        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x0080049c                _ZN7TwoWire12transmittingE
  .bss._ZN7TwoWire14txBufferLengthE
-                0x00800400        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800400                _ZN7TwoWire14txBufferLengthE
+                0x0080049d        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x0080049d                _ZN7TwoWire14txBufferLengthE
  .bss._ZN7TwoWire13txBufferIndexE
-                0x00800401        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800401                _ZN7TwoWire13txBufferIndexE
+                0x0080049e        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x0080049e                _ZN7TwoWire13txBufferIndexE
  .bss._ZN7TwoWire8txBufferE
-                0x00800402       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800402                _ZN7TwoWire8txBufferE
+                0x0080049f       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x0080049f                _ZN7TwoWire8txBufferE
  .bss._ZN7TwoWire9txAddressE
-                0x00800422        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800422                _ZN7TwoWire9txAddressE
+                0x008004bf        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x008004bf                _ZN7TwoWire9txAddressE
  .bss._ZN7TwoWire14rxBufferLengthE
-                0x00800423        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800423                _ZN7TwoWire14rxBufferLengthE
+                0x008004c0        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x008004c0                _ZN7TwoWire14rxBufferLengthE
  .bss._ZN7TwoWire13rxBufferIndexE
-                0x00800424        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800424                _ZN7TwoWire13rxBufferIndexE
+                0x008004c1        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x008004c1                _ZN7TwoWire13rxBufferIndexE
  .bss._ZN7TwoWire8rxBufferE
-                0x00800425       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
-                0x00800425                _ZN7TwoWire8rxBufferE
+                0x008004c2       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x008004c2                _ZN7TwoWire8rxBufferE
  .bss.twi_error
-                0x00800445        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x008004e2        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_rxBufferIndex
-                0x00800446        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x008004e3        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_rxBuffer
-                0x00800447       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x008004e4       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_txBufferLength
-                0x00800467        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00800504        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_txBufferIndex
-                0x00800468        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00800505        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_txBuffer
-                0x00800469       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00800506       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_masterBufferLength
-                0x00800489        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00800526        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_masterBufferIndex
-                0x0080048a        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00800527        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_masterBuffer
-                0x0080048b       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00800528       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_onSlaveReceive
-                0x008004ab        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00800548        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_onSlaveTransmit
-                0x008004ad        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x0080054a        0x2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_inRepStart
-                0x008004af        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x0080054c        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_sendStop
-                0x008004b0        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x0080054d        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_slarw
-                0x008004b1        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x0080054e        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  .bss.twi_state
-                0x008004b2        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x0080054f        0x1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
  *(COMMON)
-                0x008004b3                PROVIDE (__bss_end, .)
-                0x00001f54                __data_load_start = LOADADDR (.data)
-                0x00001fec                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800550                PROVIDE (__bss_end, .)
+                0x0000263a                __data_load_start = LOADADDR (.data)
+                0x00002768                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008004b3        0x0
+.noinit         0x00800550        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008004b3                _end = .
-                [!provide]                PROVIDE (__heap_start, .)
+                0x00800550                _end = .
+                0x00800550                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -1311,7 +1874,7 @@ END GROUP
 .stab.indexstr
  *(.stab.indexstr)
 
-.comment        0x00000000       0x30
+.comment        0x00000000       0x5c
  *(.comment)
  .comment       0x00000000       0x30 Sketch.o
                                  0x31 (size before relaxing)
@@ -1326,6 +1889,10 @@ END GROUP
  .comment       0x00000030       0x31 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
  .comment       0x00000030       0x31 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
  .comment       0x00000030       0x31 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(sprintf.o)
+ .comment       0x00000030       0x2c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(vfprintf_std.o)
+                                 0x2d (size before relaxing)
+ .comment       0x0000005c       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(fputc.o)
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x40
@@ -1347,139 +1914,139 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x6b8
+.debug_aranges  0x00000000      0x6f8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000      0x108 Sketch.o
+                0x00000000      0x148 Sketch.o
  .debug_aranges
-                0x00000108       0x68 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+                0x00000148       0x68 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
  .debug_aranges
-                0x00000170       0x48 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+                0x000001b0       0x48 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
  .debug_aranges
-                0x000001b8       0x48 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+                0x000001f8       0x48 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
  .debug_aranges
-                0x00000200       0x30 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+                0x00000240       0x30 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
  .debug_aranges
-                0x00000230      0x100 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+                0x00000270      0x100 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
  .debug_aranges
-                0x00000330       0x48 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+                0x00000370       0x48 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
  .debug_aranges
-                0x00000378       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+                0x000003b8       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
  .debug_aranges
-                0x000003b0      0x170 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+                0x000003f0      0x170 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
  .debug_aranges
-                0x00000520       0xf8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+                0x00000560       0xf8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
  .debug_aranges
-                0x00000618       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+                0x00000658       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
  .debug_aranges
-                0x00000638       0x80 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+                0x00000678       0x80 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000    0x10ef7
+.debug_info     0x00000000    0x125f4
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_info    0x00000bbc     0x2e21 Sketch.o
- .debug_info    0x000039dd     0x205e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_info    0x00005a3b     0x1b74 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_info    0x000075af     0x1b74 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
- .debug_info    0x00009123      0x295 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_info    0x000093b8     0x295d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_info    0x0000bd15      0x329 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_info    0x0000c03e      0x63a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_info    0x0000c678     0x1a2f C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
- .debug_info    0x0000e0a7     0x27b0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
- .debug_info    0x00010857       0x3e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_info    0x00010895      0x662 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .debug_info    0x00000bbc     0x451e Sketch.o
+ .debug_info    0x000050da     0x205e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_info    0x00007138     0x1b74 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_info    0x00008cac     0x1b74 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+ .debug_info    0x0000a820      0x295 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_info    0x0000aab5     0x295d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_info    0x0000d412      0x329 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_info    0x0000d73b      0x63a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_info    0x0000dd75     0x1a2f C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+ .debug_info    0x0000f7a4     0x27b0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .debug_info    0x00011f54       0x3e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_info    0x00011f92      0x662 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
 
-.debug_abbrev   0x00000000     0x2fa7
+.debug_abbrev   0x00000000     0x3174
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_abbrev  0x00000b1a      0x407 Sketch.o
- .debug_abbrev  0x00000f21      0x4b7 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_abbrev  0x000013d8      0x3ce C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_abbrev  0x000017a6      0x3ce C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
- .debug_abbrev  0x00001b74      0x12d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_abbrev  0x00001ca1      0x47a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_abbrev  0x0000211b      0x146 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_abbrev  0x00002261      0x15a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_abbrev  0x000023bb      0x3e1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
- .debug_abbrev  0x0000279c      0x581 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
- .debug_abbrev  0x00002d1d       0x2a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_abbrev  0x00002d47      0x260 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .debug_abbrev  0x00000b1a      0x5d4 Sketch.o
+ .debug_abbrev  0x000010ee      0x4b7 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_abbrev  0x000015a5      0x3ce C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_abbrev  0x00001973      0x3ce C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+ .debug_abbrev  0x00001d41      0x12d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_abbrev  0x00001e6e      0x47a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_abbrev  0x000022e8      0x146 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_abbrev  0x0000242e      0x15a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_abbrev  0x00002588      0x3e1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+ .debug_abbrev  0x00002969      0x581 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .debug_abbrev  0x00002eea       0x2a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_abbrev  0x00002f14      0x260 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
 
-.debug_line     0x00000000     0x375f
+.debug_line     0x00000000     0x3a23
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1f9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_line    0x000001f9      0xb11 Sketch.o
- .debug_line    0x00000d0a      0x527 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_line    0x00001231      0x288 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_line    0x000014b9      0x288 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
- .debug_line    0x00001741      0x161 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_line    0x000018a2      0x681 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_line    0x00001f23      0x2cb C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_line    0x000021ee      0x284 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_line    0x00002472      0x7cf C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
- .debug_line    0x00002c41      0x5ec C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
- .debug_line    0x0000322d       0x41 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_line    0x0000326e      0x4f1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .debug_line    0x000001f9      0xdd5 Sketch.o
+ .debug_line    0x00000fce      0x527 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_line    0x000014f5      0x288 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_line    0x0000177d      0x288 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+ .debug_line    0x00001a05      0x161 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_line    0x00001b66      0x681 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_line    0x000021e7      0x2cb C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_line    0x000024b2      0x284 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_line    0x00002736      0x7cf C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+ .debug_line    0x00002f05      0x5ec C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .debug_line    0x000034f1       0x41 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_line    0x00003532      0x4f1 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
 
-.debug_frame    0x00000000     0x12c4
+.debug_frame    0x00000000     0x1478
  *(.debug_frame)
- .debug_frame   0x00000000      0x35c Sketch.o
- .debug_frame   0x0000035c      0x110 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_frame   0x0000046c       0xe0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_frame   0x0000054c       0xe0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
- .debug_frame   0x0000062c       0x54 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_frame   0x00000680      0x3ac C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_frame   0x00000a2c       0xc4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_frame   0x00000af0       0x7c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_frame   0x00000b6c      0x380 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
- .debug_frame   0x00000eec      0x280 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
- .debug_frame   0x0000116c       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_frame   0x00001190      0x134 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .debug_frame   0x00000000      0x510 Sketch.o
+ .debug_frame   0x00000510      0x110 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_frame   0x00000620       0xe0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_frame   0x00000700       0xe0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+ .debug_frame   0x000007e0       0x54 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_frame   0x00000834      0x3ac C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_frame   0x00000be0       0xc4 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_frame   0x00000ca4       0x7c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_frame   0x00000d20      0x380 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+ .debug_frame   0x000010a0      0x280 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .debug_frame   0x00001320       0x24 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_frame   0x00001344      0x134 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
 
-.debug_str      0x00000000     0x37bf
+.debug_str      0x00000000     0x38f5
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6      0x973 Sketch.o
-                                0xa0b (size before relaxing)
- .debug_str     0x00000d59     0x1370 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_str     0x000003e6     0x15c1 Sketch.o
+                               0x16a8 (size before relaxing)
+ .debug_str     0x000019a7      0x85e C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
                                0x16ff (size before relaxing)
- .debug_str     0x000020c9       0x86 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_str     0x00002205       0x86 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
                                0x141a (size before relaxing)
- .debug_str     0x0000214f       0x47 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+ .debug_str     0x0000228b       0x47 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
                                0x141b (size before relaxing)
- .debug_str     0x00002196       0x37 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_str     0x000022d2       0x37 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
                                 0x2c6 (size before relaxing)
- .debug_str     0x000021cd      0x33c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_str     0x00002309      0x33c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
                                0x1254 (size before relaxing)
- .debug_str     0x00002509      0x164 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_str     0x00002645      0x164 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
                                 0x25c (size before relaxing)
- .debug_str     0x0000266d       0xc2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_str     0x000027a9       0xc2 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
                                 0x2c1 (size before relaxing)
- .debug_str     0x0000272f      0xa19 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+ .debug_str     0x0000286b      0xa13 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
                                 0xe23 (size before relaxing)
- .debug_str     0x00003148      0x50a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .debug_str     0x0000327e      0x50a C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
                                0x18d3 (size before relaxing)
- .debug_str     0x00003652       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_str     0x00003788       0x1c C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
                                 0x151 (size before relaxing)
- .debug_str     0x0000366e      0x151 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .debug_str     0x000037a4      0x151 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
                                 0x3dc (size before relaxing)
 
-.debug_loc      0x00000000     0x5c5d
+.debug_loc      0x00000000     0x63dd
  *(.debug_loc)
- .debug_loc     0x00000000     0x1354 Sketch.o
- .debug_loc     0x00001354      0x4dc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_loc     0x00001830      0x1b0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_loc     0x000019e0      0x1b0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
- .debug_loc     0x00001b90     0x1c87 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_loc     0x00003817      0x28d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_loc     0x00003aa4      0x56b C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_loc     0x0000400f      0xc82 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
- .debug_loc     0x00004c91      0xbe6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
- .debug_loc     0x00005877      0x3e6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .debug_loc     0x00000000     0x1ad4 Sketch.o
+ .debug_loc     0x00001ad4      0x4dc C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_loc     0x00001fb0      0x1b0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_loc     0x00002160      0x1b0 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+ .debug_loc     0x00002310     0x1c87 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_loc     0x00003f97      0x28d C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_loc     0x00004224      0x56b C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_loc     0x0000478f      0xc82 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+ .debug_loc     0x00005411      0xbe6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .debug_loc     0x00005ff7      0x3e6 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1499,20 +2066,20 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x670
+.debug_ranges   0x00000000      0x6b0
  *(.debug_ranges)
- .debug_ranges  0x00000000      0x140 Sketch.o
- .debug_ranges  0x00000140       0x58 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
- .debug_ranges  0x00000198       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
- .debug_ranges  0x000001d0       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
- .debug_ranges  0x00000208       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
- .debug_ranges  0x00000228      0x120 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
- .debug_ranges  0x00000348       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
- .debug_ranges  0x00000380       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
- .debug_ranges  0x000003a8      0x160 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
- .debug_ranges  0x00000508       0xe8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
- .debug_ranges  0x000005f0       0x10 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
- .debug_ranges  0x00000600       0x70 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
+ .debug_ranges  0x00000000      0x180 Sketch.o
+ .debug_ranges  0x00000180       0x58 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial.o)
+ .debug_ranges  0x000001d8       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial0.o)
+ .debug_ranges  0x00000210       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(HardwareSerial1.o)
+ .debug_ranges  0x00000248       0x20 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(main.o)
+ .debug_ranges  0x00000268      0x120 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Print.o)
+ .debug_ranges  0x00000388       0x38 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring.o)
+ .debug_ranges  0x000003c0       0x28 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(wiring_digital.o)
+ .debug_ranges  0x000003e8      0x160 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(LiquidCrystal_I2C.o)
+ .debug_ranges  0x00000548       0xe8 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(Wire.o)
+ .debug_ranges  0x00000630       0x10 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(hooks.o)
+ .debug_ranges  0x00000640       0x70 C:\Users\marotron\Documents\Atmel Studio\7.0\MEng_Project_Arm\MEng_Project_02\ArduinoCore\Debug\libArduinoCore.a(twi.o)
 
 .debug_macro
  *(.debug_macro)
