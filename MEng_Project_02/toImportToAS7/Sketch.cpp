@@ -14,7 +14,7 @@
  * Version 0.2:
  * 	Control Buttons(3) for adjusting the servos: [motorSelect][[down][up]
  * 
- * Date: 05/02/2019 */
+ * Date: 08/03/2019 */
  
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
