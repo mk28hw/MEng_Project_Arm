@@ -10,8 +10,11 @@
  * It uses two hardware serial interfaces:
  * Serial (Port 0) for monitoring and troubleshooting
  * Serial 1 (Port 1) for communication with MX-64ARs
+ * 
+ * Version 0.2:
+ * 	Control Buttons(3) 
  *
- * Date: 05/02/2019 */
+ * Date: 08/03/2019 */
  
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
