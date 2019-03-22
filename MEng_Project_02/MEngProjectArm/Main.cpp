@@ -156,44 +156,15 @@ int error_counter = 0;
 int cycle_counter = 0;
 LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_ROWS, LCD_COLS);  // set the LCD address to 0x27 for a 20 chars and 4 line display
 
-/* LCD Helping to print Functions */ 
+/* LCD Helping to print Function */ 
 void printLCD(byte col, byte row, int value, byte padding) {
 	char buffer[padding];
-	sprintf(buffer, "%*d  ", padding, value);
+	char tmp[5];
+	sprintf(tmp, "%%%dd", padding);
+	sprintf(buffer, tmp, value);
 	lcd.setCursor(col, row);
 	lcd.print(buffer);
 }
-void printLCD1(byte col, byte row, int value) {
-	char buffer[1];
-	sprintf(buffer, "%1d  ", value);
-	lcd.setCursor(col, row);
-	lcd.print(buffer);
-}
-void printLCD2(byte col, byte row, int value) {
-	char buffer[2];
-	sprintf(buffer, "%2d", value);
-	lcd.setCursor(col, row);
-	lcd.print(buffer);
-}
-void printLCD3(byte col, byte row, int value) {
-	char buffer[3];
-	sprintf(buffer, "%3d", value);
-	lcd.setCursor(col, row);
-	lcd.print(buffer);
-}
-void printLCD4(byte col, byte row, int value) {
-	char buffer[4];
-	sprintf(buffer, "%4d", value);
-	lcd.setCursor(col, row);
-	lcd.print(buffer);
-}
-void printLCD5(byte col, byte row, int value) {
-	char buffer[5];
-	sprintf(buffer, "%5d", value);
-	lcd.setCursor(col, row);
-	lcd.print(buffer);
-}
-
 /* Setup the Switches (Pin Change Interrupts) */
 void setupSwitches() {
 	DDRB = 0xFF;
@@ -226,7 +197,9 @@ ISR(PCINT0_vect) {
 	}
 	if (BUTTON_3_PRESSED) { // this switch is not working all the time
 		LED_TOGGLE;
-		id = id > 4 ? 0 : id + 1;
+		delay(20);
+		while (BUTTON_3_PRESSED) delay(1);
+		id = id > 4 ? 1 : id + 1;
 		clearEndless(id);
 	}
 }
@@ -234,7 +207,6 @@ ISR(PCINT0_vect) {
 /* New shorter functions - START */
 
 void writeServo(byte pcktID, byte pcktCmnd, byte* pcktPars, byte parsNo) {
-
 	char Checksum = ~lowByte(pcktID + parsNo + 3 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd + sumBytes(pcktPars, parsNo));
 
 	RS485_TX_ON
@@ -249,7 +221,6 @@ void writeServo(byte pcktID, byte pcktCmnd, byte* pcktPars, byte parsNo) {
 
 /* Write to Servo a command with only one Parameter */
 void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar) {
-
 	char Checksum = ~lowByte(pcktID + 4 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd + pcktPar);
 
 	RS485_TX_ON
@@ -264,7 +235,6 @@ void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar) {
 
 /* Write to Servo a command with No Parameters (e.g. Reset) */
 void writeServo(byte pcktID, byte pcktCmnd) {
-
 	char Checksum = ~lowByte(pcktID + 2 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd);
 
 	RS485_TX_ON
@@ -466,17 +436,17 @@ void printDataLCD() {
 				//lcd.clear();
 				//char buffer[16];
 				//sprintf(buffer, "Servo ID: %d", servoID);
-				printLCD1(LCD_COL1, 0, servoID);
-				printLCD3(LCD_COL1, 1, position * MX_PRESENT_POSITION_DEGREE);
+				printLCD(LCD_COL1, 0, servoID, 1);
+				printLCD(LCD_COL1, 1, position * MX_PRESENT_POSITION_DEGREE, 3);
 				lcd.print((char)CH_DEG);
-				printLCD4(LCD_COL2, 1, currPos);
+				printLCD(LCD_COL2, 1, currPos, 4);
 				// 			lcd.setCursor(LCD_COL2 ,1);
 				// 			lcd.print((int)(currPos));
 				//lcd.setCursor(10,1);
 				//lcd.print(rotations);
-				printLCD3(LCD_COL1, 2, speed);
+				printLCD(LCD_COL1, 2, speed, 3);
 				lcd.print(speedDirection ? (char)CH_ARR : (char)CH_ARL);
-				printLCD3(LCD_COL1, 3, load);
+				printLCD(LCD_COL1, 3, load, 3);
 				//lcd.setCursor(LCD_COL1, 3);
 				//lcd.print(load);
 				lcd.print(loadDirection ? (char)CH_ARR : (char)CH_ARL);
@@ -489,7 +459,7 @@ void printDataLCD() {
 			
 			delay(1);
 			cycle_counter = cycle_counter > 9999 ? 0 : cycle_counter + 1;
-			printLCD4(16, 0, cycle_counter);
+			printLCD(16, 0, cycle_counter, 4);
 		}
 	}
 }
