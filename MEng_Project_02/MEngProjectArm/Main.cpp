@@ -5,6 +5,9 @@
  *   Serial (Port 0) for monitoring and troubleshooting
  *   Serial 1 (Port 1) for communication with MX-64ARs
  * 
+ * Version 0.3 (22/03/2019):
+ * 	 The code got optimized (size-wise), from original 683 lines it got reduced to 542 (excluding MX-64AR.h file but including
+ *	 lots of comments). This translates to over 20% reduction. Button [motorSelect] was fixed and now it does not skip servos.
  * Version 0.21 (20/03/2019):
  * 	 Control Buttons(3) added full rotation (1-2-3-4-5) between all the servos with using [motorSelect] button
  * 	 Tide up of the Code and moved the MX-64AR defines as a separate header file MX-64AR.h
@@ -14,11 +17,11 @@
  * Date: 20/03/2019 
  */
 
- /*Begining of Auto generated code by Atmel studio */
+ /* Beginning of Auto generated code by Atmel studio */
  #include <Arduino.h>
  #include <avr/io.h>
  #include <avr/interrupt.h>
- /*End of auto generated code by Atmel studio */
+ /* End of auto generated code by Atmel studio */
  
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>

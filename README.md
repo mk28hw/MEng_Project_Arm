@@ -7,6 +7,9 @@ In [Tools] => [External Tools]:
 * Command: `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avrdude.exe`
 * Arguments: `-C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -v -p atmega2560 -c wiring -P COM8 -b 115200 -D -U flash:w:"$(ProjectDir)Debug\$(TargetName).hex":i`
 * Initial directory: 
+## Version 0.31 (22/03/2019):
+Added Setups for all the servos and fine-tuned other things. 
+Renamed few functions
 ## Version 0.3 (22/03/2019):
 The code got optimised (size-wise), from original 683 lines it got reduced to 542 (exluding MX-64AR.h file but including lots of comments). This translates to over 20% reduction. 
 Button [motorSelect] was fixed and now it does not skip servos.
