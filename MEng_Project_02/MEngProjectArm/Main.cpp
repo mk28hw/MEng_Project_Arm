@@ -30,7 +30,7 @@
 int sumBytes(byte* bytes, byte parsNo);
 void writeServo(byte pcktID, byte pcktCmnd, byte* pcktPars, byte parsNo);
 void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar);
-void moveSpeed(unsigned char ID, int Position, int Speed);
+void moveSpeed(unsigned char id, int Position, int Speed);
 void setServo(bool endless, int rotate);
 void rotateOn(int r);
 void rotateOff(int r);
@@ -42,19 +42,16 @@ void printBuffer();
 void printDataLCD();
 void printBufferLCD();
 void getID();
-void getID_();
 void setID(byte newID);
-void move(unsigned char ID, int Position);
-void reset(unsigned char ID);
+void move(unsigned char id, int Position);
+void reset(unsigned char id);
 void reset();
-void setEndless(unsigned char ID, bool Status);
-void setEndless(unsigned char ID);
-void clearEndless(unsigned char ID);
-void turn_(unsigned char ID, bool SIDE, int Speed);
-void turn(byte ID, bool SIDE, int Speed);
-void moveSpeed_(unsigned char ID, int Position, int Speed);
-void setMaxTorque(unsigned char ID, int MaxTorque);
-void torqueStatus(unsigned char ID, bool Status);
+void setEndless(unsigned char id, bool Status);
+void setEndless(unsigned char id);
+void clearEndless(unsigned char id);
+void turn(byte id, bool side, int Speed);
+void setMaxTorque(unsigned char id, int MaxTorque);
+void setTorqueStatus(unsigned char id, bool Status);
 void readServo(byte pcktID, byte pcktCmnd, byte resLength);
 void readServo(byte pcktID, byte pcktCmnd);
 //End of Auto generated function prototypes by Atmel Studio
@@ -124,33 +121,14 @@ delay(1);
 	(byte & 0x04 ? '1' : ' '), \
 	(byte & 0x02 ? '1' : ' '), \
 	(byte & 0x01 ? '1' : ' ')
+	
 //-----------------------------------------------------------------
-unsigned char Load_High_Byte;
-unsigned char Load_Low_Byte;
-unsigned char Incoming_Byte;
-unsigned char Position_Low_Byte;
-unsigned char Position_High_Byte;
-unsigned char Time_Counter;
-unsigned long startTime = millis();
-unsigned long interval = 2000; // 10 seconds
-int Load_Long_Byte;
-int x;
-int w;
-int Error_Byte;
-int Position_Long_Byte;
-int smallspring = 24;
-int bigspring = 24;
-float C1;
-float C2;
-float loadmass; // Mass for actuator
-unsigned long y;// 5 seconds delay
-int flag =0;
-int minutes = 1000;
 int position_old = 0;
 int rotations = 0;
 byte id = 5;
 int angle = 1500;
 int currPos = angle;
+int currSpeed;
 byte error_byte_old;
 int error_counter = 0;
 int cycle_counter = 0;
@@ -182,7 +160,8 @@ ISR(PCINT0_vect) {
 		//setEndless(id, OFF);
 		//setMaxTorque(id,1023);
 		while (BUTTON_1_PRESSED) { 
-			moveSpeed(id, currPos>ARM_ID5_ANGLE_MIN ? currPos-1 : ARM_ID5_ANGLE_MIN, 20); 
+			//moveSpeed(id, currPos>ARM_ID5_ANGLE_MIN ? currPos-1 : ARM_ID5_ANGLE_MIN, 20); 
+			move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos-1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
 		}
 		LED_OFF;
@@ -190,7 +169,8 @@ ISR(PCINT0_vect) {
 	if (BUTTON_2_PRESSED) {
 		LED_ON;
 		while (BUTTON_2_PRESSED) { 
-			moveSpeed(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX, 20);
+			//moveSpeed(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX, 20);
+			move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
 		}
 		LED_OFF;
@@ -220,32 +200,36 @@ void writeServo(byte pcktID, byte pcktCmnd, byte* pcktPars, byte parsNo) {
 }
 
 /* Write to Servo a command with only one Parameter */
-void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar) {
-	char Checksum = ~lowByte(pcktID + 4 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd + pcktPar);
-
-	RS485_TX_ON
-	Serial1.write(pcktID);						// Servo ID
-	Serial1.write(4);							// Length of message (number of Parameters + 3 (1 Command + 2))
-	Serial1.write(MX_INSTRUCTION_WRITE_DATA);	// Write message type (write)
-	Serial1.write(pcktCmnd);					// Write Command
-	Serial1.write(pcktPar);						// Write Parameter
-	Serial1.write(Checksum);					// Write Checksum
-	RS485_RX_ON
-}
+void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar) { writeServo(byte pcktID, byte pcktCmnd, pcktPar, 1); }
 
 /* Write to Servo a command with No Parameters (e.g. Reset) */
-void writeServo(byte pcktID, byte pcktCmnd) {
+void writeServo(byte pcktID, byte pcktCmnd) { 
 	char Checksum = ~lowByte(pcktID + 2 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd);
 
 	RS485_TX_ON
 	Serial1.write(pcktID);						// Servo ID
-	Serial1.write(2);							// Length of message (number of Parameters + 3 (1 Command + 2))
+	Serial1.write(3);							// Length of message (number of Parameters + 3 (1 Command + 2))
 	Serial1.write(MX_INSTRUCTION_WRITE_DATA);	// Write message type (write)
 	Serial1.write(pcktCmnd);					// Write Command
 	Serial1.write(Checksum);					// Write Checksum
 	RS485_RX_ON
 }
 
+/* Reset the Servo with given ID */
+void resetServo(unsigned char id) {
+	char Checksum = ~lowByte(id + MX_INSTRUCTION_RESET_LENGTH + MX_INSTRUCTION_RESET);
+
+	RS485_TX_ON
+	Serial1.write(id);							// ID is 0xFE, which broadcast mode (all Servos hear this message)
+	Serial1.write(MX_INSTRUCTION_RESET_LENGTH);	// Length of message (number of Parameters + 3 (1 Command + 2))
+	Serial1.write(MX_INSTRUCTION_RESET);		// Write message type (write)
+	Serial1.write(Checksum);					// Write Checksum
+	RS485_RX_ON
+}
+
+/* Reset All Servos */
+void resetServo() { resetServo(MX_ALL_SERVOS); }
+	
 /* Request message from Servo using a command with a Parameter */
 void readServo(byte pcktID, byte pcktCmnd, byte resLength) {
 	char Checksum = ~lowByte(pcktID + 4 + MX_INSTRUCTION_READ_DATA + pcktCmnd + resLength);
@@ -260,53 +244,75 @@ void readServo(byte pcktID, byte pcktCmnd, byte resLength) {
 }
 void readServo(byte pcktID, byte pcktCmnd) { readServo(pcktID, pcktCmnd, 1); }
 	
-/* Reset the Servo with given ID */
-void resetServo(unsigned char ID) {
-	char Checksum = ~lowByte(ID + MX_INSTRUCTION_RESET_LENGTH + MX_INSTRUCTION_RESET);
-
-	RS485_TX_ON
-	Serial1.write(ID);							// ID is 0xFE, which broadcast mode (all Servos hear this message)
-	Serial1.write(MX_INSTRUCTION_RESET_LENGTH);	// Length of message (number of Parameters + 3 (1 Command + 2))
-	Serial1.write(MX_INSTRUCTION_RESET);			// Write message type (write)
-	Serial1.write(Checksum);					// Write Checksum
-	RS485_RX_ON
-}
-/* Reset All Servos */
-void resetServo() { resetServo(MX_ALL_SERVOS); }
-	
-void moveSpeed(byte ID, int Position, int Speed) {
-	if (ID == 4) {
+void moveSpeed(byte id, int Position, int Speed) {
+	if (id == 4) {
 		Position = Position > ARM_ID4_ANGLE_MAX 
 			? ARM_ID4_ANGLE_MAX : Position < ARM_ID4_ANGLE_MIN 
 			? ARM_ID4_ANGLE_MIN : Position;
-	} else if (ID == 5) {
+	} else if (id == 5) {
 		Position = Position > ARM_ID5_ANGLE_MAX 
 			? ARM_ID5_ANGLE_MAX : Position < ARM_ID5_ANGLE_MIN 
 			? ARM_ID5_ANGLE_MIN : Position;
 	}
   byte parsNo = 4;
   byte pcktPars[parsNo] = {Position, Position >> 8, Speed, Speed >> 8};
-  writeServo(ID, MX_GOAL_POSITION_L, pcktPars, parsNo);
+  writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
   currPos = Position;
+}
+/* 0 ~ 4095 => 0 ~ 360° */
+void move(unsigned char id, int Position) {
+	byte parsNo = 2;
+	byte pcktPars[parsNo] = {Position, Position >> 8};
+	writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
+	currPos = Position;
+}
+/*	Joint / Multi-Turn Mode: 0 ~ 1023 (0x3FF), 1 => 0.114rpm
+		0 => Maximum rpm is used without controlling the speed
+		0< ~ 1023 (0x3FF) => 0 ~ 117.07rpm 
+	Wheel Mode: 0 ~ 2047 (0x7FF), 1 => 0.114rpm
+		0 ~ 1023 (0x3FF) => 0 ~ 117.07rpm CCW 
+		1024 ~ 2047 (0x7FF) => 0 ~ 117.07rpm CW */
+void turn(byte id, bool side, int Speed) {
+	byte parsNo = 2;
+	byte pcktPars[parsNo] = {Speed, (Speed >> 8) + side ? 0 : 4};
+	writeServo(id, MX_MOVING_SPEED_L, pcktPars, parsNo);
+	currSpeed = Speed;
+	// Return the read error
+} 
+
+void setTorqueStatus(unsigned char id, bool status) { writeServo(id, MX_TORQUE_ENABLE, status); }
+
+/*
+Goal Position: 0 ~ 4095 (0x000 ~ 0xFFF) = 0° ~ 360°, 1 ~ 0.088° 
+Moving Speed:	0~2047 (0x000~0x7FF), (Joint Mode), 1 ~ 0.114rpm
+				0 -> uses max rpm, no speed control
+				1023 (0x3FF) -> ~ 117.07rpm
+				0~1023 (0x000~0x3FF) -> CCW direction
+				1024~2047 (0x400~0x7FF) -> CW direction
+*/
+void setMaxTorque(unsigned char id, int MaxTorque) {
+	byte parsNo = 2;
+	byte pcktPars[parsNo] = { MaxTorque, MaxTorque >> 8};
+	writeServo(id, MX_MAX_TORQUE_L, pcktPars, parsNo);
 }
 
 void setID(byte newID) { writeServo(MX_ALL_SERVOS, MX_ID, newID); }
 	
 /* Set the servo with given ID to endless (wheel mode) or clear it (joint or multi-turn mode) */   
-void setEndless(unsigned char ID, bool Status) {
+void setEndless(unsigned char id, bool Status) {
 	byte parsNo = 4;
 	if (Status == 1) { // Wheel Mode
 		byte pcktPars[parsNo] = {0, 0, 0, 0};
-		writeServo(ID, MX_CW_ANGLE_LIMIT_L, pcktPars, parsNo);
+		writeServo(id, MX_CW_ANGLE_LIMIT_L, pcktPars, parsNo);
 	} else { //Joint or Multi-turn Mode (if both 4095)
 		byte pcktPars[parsNo] = {ARM_ID5_ANGLE_MIN, ARM_ID5_ANGLE_MIN >> 8, ARM_ID5_ANGLE_MAX, ARM_ID5_ANGLE_MAX >> 8};
-		writeServo(ID, MX_CW_ANGLE_LIMIT_L, pcktPars, parsNo);
+		writeServo(id, MX_CW_ANGLE_LIMIT_L, pcktPars, parsNo);
 	}
 }
 /* Set the servo with given ID to endless => wheel mode */ 
-void setEndless(unsigned char ID) { setEndless(ID, ON); }
+void setEndless(unsigned char id) { setEndless(id, ON); }
 /* Clear the servo with given ID from endless (wheel mode) => joint or multi-turn mode */ 
-void clearEndless(unsigned char ID) { setEndless(ID, OFF); }
+void clearEndless(unsigned char id) { setEndless(id, OFF); }
 		
 /* New shorter functions - END */
 
@@ -485,118 +491,7 @@ void printBufferLCD() {
 		}
 	}
 }
-void getID(){ readServo(2, 0, 20); }
 
-void move(unsigned char ID, int Position) {
-  char Position_H, Position_L;
-  Position_H = Position >> 8; // 16 bits - 2 x 8 bits variables
-  Position_L = Position;
-  char Checksum = (~(ID + MX_GOAL_LENGTH + MX_INSTRUCTION_WRITE_DATA +
-  MX_GOAL_POSITION_L + Position_L + Position_H)) & 0xFF;
-  RS485_TX_ON
-  Serial1.write(ID); //servo ID
-  Serial1.write(MX_GOAL_LENGTH); //length of message(2 + x amount of paramaters)
-  Serial1.write(MX_INSTRUCTION_WRITE_DATA); //write data
-  Serial1.write(MX_GOAL_POSITION_L); //param2ter 1
-  Serial1.write(Position_L); //parameter 2
-  Serial1.write(Position_H); //parameter 3
-  Serial1.write(Checksum); //checksum
-  RS485_RX_ON
-}
-
-	
-
-	
-void turn_(unsigned char ID, bool SIDE, int Speed) {
-  if (SIDE == 0) { // Move Left//////////////////////////
-    char Speed_H, Speed_L;
-    Speed_H = Speed >> 8;
-    Speed_L = Speed; // 16 bits - 2 x 8 bits variables
-    char Checksum = ~lowByte(ID + MX_SPEED_LENGTH + MX_INSTRUCTION_WRITE_DATA + MX_MOVING_SPEED_L + Speed_L + Speed_H);
-    RS485_TX_ON
-    Serial1.write(ID);
-    Serial1.write(MX_SPEED_LENGTH);
-    Serial1.write(MX_INSTRUCTION_WRITE_DATA);
-    Serial1.write(MX_MOVING_SPEED_L);
-    Serial1.write(Speed_L);
-    Serial1.write(Speed_H);
-    Serial1.write(Checksum);
-    RS485_RX_ON
-    // Return the read error
-    } else { // Move RIGHT////////////////////
-    char Speed_H, Speed_L;
-    Speed_H = (Speed >> 8) + 4;
-    Speed_L = Speed; // 16 bits - 2 x 8 bits variables
-    char Checksum = ~lowByte(ID + MX_SPEED_LENGTH + MX_INSTRUCTION_WRITE_DATA + MX_MOVING_SPEED_L + Speed_L + Speed_H);
-    RS485_TX_ON
-    Serial1.write(ID);
-    Serial1.write(MX_SPEED_LENGTH);
-    Serial1.write(MX_INSTRUCTION_WRITE_DATA);
-    Serial1.write(MX_MOVING_SPEED_L);
-    Serial1.write(Speed_L);
-    Serial1.write(Speed_H);
-    Serial1.write(Checksum);
-    RS485_RX_ON
-    // Return the read error
-  }
-}
-void turn(byte ID, bool SIDE, int Speed) { // only available for multiturn mode
-  byte Speed_H, Speed_L;
-  if (SIDE == 0) { // Move Left//////////////////////////
-    Speed_H = Speed >> 8;
-    Speed_L = Speed; // 16 bits - 2 x 8 bits variables 
-  } else { // Move RIGHT////////////////////
-    Speed_H = (Speed >> 8) + 4;
-    Speed_L = Speed; // 16 bits - 2 x 8 bits variables
-  }
-  byte Checksum = ~lowByte(ID + MX_SPEED_LENGTH + MX_INSTRUCTION_WRITE_DATA + MX_MOVING_SPEED_L + Speed_L + Speed_H);
-  RS485_TX_ON
-  Serial1.write(ID);
-  Serial1.write(MX_SPEED_LENGTH);
-  Serial1.write(MX_INSTRUCTION_WRITE_DATA);
-  Serial1.write(MX_MOVING_SPEED_L);
-  Serial1.write(Speed_L);
-  Serial1.write(Speed_H);
-  Serial1.write(Checksum);
-  RS485_RX_ON
-  // Return the read error
-}
-/*
-Goal Position: 0 ~ 4095 (0x000 ~ 0xFFF) = 0° ~ 360°, 1 ~ 0.088° 
-Moving Speed: 0~2047 (0x000~0x7FF), (Joint Mode), 1 ~ 0.114rpm
-              0 -> uses max rpm, no speed control
-            1023 (0x3FF) -> ~ 117.07rpm
-              0~1023 (0x000~0x3FF) -> CCW direction
-              1024~2047 (0x400~0x7FF) -> CW direction
-*/
-
-void setMaxTorque(unsigned char ID, int MaxTorque) {
-  char MaxTorque_H, MaxTorque_L;
-  MaxTorque_L = MaxTorque;
-  MaxTorque_H = MaxTorque >> 8; // 16 bits - 2 x 8 bits variables
-
-  char Checksum = ~lowByte(ID + MX_MT_LENGTH + MX_INSTRUCTION_WRITE_DATA + MX_MAX_TORQUE_L + MaxTorque_L + MaxTorque_H);
-  RS485_TX_ON
-  Serial1.write(ID);
-  Serial1.write(MX_MT_LENGTH);
-  Serial1.write(MX_INSTRUCTION_WRITE_DATA);
-  Serial1.write(MX_MAX_TORQUE_L);
-  Serial1.write(MaxTorque_L);
-  Serial1.write(MaxTorque_H);
-  Serial1.write(Checksum);
-  RS485_RX_ON
-}
-void torqueStatus( unsigned char ID, bool Status) {
-  char Checksum = ~lowByte(ID + MX_TORQUE_LENGTH + MX_INSTRUCTION_WRITE_DATA + MX_TORQUE_ENABLE + Status);
-  RS485_TX_ON
-  Serial1.write(ID);
-  Serial1.write(MX_TORQUE_LENGTH);
-  Serial1.write(MX_INSTRUCTION_WRITE_DATA);
-  Serial1.write(MX_TORQUE_ENABLE);
-  Serial1.write(Status);
-  Serial1.write(Checksum);
-  RS485_RX_ON
-}
 /* Extra functions */
 int sumBytes(byte* bytes, byte parsNo) {
 	int sum = 0;

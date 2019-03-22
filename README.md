@@ -7,5 +7,8 @@ In [Tools] => [External Tools]:
 * Command: `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avrdude.exe`
 * Arguments: `-C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -v -p atmega2560 -c wiring -P COM8 -b 115200 -D -U flash:w:"$(ProjectDir)Debug\$(TargetName).hex":i`
 * Initial directory: 
+## Version 0.3 (22/03/2019):
+The code got optimised (size-wise), from original 683 lines it got reduced to 542 (exluding MX-64AR.h file but including lots of comments). This translates to over 20% reduction. 
+Button [motorSelect] was fixed and now it does not skip servos.
 ## Version 0.2:
 Implemented 3 buttons that control the move of the robotic arm. 1st button toggle between two motors and the other 2 buttons adjust the angle down and up of the connected segment (link): [motorSelect][down][up].
