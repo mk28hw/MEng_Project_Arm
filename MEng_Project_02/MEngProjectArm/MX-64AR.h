@@ -90,5 +90,10 @@
 #define MX_CCW_AL_L 0xFF
 #define MX_CCW_AL_H 0x03
 
+/* MX-64AR Modes */
+#define MX_MODE_JOINT 0
+#define MX_MODE_WHEEL 1
+#define MX_MODE_MULTI 2
+
 #endif
 

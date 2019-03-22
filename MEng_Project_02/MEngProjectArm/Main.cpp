@@ -31,7 +31,7 @@ int sumBytes(byte* bytes, byte parsNo);
 void writeServo(byte pcktID, byte pcktCmnd, byte* pcktPars, byte parsNo);
 void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar);
 void moveSpeed(unsigned char id, int Position, int Speed);
-void setServo(bool endless, int rotate);
+void setServo(unsigned char mode, int rotate);
 void rotateOn(int r);
 void rotateOff(int r);
 void downOn();
@@ -41,17 +41,17 @@ void upOff();
 void printBuffer();
 void printDataLCD();
 void printBufferLCD();
-void getID();
 void setID(byte newID);
 void move(unsigned char id, int Position);
 void reset(unsigned char id);
 void reset();
-void setEndless(unsigned char id, bool Status);
-void setEndless(unsigned char id);
-void clearEndless(unsigned char id);
+void setMode(unsigned char id, unsigned char mode);
+void setModeWheel(unsigned char id);
+void setModeJoint(unsigned char id);
+void setModeMultiTurn(unsigned char id);
 void turn(byte id, bool side, int Speed);
 void setMaxTorque(unsigned char id, int MaxTorque);
-void setTorqueStatus(unsigned char id, bool Status);
+void setTorqueEnable(unsigned char id, bool status);
 void readServo(byte pcktID, byte pcktCmnd, byte resLength);
 void readServo(byte pcktID, byte pcktCmnd);
 //End of Auto generated function prototypes by Atmel Studio
@@ -121,7 +121,7 @@ delay(1);
 	(byte & 0x04 ? '1' : ' '), \
 	(byte & 0x02 ? '1' : ' '), \
 	(byte & 0x01 ? '1' : ' ')
-	
+#define MAX_TORQUE 0x3FF
 //-----------------------------------------------------------------
 int position_old = 0;
 int rotations = 0;
@@ -160,8 +160,8 @@ ISR(PCINT0_vect) {
 		//setEndless(id, OFF);
 		//setMaxTorque(id,1023);
 		while (BUTTON_1_PRESSED) { 
-			//moveSpeed(id, currPos>ARM_ID5_ANGLE_MIN ? currPos-1 : ARM_ID5_ANGLE_MIN, 20); 
-			move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos-1 : ARM_ID5_ANGLE_MAX);
+			moveSpeed(id, currPos-1, 20); 
+			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos-1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
 		}
 		LED_OFF;
@@ -169,8 +169,8 @@ ISR(PCINT0_vect) {
 	if (BUTTON_2_PRESSED) {
 		LED_ON;
 		while (BUTTON_2_PRESSED) { 
-			//moveSpeed(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX, 20);
-			move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX);
+			moveSpeed(id, currPos+1, 20);
+			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
 		}
 		LED_OFF;
@@ -180,7 +180,9 @@ ISR(PCINT0_vect) {
 		delay(20);
 		while (BUTTON_3_PRESSED) delay(1);
 		id = id > 4 ? 1 : id + 1;
-		clearEndless(id);
+		if (id>3) setModeJoint(id);
+		else if (id==3) setModeMultiTurn(id);
+		else setModeWheel(id);
 	}
 }
 
@@ -200,20 +202,7 @@ void writeServo(byte pcktID, byte pcktCmnd, byte* pcktPars, byte parsNo) {
 }
 
 /* Write to Servo a command with only one Parameter */
-void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar) { writeServo(byte pcktID, byte pcktCmnd, pcktPar, 1); }
-
-/* Write to Servo a command with No Parameters (e.g. Reset) */
-void writeServo(byte pcktID, byte pcktCmnd) { 
-	char Checksum = ~lowByte(pcktID + 2 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd);
-
-	RS485_TX_ON
-	Serial1.write(pcktID);						// Servo ID
-	Serial1.write(3);							// Length of message (number of Parameters + 3 (1 Command + 2))
-	Serial1.write(MX_INSTRUCTION_WRITE_DATA);	// Write message type (write)
-	Serial1.write(pcktCmnd);					// Write Command
-	Serial1.write(Checksum);					// Write Checksum
-	RS485_RX_ON
-}
+void writeServo(byte pcktID, byte pcktCmnd, byte pcktPar) { writeServo(pcktID, pcktCmnd, &pcktPar, 1); }
 
 /* Reset the Servo with given ID */
 void resetServo(unsigned char id) {
@@ -280,7 +269,7 @@ void turn(byte id, bool side, int Speed) {
 	// Return the read error
 } 
 
-void setTorqueStatus(unsigned char id, bool status) { writeServo(id, MX_TORQUE_ENABLE, status); }
+void setTorqueEnable(unsigned char id, bool status) { writeServo(id, MX_TORQUE_ENABLE, status); }
 
 /*
 Goal Position: 0 ~ 4095 (0x000 ~ 0xFFF) = 0° ~ 360°, 1 ~ 0.088° 
@@ -296,38 +285,46 @@ void setMaxTorque(unsigned char id, int MaxTorque) {
 	writeServo(id, MX_MAX_TORQUE_L, pcktPars, parsNo);
 }
 
+void setTorqueLimit(unsigned char id, int TorqueLimit) {
+	byte parsNo = 2;
+	byte pcktPars[parsNo] = { TorqueLimit, TorqueLimit >> 8};
+	writeServo(id, MX_TORQUE_LIMIT_L, pcktPars, parsNo);
+}
 void setID(byte newID) { writeServo(MX_ALL_SERVOS, MX_ID, newID); }
 	
 /* Set the servo with given ID to endless (wheel mode) or clear it (joint or multi-turn mode) */   
-void setEndless(unsigned char id, bool Status) {
+void setMode(unsigned char id, unsigned char mode) {
 	byte parsNo = 4;
-	if (Status == 1) { // Wheel Mode
+	if (mode == 1) {			// Wheel Mode
 		byte pcktPars[parsNo] = {0, 0, 0, 0};
 		writeServo(id, MX_CW_ANGLE_LIMIT_L, pcktPars, parsNo);
-	} else { //Joint or Multi-turn Mode (if both 4095)
+	} else if (mode == 2) {		// Multi-turn Mode (both 4095)
+		byte pcktPars[parsNo] = {0xFF, 0x0F, 0xFF, 0x0F};
+		writeServo(id, MX_CW_ANGLE_LIMIT_L, pcktPars, parsNo);
+	} else {					// Joint Mode
 		byte pcktPars[parsNo] = {ARM_ID5_ANGLE_MIN, ARM_ID5_ANGLE_MIN >> 8, ARM_ID5_ANGLE_MAX, ARM_ID5_ANGLE_MAX >> 8};
 		writeServo(id, MX_CW_ANGLE_LIMIT_L, pcktPars, parsNo);
 	}
 }
 /* Set the servo with given ID to endless => wheel mode */ 
-void setEndless(unsigned char id) { setEndless(id, ON); }
-/* Clear the servo with given ID from endless (wheel mode) => joint or multi-turn mode */ 
-void clearEndless(unsigned char id) { setEndless(id, OFF); }
+void setModeWheel(unsigned char id) { setMode(id, MX_MODE_WHEEL); }
+void setModeJoint(unsigned char id) { setMode(id, MX_MODE_JOINT); }
+void setModeMultiTurn(unsigned char id) { setMode(id, MX_MODE_MULTI); }
 		
 /* New shorter functions - END */
 
 /* Some old (but shortened) function from previous dissertation */
-void setServo(bool endless, int rotate) {
-	setMaxTorque (0,1023);
-	setEndless (0, endless);
-	turn (0, rotate, 100);
+void setServo(unsigned char mode, int rotate) {
+	setMaxTorque(0, 1023);
+	setMode(0, mode);
+	turn(0, rotate, 100);
 }
-void rotateOn(int r) { setServo(ON, r); }	
-void rotateOff(int r) { setServo(OFF, r); }	
-void downOn() { setServo(ON, LEFT); }
-void downOff() { setServo(OFF, LEFT); }
-void upOn() { setServo(ON, RIGHT); }
-void upOff() { setServo(OFF, RIGHT); }
+void rotateOn(int r) { setServo(MX_MODE_WHEEL, r); }	
+void rotateOff(int r) { setServo(MX_MODE_JOINT, r); }	
+void downOn() { setServo(MX_MODE_WHEEL, LEFT); }
+void downOff() { setServo(MX_MODE_JOINT, LEFT); }
+void upOn() { setServo(MX_MODE_WHEEL, RIGHT); }
+void upOff() { setServo(MX_MODE_JOINT, RIGHT); }
 
 /* Servo error decoding function */ 
 String* error_decode(byte error_code) {
@@ -399,64 +396,64 @@ void printDataLCD() {
 				//sprintf(buff, "BYTE_TO_BINARY_PATTERN", BYTE_TO_BINARY(error_byte));
 				lcd.print(error_byte_old);
 				lcd.print("   ");
-			} else {
+			} else { // No Error :)
 				lcd.print("          ");
-			}
-			
-			if (msgLength > 2) {
-				position = Serial1.read();
-				position = (Serial1.read() * 255) + position;
-				rotations = position_old > position ? rotations + 1 : rotations;
-				position_old = position;
-				
-				//Serial.println(position);
-				speed = Serial1.read();
-				speed = (Serial1.read() * 255) + speed;
-				//Serial.println(speed);
-				load = Serial1.read();
-				load = (Serial1.read() * 255) + load;
-				voltage = Serial1.read();
-				temperature = Serial1.read();
-				registered = Serial1.read();
-				moving = Serial1.read();
-				lock = Serial1.read();
-				punch = Serial1.read();		
-				punch = (Serial1.read() * 255) + punch;
-				current = Serial1.read();
-				current = (Serial1.read() * 255) + current;
-				//Serial.println(load);
-				if (speed > 0x3FF) {
-					speedDirection = CW;
-					speed = speed - 0x400;
-					} else {
-					speedDirection = CCW;
-				}
-				if (load > 0x3FF) {
-					loadDirection = CW;
-					load = load - 0x400;
-					} else {
-					loadDirection = CCW;
-				}
+				if (msgLength > 2) {
+					position = Serial1.read();
+					position = (Serial1.read() * 255) + position;
+					rotations = position_old > position ? rotations + 1 : rotations;
+					position_old = position;
+								
+					//Serial.println(position);
+					speed = Serial1.read();
+					speed = (Serial1.read() * 255) + speed;
+					//Serial.println(speed);
+					load = Serial1.read();
+					load = (Serial1.read() * 255) + load;
+					voltage = Serial1.read();
+					temperature = Serial1.read();
+					registered = Serial1.read();
+					moving = Serial1.read();
+					lock = Serial1.read();
+					punch = Serial1.read();
+					punch = (Serial1.read() * 255) + punch;
+					current = Serial1.read();
+					current = (Serial1.read() * 255) + current;
+					//Serial.println(load);
+					if (speed > 0x3FF) {
+						speedDirection = CW;
+						speed = speed - 0x400;
+						} else {
+						speedDirection = CCW;
+					}
+					if (load > 0x3FF) {
+						loadDirection = CW;
+						load = load - 0x400;
+						} else {
+						loadDirection = CCW;
+					}
 
-				//Serial.println("================");
-				//lcd.clear();
-				//char buffer[16];
-				//sprintf(buffer, "Servo ID: %d", servoID);
-				printLCD(LCD_COL1, 0, servoID, 1);
-				printLCD(LCD_COL1, 1, position * MX_PRESENT_POSITION_DEGREE, 3);
-				lcd.print((char)CH_DEG);
-				printLCD(LCD_COL2, 1, currPos, 4);
-				// 			lcd.setCursor(LCD_COL2 ,1);
-				// 			lcd.print((int)(currPos));
-				//lcd.setCursor(10,1);
-				//lcd.print(rotations);
-				printLCD(LCD_COL1, 2, speed, 3);
-				lcd.print(speedDirection ? (char)CH_ARR : (char)CH_ARL);
-				printLCD(LCD_COL1, 3, load, 3);
-				//lcd.setCursor(LCD_COL1, 3);
-				//lcd.print(load);
-				lcd.print(loadDirection ? (char)CH_ARR : (char)CH_ARL);
-				//printLCD3(LCD_COL2, 3, (45*(current-2048)));
+					//Serial.println("================");
+					//lcd.clear();
+					//char buffer[16];
+					//sprintf(buffer, "Servo ID: %d", servoID);
+					printLCD(LCD_COL1, 0, servoID, 1);
+					printLCD(LCD_COL1, 1, position * MX_PRESENT_POSITION_DEGREE, 3);
+					lcd.print((char)CH_DEG);
+					printLCD(LCD_COL2, 1, position, 4);
+					printLCD(LCD_COL2+5, 1, currPos, 4);
+					// 			lcd.setCursor(LCD_COL2 ,1);
+					// 			lcd.print((int)(currPos));
+					//lcd.setCursor(10,1);
+					//lcd.print(rotations);
+					printLCD(LCD_COL1, 2, speed, 3);
+					lcd.print(speedDirection ? (char)CH_ARR : (char)CH_ARL);
+					printLCD(LCD_COL1, 3, load, 3);
+					//lcd.setCursor(LCD_COL1, 3);
+					//lcd.print(load);
+					lcd.print(loadDirection ? (char)CH_ARR : (char)CH_ARL);
+					//printLCD3(LCD_COL2, 3, (45*(current-2048)));
+				}
 			}
 			while(Serial1.available() > 0) {
 				//Serial.println(Serial1.read());
@@ -503,6 +500,7 @@ int sumBytes(byte* bytes, byte parsNo) {
 /* SETUP                                                                */
 /************************************************************************/
 void setup() {
+	/* Main Setup */
 	setupSwitches();					// Setup the arm control switches
 	lcd.init();							// initialize the lcd
 	lcd.backlight();
@@ -512,7 +510,17 @@ void setup() {
 	Serial.begin(57600);
 	Serial1.begin(57143);
 	Serial1.flush();
-
+	/* Angle Limits Setup (Servo Modes) */
+	setModeWheel(1);
+	setModeWheel(2);
+	setModeMultiTurn(3);
+	setModeJoint(4);
+	setModeJoint(5);
+	/* Enable Toques for Joints (4 and 5) */
+	for (unsigned char i=1; i<6; i++) {
+		setTorqueLimit(i, MAX_TORQUE);
+	}
+	/* LCD Setup */
 	lcd.setCursor(0,0);
 	lcd.print("sID:");
 	lcd.setCursor(0,1);
@@ -521,10 +529,7 @@ void setup() {
 	lcd.print("rpm:");
 	lcd.setCursor(0,3);
 	lcd.print("ld%:");
-	
-	clearEndless(id);
 
-	writeServo(5,0x18,1);
 	readServo(id, 0x18, 8);
 	printBuffer();
 	delay(2);
