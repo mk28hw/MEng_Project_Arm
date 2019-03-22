@@ -1,5 +1,5 @@
 /*
- * MX-64AR.cpp
+ * MX-64AR.h
  *
  * Created: 20/03/2019 11:00:00
  * Author:	Marek Kujawa
