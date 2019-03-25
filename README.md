@@ -5,9 +5,9 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 2. Install Arduino IDE (if you have not done it yet) and go to `[Tools] => [Port]` to find out what port (COM) is the Ardudino board connected to.
 3. In `[Tools] => [External Tools]`:
 
-    * Titile: `Arduino MEGA COM$` (where `$` is the port number of your COM (see 2))
+    * Titile: `Arduino MEGA COM8` (where `8` in `COM8` is the port number of your COM (see 2))
     * Command: `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avrdude.exe`
-    * Arguments: `-C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -v -p atmega2560 -c wiring -P COM8 -b 115200 -D -U flash:w:"$(ProjectDir)Debug\$(TargetName).hex":i`
+    * Arguments: `-C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -v -p atmega2560 -c wiring -P COM8 -b 115200 -D -U flash:w:"$(ProjectDir)Debug\$(TargetName).hex":i` (where `8` in `COM8` is the port number of your COM (see 2))
     * Initial directory: (leave it empty)
 ## Version 0.31 (22/03/2019):
 Added Setups for all the servos and fine-tuned other things. 
