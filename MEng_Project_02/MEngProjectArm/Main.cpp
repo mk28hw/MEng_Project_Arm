@@ -1,10 +1,13 @@
-﻿/* 
- * This code is a mess and not everything works, 
+﻿/*
+ * This code is a mess and not everything works,
  * The code is compatible with Arduino Mega ATmega2560 (it may works with other boards).
  * It uses two hardware serial interfaces:
  *   Serial (Port 0) for monitoring and troubleshooting
  *   Serial 1 (Port 1) for communication with MX-64ARs
- * 
+ *
+ * Version 0.32 (01/04/2019) - UNSTABLE:
+ * 	 Changed global variables to global stucts.
+ *   Added getData function for requesting and capturing the data (message) returned from (by) the requested servo.
  * Version 0.3 (22/03/2019):
  * 	 The code got optimized (size-wise), from original 683 lines it got reduced to 542 (excluding MX-64AR.h file but including
  *	 lots of comments). This translates to over 20% reduction. Button [motorSelect] was fixed and now it does not skip servos.
@@ -13,8 +16,8 @@
  * 	 Tide up of the Code and moved the MX-64AR defines as a separate header file MX-64AR.h
  * Version 0.2:
  * 	 Control Buttons(3) for adjusting the servos: [motorSelect][[down][up]
- * 
- * Date: 20/03/2019 
+ *
+ * Date: 20/03/2019
  */
 
  /* Beginning of Auto generated code by Atmel studio */
@@ -22,7 +25,7 @@
  #include <avr/io.h>
  #include <avr/interrupt.h>
  /* End of auto generated code by Atmel studio */
- 
+
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -107,7 +110,7 @@ delay(1);
 
 #define ARM_ID5_ANGLE_MIN 740	// exactly 749 = 65 degrees
 #define ARM_ID5_ANGLE_MAX 1700	// exactly 1744 = 155 degrees
-	
+
 #define BUTTON_1_PRESSED (PINB & (1<<PINB0)) // PIN 53
 #define BUTTON_2_PRESSED (PINB & (1<<PINB1)) // PIN 52
 #define BUTTON_3_PRESSED (PINB & (1<<PINB2)) // PIN 51
@@ -162,7 +165,7 @@ LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_ROWS, LCD_COLS);  // set the LCD address 
 bool serialWriting = NO;
 bool serialReading = NO;
 
-/* LCD Helping to print Function */ 
+/* LCD Helping to print Function */
 void printLCD(byte col, byte row, int value, byte padding) {
 	char buffer[padding];
 	char tmp[5];
@@ -188,9 +191,9 @@ ISR(PCINT0_vect) {
 		LED_ON;
 		//setEndless(id, OFF);
 		//setMaxTorque(id,1023);
-		while (BUTTON_1_PRESSED) { 
+		while (BUTTON_1_PRESSED) {
 			arm.servos[id].position--;
-			moveSpeed(id, arm.servos[id].position, 20); 
+			moveSpeed(id, arm.servos[id].position, 20);
 			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos-1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
 		}
@@ -198,7 +201,7 @@ ISR(PCINT0_vect) {
 	}
 	if (BUTTON_2_PRESSED) {
 		LED_ON;
-		while (BUTTON_2_PRESSED) { 
+		while (BUTTON_2_PRESSED) {
 			arm.servos[id].position++;
 			moveSpeed(id, arm.servos[id].position, 20);
 			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX);
@@ -260,7 +263,7 @@ void resetServo(unsigned char id) {
 
 /* Reset All Servos */
 void resetServo() { resetServo(MX_ALL_SERVOS); }
-	
+
 /* Request message from Servo using a command with a Parameter */
 void readServo(byte pcktID, byte pcktCmnd, byte resLength) {
 	char Checksum = ~lowByte(pcktID + 4 + MX_INSTRUCTION_READ_DATA + pcktCmnd + resLength);
@@ -279,19 +282,19 @@ void readServo(byte pcktID, byte pcktCmnd, byte resLength) {
 void readServo(byte pcktID, byte pcktCmnd) { readServo(pcktID, pcktCmnd, 1); }
 
 /*	Joint Mode:
-	Multi-Turn: -28672 ~ 28672 */ 
+	Multi-Turn: -28672 ~ 28672 */
 void moveSpeed(byte id, int Position, int Speed) {
 	if (id == 3) { // Multi-Turn up to 7 turns each direction
 		Position = Position > ARM_ID3_ANGLE_MAX
 			? ARM_ID3_ANGLE_MAX : Position < ARM_ID3_ANGLE_MIN
 			? ARM_ID3_ANGLE_MIN : Position;
 	} else if (id == 4) { // Joint Mode up one turn
-		Position = Position > ARM_ID4_ANGLE_MAX 
-			? ARM_ID4_ANGLE_MAX : Position < ARM_ID4_ANGLE_MIN 
+		Position = Position > ARM_ID4_ANGLE_MAX
+			? ARM_ID4_ANGLE_MAX : Position < ARM_ID4_ANGLE_MIN
 			? ARM_ID4_ANGLE_MIN : Position;
 	} else if (id == 5) { // Joint Mode up one turn
-		Position = Position > ARM_ID5_ANGLE_MAX 
-			? ARM_ID5_ANGLE_MAX : Position < ARM_ID5_ANGLE_MIN 
+		Position = Position > ARM_ID5_ANGLE_MAX
+			? ARM_ID5_ANGLE_MAX : Position < ARM_ID5_ANGLE_MIN
 			? ARM_ID5_ANGLE_MIN : Position;
 	}
   byte parsNo = 4;
@@ -311,9 +314,9 @@ void move(unsigned char id, int Position) {
 }
 /*	Joint / Multi-Turn Mode: 0 ~ 1023 (0x3FF), 1 => 0.114rpm
 		0 => Maximum rpm is used without controlling the speed
-		0< ~ 1023 (0x3FF) => 0 ~ 117.07rpm 
+		0< ~ 1023 (0x3FF) => 0 ~ 117.07rpm
 	Wheel Mode: 0 ~ 2047 (0x7FF), 1 => 0.114rpm
-		0 ~ 1023 (0x3FF) => 0 ~ 117.07rpm CCW 
+		0 ~ 1023 (0x3FF) => 0 ~ 117.07rpm CCW
 		1024 ~ 2047 (0x7FF) => 0 ~ 117.07rpm CW */
 void turn(byte id, bool side, int Speed) {
 	byte parsNo = 2;
@@ -322,12 +325,12 @@ void turn(byte id, bool side, int Speed) {
 	currSpeed = Speed;
 	arm.servos[id].speed = Speed;
 	// Return the read error
-} 
+}
 
 void setTorqueEnable(unsigned char id, bool status) { writeServo(id, MX_TORQUE_ENABLE, status); }
 
 /*
-Goal Position: 0 ~ 4095 (0x000 ~ 0xFFF) = 0° ~ 360°, 1 ~ 0.088° 
+Goal Position: 0 ~ 4095 (0x000 ~ 0xFFF) = 0° ~ 360°, 1 ~ 0.088°
 Moving Speed:	0~2047 (0x000~0x7FF), (Joint Mode), 1 ~ 0.114rpm
 				0 -> uses max rpm, no speed control
 				1023 (0x3FF) -> ~ 117.07rpm
@@ -346,8 +349,8 @@ void setTorqueLimit(unsigned char id, int TorqueLimit) {
 	writeServo(id, MX_TORQUE_LIMIT_L, pcktPars, parsNo);
 }
 void setID(byte newID) { writeServo(MX_ALL_SERVOS, MX_ID, newID); }
-	
-/* Set the servo with given ID to endless (wheel mode) or clear it (joint or multi-turn mode) */   
+
+/* Set the servo with given ID to endless (wheel mode) or clear it (joint or multi-turn mode) */
 void setMode(unsigned char id, unsigned char mode) {
 	byte parsNo = 4;
 	if (mode == 1) {			// Wheel Mode
@@ -362,7 +365,7 @@ void setMode(unsigned char id, unsigned char mode) {
 	}
 	if (id<6 && mode<3) { arm.servos[id].mode = mode; }
 }
-/* Set the servo with given ID to endless => wheel mode */ 
+/* Set the servo with given ID to endless => wheel mode */
 void setModeWheel(unsigned char id) { setMode(id, MX_MODE_WHEEL); }
 void setModeJoint(unsigned char id) { setMode(id, MX_MODE_JOINT); }
 void setModeMultiTurn(unsigned char id) { setMode(id, MX_MODE_MULTI); }
@@ -371,23 +374,23 @@ int getData(unsigned char id, unsigned char ctrlData, unsigned char askedLength)
 	bool startOne = NO, startTwo = NO, msgStarted, msgOK = NO;
 	unsigned char byteCount = 0;
 	unsigned char msgId, msgLength, msgError, msgChecksum, Checksum, msgData_1, msgData_2;
-	
+
 	int msgData;
-	readServo(id, ctrlData, askedLength);	
-	delay(10);		
+	readServo(id, ctrlData, askedLength);
+	delay(10);
 	serialReading = YES;
 	//do { msgByte = Serial1.read(); } while (msgByte != 0xFF);	// 01 : Start 1/2
 	msgByte = Serial1.read();
 	//Serial1.availableForWrite();
 	startOne = msgByte == 0xFF ? YES : NO;
 	msgByte = Serial1.read();									// 02 : Start 2/2
-	startTwo = msgByte == 0xFF ? YES : NO;	
+	startTwo = msgByte == 0xFF ? YES : NO;
 	//while (msgByte == 0xFF) { msgByte = Serial1.read(); }
 	msgStarted = startOne && startTwo ? YES : NO;
 	Serial.print("## Start 01: ");
 	Serial.print(Serial1.available());
 	Serial.println(" ####################");
-	if (msgStarted) {		
+	if (msgStarted) {
 		msgId = Serial1.read();
 		printSerial("Servo ID   ", msgId);
 		msgLength = Serial1.read();
@@ -411,7 +414,7 @@ int getData(unsigned char id, unsigned char ctrlData, unsigned char askedLength)
 	while(Serial1.available()) { msgByte = Serial1.read(); }
 	serialReading = NO;
 	return msgOK ? msgError ? -msgError : msgData : -255;
-}		
+}
 /* New shorter functions - END */
 
 /* Some old (but shortened) function from previous dissertation */
@@ -420,16 +423,16 @@ void setServo(unsigned char mode, int rotate) {
 	setMode(0, mode);
 	turn(0, rotate, 100);
 }
-void rotateOn(int r) { setServo(MX_MODE_WHEEL, r); }	
-void rotateOff(int r) { setServo(MX_MODE_JOINT, r); }	
+void rotateOn(int r) { setServo(MX_MODE_WHEEL, r); }
+void rotateOff(int r) { setServo(MX_MODE_JOINT, r); }
 void downOn() { setServo(MX_MODE_WHEEL, LEFT); }
 void downOff() { setServo(MX_MODE_JOINT, LEFT); }
 void upOn() { setServo(MX_MODE_WHEEL, RIGHT); }
 void upOff() { setServo(MX_MODE_JOINT, RIGHT); }
 
-/* Servo error decoding function */ 
+/* Servo error decoding function */
 String* error_decode(byte error_code) {
-	String errors[8] = { 
+	String errors[8] = {
 		(error_code & (1<0) ? "Vlt" : ""),	// 1
 		(error_code & (1<1) ? "Ang" : ""),	// 2
 		(error_code & (1<2) ? "oHt" : ""),	// 4
@@ -442,19 +445,19 @@ String* error_decode(byte error_code) {
 	}
 	return errors;
 }
-/* 
+/*
  *  |0xFF|0xFF|ID|LENGTH|INSTRUCTION|PARAM_1|...|PARAM_N|CHECKSUM
  */
 void printBuffer() {
 	//delay(20);
 	//byte start_1, start_2, servo_id, msg_length, er_byte, chck_sum;
-	
+
 	Serial.print("## Start: ");
 	Serial.print(Serial1.available());
 	Serial.println(" ####################");
 	serialReading = YES;
 	while(Serial1.available()){
-		
+
 		Serial.print(Serial1.available());
 		Serial.print(", ");
 		Serial.println(Serial1.read());
@@ -492,13 +495,13 @@ void printDataLCD() {
 		msgStarted = Serial1.read() == 0xFF ?  YES : NO;
 		if (msgStarted && (Serial1.read() == 0xFF)) {
 			do { servoID = Serial1.read(); } while (servoID == 0xFF); // this make sure you wait for real data
-			
+
 			msgLength = Serial1.read(); // msg Length
 			error_byte = Serial1.read();
 			error_byte_old = error_byte ? error_byte : error_byte_old;
-			
+
 			lcd.setCursor(6,0);
-			if (error_byte || error_counter) {	
+			if (error_byte || error_counter) {
 				error_counter = error_counter > 10 ? 0 : error_counter + 1;
 				String* er;
 				er = error_decode(error_byte);
@@ -514,7 +517,7 @@ void printDataLCD() {
 					position = (Serial1.read()<<8) + position;
 					rotations = position_old > position ? rotations + 1 : rotations;
 					position_old = position;
-								
+
 					//Serial.println(position);
 					speed = Serial1.read();
 					speed = (Serial1.read()<<8) + speed;
@@ -577,7 +580,7 @@ void printDataLCD() {
 				//Serial.println(Serial1.read());
 				Serial1.read();
 			}
-			
+
 			delay(1);
 			cycle_counter = cycle_counter > 999 ? 0 : cycle_counter + 1;
 			printLCD(16, 0, cycle_counter, 4);
@@ -589,8 +592,8 @@ void printBufferLCD() {
 	delay(10);
 	int data;
 	bool msgStarted;
-	int reading; 
-	
+	int reading;
+
 	if (Serial1.available()){
 		serialReading = YES;
 		msgStarted = Serial1.read() == 0xFF ?  YES : NO;
