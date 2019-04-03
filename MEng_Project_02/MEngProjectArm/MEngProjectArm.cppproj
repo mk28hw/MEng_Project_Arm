@@ -218,6 +218,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="General.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MX-64AR.h">
       <SubType>compile</SubType>
     </Compile>
