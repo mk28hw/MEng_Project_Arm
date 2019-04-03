@@ -1,4 +1,4 @@
-uint8_t uint8_t uint8_t ﻿/*
+﻿/*
  * This code is a mess and not everything works,
  * The code is compatible with Arduino Mega ATmega2560 (it may works with other boards).
  * It uses two hardware serial interfaces:
