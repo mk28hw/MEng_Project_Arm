@@ -11,10 +11,10 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
     * Initial directory: (leave it empty)
 ***
 ### Version 0.32 (01/04/2019) - UNSTABLE:
-- [x] Changed unsigned char and byte variables to uint8_t.
+- [x] Changed `unsigned char` and `byte` variables to `uint8_t`.
 - [x] Changed global variables to global stucts.
 - [x] Added `getData` function for requesting and capturing the data (message) returned from (by) the requested servo.
-- [x] Added Genral.h and Arm.h files
+- [x] Added `General.h` and `Arm.h` files
 ###### TODOs:
 - [ ] Make it STABLE.
 - [ ] Inverse Kinematics
