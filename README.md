@@ -9,13 +9,15 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
     * Command: `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avrdude.exe`
     * Arguments: `-C "C:\Program Files (x86)\Arduino\hardware\tools\avr\etc\avrdude.conf" -v -p atmega2560 -c wiring -P COM8 -b 115200 -D -U flash:w:"$(ProjectDir)Debug\$(TargetName).hex":i` (where `8` in `COM8` is the port number of your COM (see 2))
     * Initial directory: (leave it empty)
-*** 
+***
 ### Version 0.32 (01/04/2019) - UNSTABLE:
-* Changed global variables to global stucts.
-* Added `getData` function for requesting and capturing the data (message) returned from (by) the requested servo.
+- [x] Changed unsigned char and byte variables to uint8_t.
+- [x] Changed global variables to global stucts.
+- [x] Added `getData` function for requesting and capturing the data (message) returned from (by) the requested servo.
+- [x] Added Genral.h and Arm.h files
 ###### TODOs:
-* Make it STABLE.
-* Inverse Kinematics
+- [ ] Make it STABLE.
+- [ ] Inverse Kinematics
 
 ### Version 0.31 (22/03/2019):
 Added Setups for all the servos and fine-tuned other things.
