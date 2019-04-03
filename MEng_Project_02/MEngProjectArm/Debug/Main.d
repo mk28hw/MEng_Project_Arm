@@ -37,7 +37,7 @@ Main.d Main.o: .././Main.cpp ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\libraries\Wire/Wire.h \
  ..\\..\ArduinoCore\include\core/Stream.h \
  ..\\..\ArduinoCore\include\libraries\liquidcrystal_i2c/LiquidCrystal_I2C.h \
- ..\\..\ArduinoCore\include\core/Print.h .././MX-64AR.h
+ ..\\..\ArduinoCore\include\core/Print.h .././General.h .././MX-64AR.h
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -118,5 +118,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ..\\..\ArduinoCore\include\libraries\liquidcrystal_i2c/LiquidCrystal_I2C.h:
 
 ..\\..\ArduinoCore\include\core/Print.h:
+
+.././General.h:
 
 .././MX-64AR.h:

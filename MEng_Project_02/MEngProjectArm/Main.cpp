@@ -33,6 +33,7 @@
 /* Local Files Includes */
 #include "General.h"
 #include "MX-64AR.h"
+#include "Arm.h"
 
 
 //Beginning of Auto generated function prototypes by Atmel Studio
@@ -95,15 +96,6 @@ digitalWrite(RS485_RX_EN_PIN, LOW);		/* Notify MAX485 transceiver to receive */ 
 digitalWrite(RS485_TX_EN_PIN, LOW);		/* Notify MAX485 transceiver to receive */ \
 delay(1);
 
-#define ARM_ID3_ANGLE_MIN 0	// exactly 752 = 65 degrees
-#define ARM_ID3_ANGLE_MAX 1700	// exactly 1762 = 157 degrees
-
-#define ARM_ID4_ANGLE_MIN 740	// exactly 752 = 65 degrees
-#define ARM_ID4_ANGLE_MAX 1700	// exactly 1762 = 157 degrees
-
-#define ARM_ID5_ANGLE_MIN 740	// exactly 749 = 65 degrees
-#define ARM_ID5_ANGLE_MAX 1700	// exactly 1744 = 155 degrees
-
 #define BUTTON_1_PRESSED (PINB & (1<<PINB0)) // PIN 53
 #define BUTTON_2_PRESSED (PINB & (1<<PINB1)) // PIN 52
 #define BUTTON_3_PRESSED (PINB & (1<<PINB2)) // PIN 51
@@ -125,18 +117,7 @@ int angle = 1500;
 int currPos = angle;
 int currSpeed;
 
-struct Servo {
-	uint8_t id;
-	uint8_t mode;
-	int position;
-	uint8_t turns;
-	int speed;
-	int load;
-};
-struct Arm {
-	uint8_t id;
-	struct Servo servos[5];
-};
+
 
 Arm arm;
 
