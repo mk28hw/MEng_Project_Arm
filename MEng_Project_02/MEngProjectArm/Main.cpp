@@ -20,18 +20,20 @@ uint8_t uint8_t uint8_t ﻿/*
  * Date: 20/03/2019
  */
 
- /* Beginning of Auto generated code by Atmel studio */
- #include <Arduino.h>
- #include <avr/io.h>
- #include <avr/interrupt.h>
- #include <
- /* End of auto generated code by Atmel studio */
+/* Beginning of Auto generated code by Atmel studio */
+#include <Arduino.h>
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+/* End of auto generated code by Atmel studio */
 
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
 /* Local Files Includes */
+#include "General.h"
 #include "MX-64AR.h"
+
 
 //Beginning of Auto generated function prototypes by Atmel Studio
 int sumBytes(uint8_t* bytes, uint8_t parsNo);
@@ -64,16 +66,6 @@ void setTorqueEnable(uint8_t id, bool status);
 void readServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t resLength);
 void readServo(uint8_t pcktID, uint8_t pcktCmnd);
 //End of Auto generated function prototypes by Atmel Studio
-
-/* General Defines */
-#define OFF 0
-#define ON 1
-#define NO 0
-#define YES 1
-#define CCW 0
-#define CW 1
-#define LEFT 0
-#define RIGHT 1
 
 /* LCD Related Defines */
 #define LCD_ADDRESS 0x27
@@ -123,16 +115,6 @@ delay(1);
 
 #define TIME_OUT 10
 
-#define BYTE_TO_BINARY_PATTERN "%c%c%c%c%c%c%c"
-#define BYTE_TO_BINARY(Byte)  \
-	(Byte & 0x80 ? '1' : ' '), \
-	(Byte & 0x40 ? '1' : ' '), \
-	(Byte & 0x20 ? '1' : ' '), \
-	(Byte & 0x10 ? '1' : ' '), \
-	(Byte & 0x08 ? '1' : ' '), \
-	(Byte & 0x04 ? '1' : ' '), \
-	(Byte & 0x02 ? '1' : ' '), \
-	(Byte & 0x01 ? '1' : ' ')
 #define MAX_TORQUE 0x3FF
 //-----------------------------------------------------------------
 int position_old = 0;
@@ -331,32 +313,43 @@ int getData(uint8_t id, uint8_t ctrlData, uint8_t askedLength) {
             Return -ErrorCode is there is error from servo */
 	return msgOK ? msgError ? -msgError : msgData : -255;
 }
-
+int checkPosition(uint8_t id, int Position) {
+    if (id == 3) { // Multi-Turn up to 7 turns each direction
+        return Position > ARM_ID3_ANGLE_MAX
+            ? ARM_ID3_ANGLE_MAX
+            : Position < ARM_ID3_ANGLE_MIN
+                     ? ARM_ID3_ANGLE_MIN
+                     : Position;
+    } else if (id == 4) { // Joint Mode up one turn
+        return Position > ARM_ID4_ANGLE_MAX
+            ? ARM_ID4_ANGLE_MAX
+            : Position < ARM_ID4_ANGLE_MIN
+                     ? ARM_ID4_ANGLE_MIN
+                     : Position;
+    } else if (id == 5) { // Joint Mode up one turn
+        return Position > ARM_ID5_ANGLE_MAX
+            ? ARM_ID5_ANGLE_MAX
+            : Position < ARM_ID5_ANGLE_MIN
+                     ? ARM_ID5_ANGLE_MIN
+                     : Position;
+    } else {
+        return -1;
+    }
+}
 /*	Joint Mode:
 	Multi-Turn: -28672 ~ 28672 */
 void moveSpeed(uint8_t id, int Position, int Speed) {
-	if (id == 3) { // Multi-Turn up to 7 turns each direction
-		Position = Position > ARM_ID3_ANGLE_MAX
-			? ARM_ID3_ANGLE_MAX : Position < ARM_ID3_ANGLE_MIN
-			? ARM_ID3_ANGLE_MIN : Position;
-	} else if (id == 4) { // Joint Mode up one turn
-		Position = Position > ARM_ID4_ANGLE_MAX
-			? ARM_ID4_ANGLE_MAX : Position < ARM_ID4_ANGLE_MIN
-			? ARM_ID4_ANGLE_MIN : Position;
-	} else if (id == 5) { // Joint Mode up one turn
-		Position = Position > ARM_ID5_ANGLE_MAX
-			? ARM_ID5_ANGLE_MAX : Position < ARM_ID5_ANGLE_MIN
-			? ARM_ID5_ANGLE_MIN : Position;
-	}
-  uint8_t parsNo = 4;
-  uint8_t pcktPars[parsNo] = {Position, Position >> 8, Speed, Speed >> 8};
-  writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
-  currPos = Position;
-  arm.servos[id].position = Position;
-  arm.servos[id].speed = Speed;
+    Position = checkPosition(id, Position);
+    uint8_t parsNo = 4;
+    uint8_t pcktPars[parsNo] = {Position, Position >> 8, Speed, Speed >> 8};
+    writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
+    currPos = Position;
+    arm.servos[id].position = Position;
+    arm.servos[id].speed = Speed;
 }
 /* 0 ~ 4095 => 0 ~ 360° */
 void move(uint8_t id, int Position) {
+    Position = checkPosition(id, Position);
 	uint8_t parsNo = 2;
 	uint8_t pcktPars[parsNo] = {Position, Position >> 8};
 	writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
@@ -390,13 +383,13 @@ Moving Speed:	0~2047 (0x000~0x7FF), (Joint Mode), 1 ~ 0.114rpm
 */
 void setMaxTorque(uint8_t id, int MaxTorque) {
 	uint8_t parsNo = 2;
-	uint8_t pcktPars[parsNo] = { MaxTorque, MaxTorque >> 8};
+	uint8_t pcktPars[parsNo] = {MaxTorque, MaxTorque >> 8};
 	writeServo(id, MX_MAX_TORQUE_L, pcktPars, parsNo);
 }
 
 void setTorqueLimit(uint8_t id, int TorqueLimit) {
 	uint8_t parsNo = 2;
-	uint8_t pcktPars[parsNo] = { TorqueLimit, TorqueLimit >> 8};
+	uint8_t pcktPars[parsNo] = {TorqueLimit, TorqueLimit >> 8};
 	writeServo(id, MX_TORQUE_LIMIT_L, pcktPars, parsNo);
 }
 void setID(uint8_t newID) { writeServo(MX_ALL_SERVOS, MX_ID, newID); }
