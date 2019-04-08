@@ -57,4 +57,4 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 * [x] Implemented 3 buttons that control the movement of the robotic arm. The first 2 buttons, `[down]` and `[up]` adjust the angle down and up of the connected segment (link) and the 3rd button, `[select]` toggles between two motors:  
 `[down]` `[up]` `[select]`
 
-![3-button controller](./images/IMG_2213_mc.jpg){:height="50%" width="50%"}
+![3-button controller](./images/IMG_2213_mc.jpg?s=100)
