@@ -25,7 +25,7 @@ struct Servo {
 	uint8_t id;
 	uint8_t mode;
 	int position;
-	bool direction;
+	uint8_t state; // 0 - Stop, 1 - Left, 2 - Right
 	int8_t turns;
 	int speed;
 	int load;

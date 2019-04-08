@@ -116,7 +116,7 @@ int angle = 1500;
 int currPos = angle;
 int currSpeed;
 uint8_t lastButtonPressed = 0;
-bool buttonsFlip[3] = {0, 0, 0};
+bool buttonsState[3] = {0, 0, 0};
 
 
 Arm arm;
@@ -137,6 +137,10 @@ void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
 	sprintf(buffer, tmp, value);
 	lcd.setCursor(col, row);
 	lcd.print(buffer);
+}
+void printCharLCD(uint8_t col, uint8_t row, char character) {
+	lcd.setCursor(col, row);
+	lcd.print(character);
 }
 /* Setup the Switches (Pin Change Interrupts) */
 void setupSwitches() {
@@ -162,7 +166,7 @@ ISR(PCINT0_vect) {
 			if (id < 3) {
 				
 				speed = (lastButtonPressed == 1) 
-					? buttonsFlip[1] 
+					? buttonsState[1] 
 						? 0
 						: arm.servos[id].speed
 					: arm.servos[id].speed;
@@ -174,18 +178,25 @@ ISR(PCINT0_vect) {
 			delay(200);
 			
 		}
-		buttonsFlip[1] = !buttonsFlip[1];
+		buttonsState[1] = !buttonsState[1];
 		lastButtonPressed = 1;
 		LED_OFF;
 	}
 	if (BUTTON_2_PRESSED) {
 		LED_ON;
+
 		//while (BUTTON_2_PRESSED) delay(1);
 		while (BUTTON_2_PRESSED) {
 			arm.servos[id].position++;
+			if (BUTTON_1_PRESSED) {
+				moveSpeed(1, arm.servos[1].position, arm.servos[1].state==1 ? 0x0400 : 0);
+				delay(50);
+				moveSpeed(2, arm.servos[2].position, arm.servos[2].state==1 ? 0x0400 : 0);
+				delay(50);
+			}
 			if (id < 3) {
 				speed = (lastButtonPressed == 2) 
-					? buttonsFlip[2]
+					? buttonsState[2]
 						? 0x0400
 						: (0x0400 + arm.servos[id].speed) 
 					: (0x0400 + arm.servos[id].speed);	
@@ -197,7 +208,7 @@ ISR(PCINT0_vect) {
 			delay(200);
 			
 		}
-		buttonsFlip[2] = !buttonsFlip[2];
+		buttonsState[2] = !buttonsState[2];
 		lastButtonPressed = 2;
 		LED_OFF;
 	}
@@ -214,7 +225,7 @@ ISR(PCINT0_vect) {
 		//tmpq = getData(id, MX_PRESENT_POSITION_L, 2);
 		//printSerial("Button [3]", tmpq);
 		//currPos = tmpq>0 ? tmpq : currPos;
-		buttonsFlip[3] = !buttonsFlip[3];
+		buttonsState[3] = !buttonsState[3];
 		lastButtonPressed = 3;
 	}
 }
@@ -541,13 +552,13 @@ void printDataLCD() {
 				if (msgLength > 2) {
 					position = Serial1.read();
 					position = (Serial1.read()<<8) + position;
-					if (!arm.servos[servoID].direction) {
-						arm.servos[servoID].turns = (position_old > (position+100))
-							? arm.servos[servoID].turns + 1
-							: arm.servos[servoID].turns;
-					} else {
+					if (arm.servos[servoID].state==1) {
 						arm.servos[servoID].turns = ((position_old+100) < position)
 							? arm.servos[servoID].turns - 1
+							: arm.servos[servoID].turns;
+					} else if (arm.servos[servoID].state==2){
+						arm.servos[servoID].turns = (position_old > (position+100)) 
+							? arm.servos[servoID].turns + 1
 							: arm.servos[servoID].turns;
 					}
 
@@ -572,17 +583,17 @@ void printDataLCD() {
 					if (speed > 0x3FF) {
 						speedDirection = CW;
 						speed = speed - 0x400;
-						} else {
+					} else {
 						speedDirection = CCW;
 					}
 					if (load > 0x3FF) {
 						loadDirection = CW;
 						load = load - 0x400;
-						} else {
+					} else {
 						loadDirection = CCW;
 					}
 					/* Update the Arm Object */
-					arm.servos[servoID].direction = speedDirection;
+					arm.servos[servoID].state = speed ? 0 : speedDirection ? 1 : 2;
 					arm.servos[servoID].position = position;
 					arm.servos[servoID].speed;
 					arm.servos[servoID].load = load;
@@ -605,14 +616,19 @@ void printDataLCD() {
 					printLCD(LCD_COL1, 2, speed, 4);
 					lcd.print(speedDirection ? (char)CH_ARR : (char)CH_ARL);
 					printLCD(LCD_COL1+5, 2, arm.servos[servoID].speed, 4);
-					printLCD(LCD_COL1+10, 2, lastButtonPressed, 4);
-					printLCD(LCD_COL1+10, 2, lastButtonPressed, 4);
-					lcd.print(buttonsFlip[2]);
-					lcd.print(buttonsFlip[1]);
+					printLCD(LCD_COL1+10, 2, lastButtonPressed, 1);
+					lcd.print(buttonsState[2]);
+					lcd.print(buttonsState[1]);
 					printLCD(LCD_COL1, 3, load, 4);
+					lcd.print(loadDirection ? (char)CH_ARR : (char)CH_ARL);
+					printCharLCD(LCD_COL1+10, 3, (arm.servos[1].state==1 ? (char)CH_ARR : arm.servos[1].state==0 ? '#' : (char)CH_ARL));
+					printCharLCD(LCD_COL1+11, 3, arm.servos[2].state==1 ? (char)CH_ARR : arm.servos[2].state==0 ? '#' : (char)CH_ARL);
+					printCharLCD(LCD_COL1+12, 3, arm.servos[3].state==1 ? (char)CH_ARR : arm.servos[3].state==0 ? '#' : (char)CH_ARL);
+					printCharLCD(LCD_COL1+13, 3, arm.servos[4].state==1 ? (char)CH_ARR : arm.servos[4].state==0 ? '#' : (char)CH_ARL);
+					printCharLCD(LCD_COL1+14, 3, arm.servos[5].state==1 ? (char)CH_ARR : arm.servos[5].state==0 ? '#' : (char)CH_ARL);
 					//lcd.setCursor(LCD_COL1, 3);
 					//lcd.print(load);
-					lcd.print(loadDirection ? (char)CH_ARR : (char)CH_ARL);
+					
 					//printLCD3(LCD_COL2, 3, (45*(current-2048)));
 					/* Update the Global variables tracking the servos */
 					currPos = servoID_old == servoID ? currPos : position;
@@ -685,8 +701,8 @@ void setup() {
 	setModeJoint(4);
 	setModeJoint(5);
 	/* Set the speeds of the servos */
-	arm.servos[1].speed = 500;
-	arm.servos[2].speed = 100;
+	arm.servos[1].speed = 150;
+	arm.servos[2].speed = 150;
 	arm.servos[3].speed = 30;
 	arm.servos[4].speed = 15;
 	arm.servos[5].speed = 20;
