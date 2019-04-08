@@ -23,13 +23,18 @@
 
 struct Servo {
 	uint8_t id;
+	uint8_t idOld;
 	uint8_t mode;	// 0 - 
 	int position;
+	int positionOld;
 	bool running;	// 0 - ON, 1 - OFF
-	bool direction; // 0 - Left, 1 - Right
-	int8_t turns;
 	int speed;
+	bool speedDirection;		// 0 - Left/CCW, 1 - Right/CW
+	int8_t turns;
 	int load;
+	bool loadDirection;	// 0 - Left/CCW, 1 - Right/CW
+	bool showError;
+	uint8_t lastError;
 };
 struct Arm {
 	uint8_t id;

@@ -163,8 +163,7 @@ ISR(PCINT0_vect) {
 		//while (BUTTON_1_PRESSED) delay(1);
 		while (BUTTON_1_PRESSED) {
 			arm.servos[id].position--;
-			if (id < 3) {
-				
+			if (id < 3) {	
 				speed = (lastButtonPressed == 1) 
 					? buttonsState[1] 
 						? 0
@@ -174,7 +173,6 @@ ISR(PCINT0_vect) {
 				speed = arm.servos[id].speed;
 			}
 			moveSpeed(id, arm.servos[id].position, speed);
-			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos-1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
 			
 		}
@@ -189,9 +187,9 @@ ISR(PCINT0_vect) {
 		while (BUTTON_2_PRESSED) {
 			arm.servos[id].position++;
 			if (BUTTON_1_PRESSED) {
-				moveSpeed(1, arm.servos[1].position, arm.servos[1].state==1 ? 0x0400 : 0);
+				moveSpeed(1, arm.servos[1].position, arm.servos[1].speedDirection ? 0x0400 : 0);
 				delay(50);
-				moveSpeed(2, arm.servos[2].position, arm.servos[2].state==1 ? 0x0400 : 0);
+				moveSpeed(2, arm.servos[2].position, arm.servos[2].speedDirection ? 0x0400 : 0);
 				delay(50);
 			}
 			if (id < 3) {
@@ -204,7 +202,6 @@ ISR(PCINT0_vect) {
 				speed = arm.servos[id].speed;
 			}
 			moveSpeed(id, arm.servos[id].position, speed);
-			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
 			
 		}
@@ -375,7 +372,6 @@ void moveSpeed(uint8_t id, int Position, int Speed) {
     uint8_t parsNo = 4;
     uint8_t pcktPars[parsNo] = {Position, Position >> 8, Speed, Speed >> 8};
     writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
-    currPos = Position;
     arm.servos[id].position = Position;
     //arm.servos[id].speed = Speed;
 }
@@ -385,7 +381,6 @@ void move(uint8_t id, int Position) {
 	uint8_t parsNo = 2;
 	uint8_t pcktPars[parsNo] = {Position, Position >> 8};
 	writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
-	currPos = Position;
 	arm.servos[id].position = Position;
 }
 /*	Joint / Multi-Turn Mode: 0 ~ 1023 (0x3FF), 1 => 0.114rpm
@@ -508,7 +503,7 @@ void printSerial(String title, int value) {
 	Serial.print(": ");
 	Serial.println(value);
 }
-void printDataLCD() {
+void updateArmData() {
 	delay(10);
 	int data;
 	bool msgStarted;
@@ -516,137 +511,114 @@ void printDataLCD() {
 	int position;
 	int speed;
 	int load;
-	int voltage;
-	int temperature;
-	int registered;
-	int moving;
-	int lock;
-	int punch;
-	int current;
-	int8_t rotations = 0;
+	uint8_t voltage; /* x10 */
+	uint8_t temperature;
+	uint8_t registered;
+	uint8_t moving;
 	bool speedDirection, loadDirection;
 	uint8_t i = 0;
-	int available = Serial1.available();
+	uint8_t available = Serial1.available();
 	if (available > 0){
 		serialReading = YES;
 		msgStarted = Serial1.read() == 0xFF ?  YES : NO;
 		if (msgStarted && (Serial1.read() == 0xFF)) {
 			do { servoID = Serial1.read(); } while (servoID == 0xFF); // this make sure you wait for real data
-
 			msgLength = Serial1.read(); // msg Length
 			error_byte = Serial1.read();
-			error_byte_old = error_byte ? error_byte : error_byte_old;
-
-			lcd.setCursor(6,0);
-			if (error_byte || error_counter) {
-				error_counter = error_counter > 10 ? 0 : error_counter + 1;
-				String* er;
-				er = error_decode(error_byte);
-				lcd.print("ER:");
-				//char buff[7];
-				//sprintf(buff, "BYTE_TO_BINARY_PATTERN", BYTE_TO_BINARY(error_byte));
-				lcd.print(error_byte_old);
-				lcd.print("   ");
+			arm.id = servoID;
+			if (error_byte) {
+				error_counter = 0;
+				arm.servos[servoID].lastError = error_byte; // keep old error
 			} else { // No Error :)
-				lcd.print("          ");
+				error_counter++;
 				if (msgLength > 2) {
 					position = Serial1.read();
 					position = (Serial1.read()<<8) + position;
-					if (arm.servos[servoID].state==1) {
-						arm.servos[servoID].turns = ((position_old+100) < position)
-							? arm.servos[servoID].turns - 1
-							: arm.servos[servoID].turns;
-					} else if (arm.servos[servoID].state==2){
-						arm.servos[servoID].turns = (position_old > (position+100)) 
+					/* Tracking the Turns */
+					if (arm.servos[servoID].speedDirection){
+						arm.servos[servoID].turns = (arm.servos[servoID].position > (position+100))
 							? arm.servos[servoID].turns + 1
 							: arm.servos[servoID].turns;
+					} else {
+						arm.servos[servoID].turns = ((arm.servos[servoID].position+100) < position)
+							? arm.servos[servoID].turns - 1
+							: arm.servos[servoID].turns;
 					}
-
-					position_old = position;
-
-					//Serial.println(position);
 					speed = Serial1.read();
 					speed = (Serial1.read()<<8) + speed;
-					//Serial.println(speed);
 					load = Serial1.read();
 					load = (Serial1.read()<<8) + load;
 					voltage = Serial1.read();
 					temperature = Serial1.read();
 					registered = Serial1.read();
 					moving = Serial1.read();
-					lock = Serial1.read();
-					punch = Serial1.read();
-					punch = (Serial1.read()<<8) + punch;
-					current = Serial1.read();
-					current = (Serial1.read()<<8) + current;
-					//Serial.println(load);
+					
 					if (speed > 0x3FF) {
 						speedDirection = CW;
 						speed = speed - 0x400;
-					} else {
-						speedDirection = CCW;
-					}
+					} else { speedDirection = CCW; }
+						
 					if (load > 0x3FF) {
 						loadDirection = CW;
 						load = load - 0x400;
-					} else {
-						loadDirection = CCW;
-					}
+					} else { loadDirection = CCW; }
+						
 					/* Update the Arm Object */
-					arm.servos[servoID].state = speed ? 0 : speedDirection ? 1 : 2;
 					arm.servos[servoID].position = position;
-					arm.servos[servoID].speed;
+					arm.servos[servoID].speed = speed;
+					arm.servos[servoID].speedDirection = speedDirection;
 					arm.servos[servoID].load = load;
-					//Serial.println("================");
-					//lcd.clear();
-					//char buffer[16];
-					//sprintf(buffer, "Servo ID: %d", servoID);
-					printLCD(LCD_COL1, 0, servoID, 1);
-					lcd.print(arm.servos[servoID].mode == 1 ? " Whl" : arm.servos[servoID].mode == 2 ? " Mlt" : " Jnt");
-					printLCD(LCD_COL1, 1, position * MX_PRESENT_POSITION_DEGREE, 4);
-					lcd.print((char)CH_DEG);
-					printLCD(11, 1, arm.servos[servoID].turns,3);
-					lcd.print("turns");
-					printLCD(LCD_COL2+5, 1, arm.servos[servoID].position * MX_PRESENT_POSITION_DEGREE, 4);
-					lcd.print((char)CH_DEG);
-					// 			lcd.setCursor(LCD_COL2 ,1);
-					// 			lcd.print((int)(currPos));
-					//lcd.setCursor(10,1);
-					//lcd.print(rotations);
-					printLCD(LCD_COL1, 2, speed, 4);
-					lcd.print(speedDirection ? (char)CH_ARR : (char)CH_ARL);
-					printLCD(LCD_COL1+5, 2, arm.servos[servoID].speed, 4);
-					printLCD(LCD_COL1+10, 2, lastButtonPressed, 1);
-					lcd.print(buttonsState[2]);
-					lcd.print(buttonsState[1]);
-					printLCD(LCD_COL1, 3, load, 4);
-					lcd.print(loadDirection ? (char)CH_ARR : (char)CH_ARL);
-					printCharLCD(LCD_COL1+10, 3, (arm.servos[1].state==1 ? (char)CH_ARR : arm.servos[1].state==0 ? '#' : (char)CH_ARL));
-					printCharLCD(LCD_COL1+11, 3, arm.servos[2].state==1 ? (char)CH_ARR : arm.servos[2].state==0 ? '#' : (char)CH_ARL);
-					printCharLCD(LCD_COL1+12, 3, arm.servos[3].state==1 ? (char)CH_ARR : arm.servos[3].state==0 ? '#' : (char)CH_ARL);
-					printCharLCD(LCD_COL1+13, 3, arm.servos[4].state==1 ? (char)CH_ARR : arm.servos[4].state==0 ? '#' : (char)CH_ARL);
-					printCharLCD(LCD_COL1+14, 3, arm.servos[5].state==1 ? (char)CH_ARR : arm.servos[5].state==0 ? '#' : (char)CH_ARL);
-					//lcd.setCursor(LCD_COL1, 3);
-					//lcd.print(load);
-					
-					//printLCD3(LCD_COL2, 3, (45*(current-2048)));
-					/* Update the Global variables tracking the servos */
-					currPos = servoID_old == servoID ? currPos : position;
-					servoID_old = servoID;
+					arm.servos[servoID].loadDirection = loadDirection;
 				}
 			}
-			while(Serial1.available() > 0) {
-				//Serial.println(Serial1.read());
-				Serial1.read();
-			}
-
+			arm.servos[servoID].showError = error_counter < 25 ? YES : NO;
+			while(Serial1.available() > 0) { Serial1.read(); }
 			delay(1);
 			cycle_counter = cycle_counter > 999 ? 0 : cycle_counter + 1;
-			printLCD(16, 0, cycle_counter, 4);
 		}
 	}
 	serialReading = NO;
 }
+
+void printArmDataLCD() {
+	uint8_t error_byte;
+	/* Print Servo Errors */
+	lcd.setCursor(10,0);
+	if (arm.servos[arm.id].showError) {	
+		String* er;
+		er = error_decode(arm.servos[arm.id].lastError);
+		lcd.print("ER:");
+		lcd.print(arm.servos[arm.id].lastError);
+	} else { lcd.print("          "); }
+	/* Print Servo ID */
+	printLCD(LCD_COL1, 0, arm.id, 1);
+	lcd.print(arm.servos[arm.id].mode == 1 ? " Whl" : arm.servos[arm.id].mode == 2 ? " Mlt" : " Jnt");
+	/* Print Servo Position */
+	printLCD(LCD_COL1, 1, arm.servos[arm.id].position * MX_PRESENT_POSITION_DEGREE, 4);
+	lcd.print((char)CH_DEG);
+	printLCD(11, 1, arm.servos[arm.id].turns,3);
+	lcd.print("turns");
+	printLCD(LCD_COL2+5, 1, arm.servos[arm.id].position * MX_PRESENT_POSITION_DEGREE, 4);
+	lcd.print((char)CH_DEG);
+	/* Print Servo Speed */
+	printLCD(LCD_COL1, 2, arm.servos[arm.id].speed, 4);
+	lcd.print(arm.servos[arm.id].loadDirection ? (char)CH_ARR : (char)CH_ARL);
+	printLCD(LCD_COL1+5, 2, arm.servos[arm.id].speed, 4);
+	printLCD(LCD_COL1+10, 2, lastButtonPressed, 1);
+	lcd.print(buttonsState[2]);
+	lcd.print(buttonsState[1]);
+	/* Print Servo Load */
+	printLCD(LCD_COL1, 3, arm.servos[arm.id].load, 4);
+	lcd.print(arm.servos[arm.id].loadDirection ? (char)CH_ARR : (char)CH_ARL);
+	/* Print Other Information */
+	printCharLCD(LCD_COL1+10, 3, arm.servos[1].loadDirection ? (char)CH_ARR : arm.servos[1].loadDirection==0 ? '#' : (char)CH_ARL);
+	printCharLCD(LCD_COL1+11, 3, arm.servos[2].loadDirection ? (char)CH_ARR : arm.servos[2].loadDirection==0 ? '#' : (char)CH_ARL);
+	printCharLCD(LCD_COL1+12, 3, arm.servos[3].loadDirection ? (char)CH_ARR : arm.servos[3].loadDirection==0 ? '#' : (char)CH_ARL);
+	printCharLCD(LCD_COL1+13, 3, arm.servos[4].loadDirection ? (char)CH_ARR : arm.servos[4].loadDirection==0 ? '#' : (char)CH_ARL);
+	printCharLCD(LCD_COL1+14, 3, arm.servos[5].loadDirection ? (char)CH_ARR : arm.servos[5].loadDirection==0 ? '#' : (char)CH_ARL);
+	printLCD(16, 0, cycle_counter, 4);
+}
+
 void printBufferLCD() {
 	delay(10);
 	int data;
@@ -709,6 +681,7 @@ void setup() {
 	/* Enable Toques for Joints (4 and 5) */
 	for (uint8_t i=1; i<6; i++) {
 		setTorqueLimit(i, MAX_TORQUE);
+		arm.servos[i].turns = 0;
 	}
 	/* LCD Setup */
 	lcd.setCursor(0,0);
@@ -734,7 +707,8 @@ void setup() {
 void loop() {
 
 	readServo(arm.id, 0x24, 34);
-	printDataLCD();
+	updateArmData();
+	printArmDataLCD();
 	//printDataLCD();
 	//delay(200);
 }
