@@ -24,7 +24,10 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 ##### TODOs
 
 * [ ] Inverse Kinematics.
-* [ ] Pressing button `[Select]` (changing servo) stop the current servo movement.
+* [ ] Pressing button `[Select]` (changing servo) stop the current servo movement (as separate github branch `Better_Update_LCD_version`).
+* [ ] Redesign the `PrintDataLCD` function (as separate github branch `Better_Update_LCD_version`).
+  * [ ] Pull the servo Data and store it in the `arm` struct in one function and (`updateArmData` function),
+  * [ ] Print the Data from `arm` struct to `LCD` or/and to `Serial port` in the next function (`printArmDataLCD` and `printArmDataSerial` fucntions).
 
 ### Version 0.32 (01/04/2019) - UNSTABLE
 
@@ -46,7 +49,7 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 ### Version 0.3 (22/03/2019)
 
 * [x] The code got optimised (size-wise), from original 683 lines it got reduced to 542 (exluding `MX-64AR.h` file but including lots of comments). This translates to over 20% reduction.
-* [x] The 3-Button now control all 5 servos. Button `[select]` (3) select (rotates) between all 5 servos. The other 2 buttons control the direction of the rotation of selected servo, `[down/CCW]` `[up/CW]`  
+* [x] The 3-Button controller now control all 5 servos. Button `[select]` (3) selects (rotates) between all 5 servos. The other 2 buttons control the direction of the rotation of selected servo, `[down/CCW]` `[up/CW]`  
 * [x] Button `[select]` was fixed and now it does not skip servos.
 
 ### Version 0.2
