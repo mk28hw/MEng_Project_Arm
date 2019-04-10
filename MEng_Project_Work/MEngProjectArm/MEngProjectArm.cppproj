@@ -218,6 +218,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Arm.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="General.h">
       <SubType>compile</SubType>
     </Compile>

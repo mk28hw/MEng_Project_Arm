@@ -4,6 +4,13 @@
  * It uses two hardware serial interfaces:
  *   Serial (Port 0) for monitoring and troubleshooting
  *   Serial 1 (Port 1) for communication with MX-64ARs
+ 
+ * Last Commit: 48dd8595667305a6ae43577c2539d786c88b6437
+ * TODO:
+ *   1. turn number when changing ID [DONE]
+ *   2. stopping servos (1 and 2) when button 1 pressed [DONE]
+ *   3. getting data (load) from ID 4 and 5 at the same time
+ *   4. control servo 1 and 2 by giving number of turns
  *
  * Version 0.32 (01/04/2019) - UNSTABLE:
  * 	 Changed global variables to global stucts.
@@ -33,6 +40,7 @@
 /* Local Files Includes */
 #include "General.h"
 #include "MX-64AR.h"
+#include "Arm.h"
 
 
 //Beginning of Auto generated function prototypes by Atmel Studio
@@ -95,15 +103,6 @@ digitalWrite(RS485_RX_EN_PIN, LOW);		/* Notify MAX485 transceiver to receive */ 
 digitalWrite(RS485_TX_EN_PIN, LOW);		/* Notify MAX485 transceiver to receive */ \
 delay(1);
 
-#define ARM_ID3_ANGLE_MIN 0	// exactly 752 = 65 degrees
-#define ARM_ID3_ANGLE_MAX 1700	// exactly 1762 = 157 degrees
-
-#define ARM_ID4_ANGLE_MIN 740	// exactly 752 = 65 degrees
-#define ARM_ID4_ANGLE_MAX 1700	// exactly 1762 = 157 degrees
-
-#define ARM_ID5_ANGLE_MIN 740	// exactly 749 = 65 degrees
-#define ARM_ID5_ANGLE_MAX 1700	// exactly 1744 = 155 degrees
-
 #define BUTTON_1_PRESSED (PINB & (1<<PINB0)) // PIN 53
 #define BUTTON_2_PRESSED (PINB & (1<<PINB1)) // PIN 52
 #define BUTTON_3_PRESSED (PINB & (1<<PINB2)) // PIN 51
@@ -118,35 +117,14 @@ delay(1);
 #define MAX_TORQUE 0x3FF
 //-----------------------------------------------------------------
 int position_old = 0;
-int rotations = 0;
 uint8_t id = 5;
 uint8_t servoID_old;
 int angle = 1500;
 int currPos = angle;
 int currSpeed;
-<<<<<<< HEAD
-<<<<<<< HEAD
 uint8_t lastButtonPressed = 0;
 bool buttonsFlip[3] = {0, 0, 0};
-=======
 
->>>>>>> parent of 48dd859... Updated Main.cpp (speed and dir. control of servo 1 and 2) now stable
-
-=======
-
-struct Servo {
-	uint8_t id;
-	uint8_t mode;
-	int position;
-	uint8_t turns;
-	int speed;
-	int load;
-};
-struct Arm {
-	uint8_t id;
-	struct Servo servos[5];
-};
->>>>>>> parent of 075f925... Updated Main.cpp + Added Arm.h
 
 Arm arm;
 
@@ -179,26 +157,55 @@ void setupSwitches() {
 
 /*  Buttons Interrupts */
 ISR(PCINT0_vect) {
+	int speed;
+	uint8_t id = arm.id;
 	if (BUTTON_1_PRESSED) { // Speed CHange
 		LED_ON;
 		//setEndless(id, OFF);
 		//setMaxTorque(id,1023);
+		//while (BUTTON_1_PRESSED) delay(1);
 		while (BUTTON_1_PRESSED) {
 			arm.servos[id].position--;
-			moveSpeed(id, arm.servos[id].position, 20);
+			if (id < 3) {
+				
+				speed = (lastButtonPressed == 1) 
+					? buttonsFlip[1] 
+						? 0
+						: arm.servos[id].speed
+					: arm.servos[id].speed;
+			} else {
+				speed = arm.servos[id].speed;
+			}
+			moveSpeed(id, arm.servos[id].position, speed);
 			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos-1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
+			
 		}
+		buttonsFlip[1] = !buttonsFlip[1];
+		lastButtonPressed = 1;
 		LED_OFF;
 	}
 	if (BUTTON_2_PRESSED) {
 		LED_ON;
+		//while (BUTTON_2_PRESSED) delay(1);
 		while (BUTTON_2_PRESSED) {
 			arm.servos[id].position++;
-			moveSpeed(id, arm.servos[id].position, 20);
+			if (id < 3) {
+				speed = (lastButtonPressed == 2) 
+					? buttonsFlip[2]
+						? 0x0400
+						: (0x0400 + arm.servos[id].speed) 
+					: (0x0400 + arm.servos[id].speed);	
+			} else {
+				speed = arm.servos[id].speed;
+			}
+			moveSpeed(id, arm.servos[id].position, speed);
 			//move(id, currPos<ARM_ID5_ANGLE_MAX ? currPos+1 : ARM_ID5_ANGLE_MAX);
 			delay(200);
+			
 		}
+		buttonsFlip[2] = !buttonsFlip[2];
+		lastButtonPressed = 2;
 		LED_OFF;
 	}
 	if (BUTTON_3_PRESSED) {
@@ -206,6 +213,7 @@ ISR(PCINT0_vect) {
 		delay(20);
 		//int tmpq;
 		while (BUTTON_3_PRESSED) delay(1);
+		if (id < 3) { moveSpeed(id, arm.servos[id].position, 0); }
 		id = id > 4 ? 1 : id + 1;
 		arm.id = id;
 		if (id>3) setModeJoint(id);
@@ -214,6 +222,8 @@ ISR(PCINT0_vect) {
 		//tmpq = getData(id, MX_PRESENT_POSITION_L, 2);
 		//printSerial("Button [3]", tmpq);
 		//currPos = tmpq>0 ? tmpq : currPos;
+		buttonsFlip[3] = !buttonsFlip[3];
+		lastButtonPressed = 3;
 	}
 }
 
@@ -320,23 +330,32 @@ int getData(uint8_t id, uint8_t ctrlData, uint8_t askedLength) {
 	serialReading = NO;
     /*  Check if the returned data is not corrupted and there are no errors
             Return -255 if the data is corrupted (Checksum error)
-            Return -ErrorCode is there is error from servo */
+            Return -ErrorCode if there is error from servo */
 	return msgOK ? msgError ? -msgError : msgData : -255;
 }
 int checkPosition(uint8_t id, int Position) {
-    if (id == 3) { // Multi-Turn up to 7 turns each direction
+    if (id < 3) { // Wheel Mode Unlimited
+	        return Position > ARM_ID1_ANGLE_MAX
+	        ? ARM_ID1_ANGLE_MAX
+	        : Position < ARM_ID1_ANGLE_MIN
+				? ARM_ID1_ANGLE_MIN
+				: Position;
+	} else if (id == 3) { // Multi-Turn up to 7 turns each direction
+		/* -28672 - 28672 */
         return Position > ARM_ID3_ANGLE_MAX
             ? ARM_ID3_ANGLE_MAX
             : Position < ARM_ID3_ANGLE_MIN
                      ? ARM_ID3_ANGLE_MIN
                      : Position;
     } else if (id == 4) { // Joint Mode up one turn
+		/* 0 - 4095 */
         return Position > ARM_ID4_ANGLE_MAX
             ? ARM_ID4_ANGLE_MAX
             : Position < ARM_ID4_ANGLE_MIN
                      ? ARM_ID4_ANGLE_MIN
                      : Position;
     } else if (id == 5) { // Joint Mode up one turn
+		/* 0 - 4095 */
         return Position > ARM_ID5_ANGLE_MAX
             ? ARM_ID5_ANGLE_MAX
             : Position < ARM_ID5_ANGLE_MIN
@@ -355,7 +374,7 @@ void moveSpeed(uint8_t id, int Position, int Speed) {
     writeServo(id, MX_GOAL_POSITION_L, pcktPars, parsNo);
     currPos = Position;
     arm.servos[id].position = Position;
-    arm.servos[id].speed = Speed;
+    //arm.servos[id].speed = Speed;
 }
 /* 0 ~ 4095 => 0 ~ 360° */
 void move(uint8_t id, int Position) {
@@ -377,7 +396,7 @@ void turn(uint8_t id, bool side, int Speed) {
 	uint8_t pcktPars[parsNo] = {Speed, (Speed >> 8) + side ? 0 : 4};
 	writeServo(id, MX_MOVING_SPEED_L, pcktPars, parsNo);
 	currSpeed = Speed;
-	arm.servos[id].speed = Speed;
+	//arm.servos[id].speed = Speed;
 	// Return the read error
 }
 
@@ -501,6 +520,7 @@ void printDataLCD() {
 	int lock;
 	int punch;
 	int current;
+	int8_t rotations = 0;
 	bool speedDirection, loadDirection;
 	uint8_t i = 0;
 	int available = Serial1.available();
@@ -529,8 +549,15 @@ void printDataLCD() {
 				if (msgLength > 2) {
 					position = Serial1.read();
 					position = (Serial1.read()<<8) + position;
-					rotations = position_old > position ? rotations + 1 : rotations;
-					position_old = position;
+					if (!arm.servos[servoID].direction) {
+						arm.servos[servoID].turns = (arm.servos[servoID].position > (position+100))
+							? arm.servos[servoID].turns + 1
+							: arm.servos[servoID].turns;
+					} else {
+						arm.servos[servoID].turns = ((arm.servos[servoID].position+100) < position)
+							? arm.servos[servoID].turns - 1
+							: arm.servos[servoID].turns;
+					}
 
 					//Serial.println(position);
 					speed = Serial1.read();
@@ -561,8 +588,9 @@ void printDataLCD() {
 						loadDirection = CCW;
 					}
 					/* Update the Arm Object */
+					arm.servos[servoID].direction = speedDirection;
 					arm.servos[servoID].position = position;
-					arm.servos[servoID].speed = speed;
+					arm.servos[servoID].speed;
 					arm.servos[servoID].load = load;
 					//Serial.println("================");
 					//lcd.clear();
@@ -572,14 +600,21 @@ void printDataLCD() {
 					lcd.print(arm.servos[servoID].mode == 1 ? " Whl" : arm.servos[servoID].mode == 2 ? " Mlt" : " Jnt");
 					printLCD(LCD_COL1, 1, position * MX_PRESENT_POSITION_DEGREE, 4);
 					lcd.print((char)CH_DEG);
-					printLCD(LCD_COL2, 1, position, 5);
-					printLCD(LCD_COL2+5, 1, currPos, 5);
+					printLCD(11, 1, arm.servos[servoID].turns,3);
+					lcd.print("turns");
+					printLCD(LCD_COL2+5, 1, arm.servos[servoID].position * MX_PRESENT_POSITION_DEGREE, 4);
+					lcd.print((char)CH_DEG);
 					// 			lcd.setCursor(LCD_COL2 ,1);
 					// 			lcd.print((int)(currPos));
 					//lcd.setCursor(10,1);
 					//lcd.print(rotations);
 					printLCD(LCD_COL1, 2, speed, 4);
 					lcd.print(speedDirection ? (char)CH_ARR : (char)CH_ARL);
+					printLCD(LCD_COL1+5, 2, arm.servos[servoID].speed, 4);
+					printLCD(LCD_COL1+10, 2, lastButtonPressed, 4);
+					printLCD(LCD_COL1+10, 2, lastButtonPressed, 4);
+					lcd.print(buttonsFlip[2]);
+					lcd.print(buttonsFlip[1]);
 					printLCD(LCD_COL1, 3, load, 4);
 					//lcd.setCursor(LCD_COL1, 3);
 					//lcd.print(load);
@@ -655,6 +690,12 @@ void setup() {
 	setModeMultiTurn(3);
 	setModeJoint(4);
 	setModeJoint(5);
+	/* Set the speeds of the servos */
+	arm.servos[1].speed = 500;
+	arm.servos[2].speed = 100;
+	arm.servos[3].speed = 30;
+	arm.servos[4].speed = 15;
+	arm.servos[5].speed = 20;
 	/* Enable Toques for Joints (4 and 5) */
 	for (uint8_t i=1; i<6; i++) {
 		setTorqueLimit(i, MAX_TORQUE);
