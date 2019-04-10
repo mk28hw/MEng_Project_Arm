@@ -9,7 +9,7 @@
  * TODO:
  *   1. turn number when changing ID [DONE]
  *   2. stopping servos (1 and 2) when button 1 pressed [DONE]
- *   3. getting data (load) from ID 4 and 5 at the same time
+ *   3. getting data (load) from ID 4 and 5 at the same time [DONE]
  *   4. control servo 1 and 2 by giving number of turns
  *
  * Version 0.32 (01/04/2019) - UNSTABLE:
@@ -67,7 +67,7 @@ void setMode(uint8_t id, uint8_t mode);
 void setModeWheel(uint8_t id);
 void setModeJoint(uint8_t id);
 void setModeMultiTurn(uint8_t id);
-int getData(uint8_t id, uint8_t ctrlData, uint8_t leng);
+int getData(uint8_t id, uint8_t ctrlData);
 void turn(uint8_t id, bool side, int Speed);
 void setMaxTorque(uint8_t id, int MaxTorque);
 void setTorqueEnable(uint8_t id, bool status);
@@ -91,6 +91,7 @@ void readServo(uint8_t pcktID, uint8_t pcktCmnd);
 #define RS485_TX_EN_PIN 3 // enable pin for TX
 
 #define RS485_TX_ON \
+while(Serial1.available()) { Serial1.read(); } \
 digitalWrite(RS485_RX_EN_PIN, HIGH);	/* Notify max485 transceiver to accept tx */ \
 digitalWrite(RS485_TX_EN_PIN, HIGH);	/* Notify max485 transceiver to accept tx */ \
 delay(1);								/* Allow this to take effect */ \
@@ -135,6 +136,8 @@ LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_ROWS, LCD_COLS);  // set the LCD address 
 bool serialWriting = NO;
 bool serialReading = NO;
 
+uint16_t load_4, load_5;
+
 /* LCD Helping to print Function */
 void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
 	char buffer[padding];
@@ -145,6 +148,11 @@ void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
 	lcd.setCursor(col, row);
 	lcd.print(buffer);
 }
+/* Get Real Value from Raw Value. Works for Speed and Load */ 
+int getRealValue(int rawValue) { return (rawValue > 0x3FF) ? rawValue - 0x400 : rawValue; }
+/* Get Direction from Raw Value. Works for Speed and Load */ 
+bool getDirection(int rawValue) { return (rawValue > 0x3FF) ? CW : CCW; }
+
 /* Setup the Switches (Pin Change Interrupts) */
 void setupSwitches() {
 	DDRB = 0xFF;
@@ -284,14 +292,14 @@ void readServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t resLength) {
 void readServo(uint8_t pcktID, uint8_t pcktCmnd) { readServo(pcktID, pcktCmnd, 1); }
 
 /* Request and Capture data from servo with given ID */
-int getData(uint8_t id, uint8_t ctrlData, uint8_t askedLength) {
+int getData(uint8_t id, uint8_t ctrlData) {
 	uint8_t msgByte;
 	bool startOne = NO, startTwo = NO, msgStarted, msgOK = NO;
 	uint8_t byteCount = 0;
 	uint8_t msgId, msgLength, msgError, msgChecksum, Checksum, msgData_1, msgData_2;
-
 	int msgData;
-	readServo(id, ctrlData, askedLength);
+	
+	readServo(id, ctrlData, 2);
 	delay(10);
 	serialReading = YES;
 	//do { msgByte = Serial1.read(); } while (msgByte != 0xFF);	// 01 : Start 1/2
@@ -314,12 +322,10 @@ int getData(uint8_t id, uint8_t ctrlData, uint8_t askedLength) {
 		printSerial("Msg Error  ", msgError);
 		msgData_1 = Serial1.read();
 		printSerial("Msg Data L ", msgData_1);
-		if (askedLength>1) {
-			msgData_2 = Serial1.read();
-			msgData = msgData_1 + (msgData_2<<8);
-			printSerial("Msg Data H ", msgData_2);
-			printSerial("Msg Data   ", msgData);
-		}
+		msgData_2 = Serial1.read();
+		printSerial("Msg Data H ", msgData_2);
+		msgData = msgData_1 + (msgData_2<<8);
+		printSerial("Msg Data   ", msgData);
 		msgChecksum = Serial1.read();
 		printSerial("Checksum   ", msgChecksum);
 		Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1 + msgData_2);
@@ -713,8 +719,8 @@ void setup() {
 	readServo(arm.id, 0x18, 8);
 	printBuffer();
 	delay(2);
-	int somthe = getData(5, MX_CURRENT_L, 2);
-	printSerial("return", somthe);
+	int somthe = getData(5, MX_CURRENT_L);
+	printSerial("return: ", getRealValue(somthe));
 	//printBuffer();
 }
 
@@ -725,6 +731,15 @@ void loop() {
 
 	readServo(arm.id, 0x24, 34);
 	printDataLCD();
+	int new_reading;
+	new_reading = getData(4, MX_PRESENT_LOAD_L);
+	load_4 = new_reading > 0 ? new_reading : load_4; 
+	new_reading = getData(5, MX_PRESENT_LOAD_L);
+	load_5 = new_reading > 0 ? new_reading : load_5; 
+	printSerial("Load 4: ", getRealValue(load_4));
+	printSerial("Load 5: ", getRealValue(load_5));
+	printLCD(10, 3, getRealValue(load_4), 4);
+	printLCD(15, 3, getRealValue(load_5), 4);
 	//printDataLCD();
 	//delay(200);
 }
