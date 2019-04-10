@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "MEngProjectArm", "MEng_Project_02\MEngProjectArm\MEngProjectArm.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "MEngProjectArm", "MEng_Project\MEngProjectArm\MEngProjectArm.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "MEng_Project_02\ArduinoCore\ArduinoCore.cppproj", "{0EA4F84E-A86D-47C5-A2B8-C72116BC7512}"
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "MEng_Project\ArduinoCore\ArduinoCore.cppproj", "{0EA4F84E-A86D-47C5-A2B8-C72116BC7512}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -33,6 +33,7 @@
 /* Local Files Includes */
 #include "General.h"
 #include "MX-64AR.h"
+#include "Arm.h"
 
 
 //Beginning of Auto generated function prototypes by Atmel Studio
@@ -95,15 +96,6 @@ digitalWrite(RS485_RX_EN_PIN, LOW);		/* Notify MAX485 transceiver to receive */ 
 digitalWrite(RS485_TX_EN_PIN, LOW);		/* Notify MAX485 transceiver to receive */ \
 delay(1);
 
-#define ARM_ID3_ANGLE_MIN 0	// exactly 752 = 65 degrees
-#define ARM_ID3_ANGLE_MAX 1700	// exactly 1762 = 157 degrees
-
-#define ARM_ID4_ANGLE_MIN 740	// exactly 752 = 65 degrees
-#define ARM_ID4_ANGLE_MAX 1700	// exactly 1762 = 157 degrees
-
-#define ARM_ID5_ANGLE_MIN 740	// exactly 749 = 65 degrees
-#define ARM_ID5_ANGLE_MAX 1700	// exactly 1744 = 155 degrees
-
 #define BUTTON_1_PRESSED (PINB & (1<<PINB0)) // PIN 53
 #define BUTTON_2_PRESSED (PINB & (1<<PINB1)) // PIN 52
 #define BUTTON_3_PRESSED (PINB & (1<<PINB2)) // PIN 51
@@ -123,25 +115,9 @@ uint8_t servoID_old;
 int angle = 1500;
 int currPos = angle;
 int currSpeed;
-<<<<<<< HEAD
 uint8_t lastButtonPressed = 0;
 bool buttonsFlip[3] = {0, 0, 0};
 
-=======
-
-struct Servo {
-	uint8_t id;
-	uint8_t mode;
-	int position;
-	uint8_t turns;
-	int speed;
-	int load;
-};
-struct Arm {
-	uint8_t id;
-	struct Servo servos[5];
-};
->>>>>>> parent of 075f925... Updated Main.cpp + Added Arm.h
 
 Arm arm;
 
@@ -152,6 +128,7 @@ LiquidCrystal_I2C lcd(LCD_ADDRESS, LCD_ROWS, LCD_COLS);  // set the LCD address 
 bool serialWriting = NO;
 bool serialReading = NO;
 
+uint8_t every4th;
 /* LCD Helping to print Function */
 void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
 	char buffer[padding];
@@ -230,6 +207,7 @@ ISR(PCINT0_vect) {
 		delay(20);
 		//int tmpq;
 		while (BUTTON_3_PRESSED) delay(1);
+		if (id < 3) { moveSpeed(id, arm.servos[id].position, 0); }
 		id = id > 4 ? 1 : id + 1;
 		arm.id = id;
 		if (id>3) setModeJoint(id);
@@ -308,6 +286,7 @@ int getData(uint8_t id, uint8_t ctrlData, uint8_t askedLength) {
 
 	int msgData;
 	readServo(id, ctrlData, askedLength);
+	String line;
 	delay(10);
 	serialReading = YES;
 	//do { msgByte = Serial1.read(); } while (msgByte != 0xFF);	// 01 : Start 1/2
@@ -316,38 +295,39 @@ int getData(uint8_t id, uint8_t ctrlData, uint8_t askedLength) {
 	startOne = msgByte == 0xFF ? YES : NO;
 	msgByte = Serial1.read();									// 02 : Start 2/2
 	startTwo = msgByte == 0xFF ? YES : NO;
-	//while (msgByte == 0xFF) { msgByte = Serial1.read(); }
+	while (msgByte == 0xFF) { msgByte = Serial1.read(); }
 	msgStarted = startOne && startTwo ? YES : NO;
-	Serial.print("## Start 01: ");
-	Serial.print(Serial1.available());
-	Serial.println(" ####################");
 	if (msgStarted) {
 		msgId = Serial1.read();
-		printSerial("Servo ID   ", msgId);
+		line = padNumber(msgId, 6);
+		line = line + ", " + padNumber(askedLength, 6);
 		msgLength = Serial1.read();
-		printSerial("Msg Length ", msgLength);
+		line = line + ", " + padNumber(msgLength, 6);
 		msgError = Serial1.read();
-		printSerial("Msg Error  ", msgError);
+		line = line + ", " + padNumber(msgError, 6);
 		msgData_1 = Serial1.read();
-		printSerial("Msg Data L ", msgData_1);
+		/*if 
+		for (uint8_t i=0; i<askedLength; i++) {
+			tmpData[i] =  Serial1.read();
+		}*/
 		if (askedLength>1) {
 			msgData_2 = Serial1.read();
 			msgData = msgData_1 + (msgData_2<<8);
-			printSerial("Msg Data H ", msgData_2);
-			printSerial("Msg Data   ", msgData);
 		}
+		line = line + ", " + padNumber(msgData, 6);
 		msgChecksum = Serial1.read();
-		printSerial("Checksum   ", msgChecksum);
+		line = line + ", " + padNumber(msgChecksum, 6);
 		Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1 + msgData_2);
-		printSerial("Checksum~  ", Checksum);
 		msgOK = msgChecksum == Checksum ? YES : NO;
 	}
 	while(Serial1.available()) { msgByte = Serial1.read(); }
 	serialReading = NO;
+	Serial.println(line);
     /*  Check if the returned data is not corrupted and there are no errors
             Return -255 if the data is corrupted (Checksum error)
             Return -ErrorCode if there is error from servo */
 	return msgOK ? msgError ? -msgError : msgData : -255;
+};
 }
 int checkPosition(uint8_t id, int Position) {
     if (id < 3) { // Wheel Mode Unlimited
@@ -480,19 +460,30 @@ void upOn() { setServo(MX_MODE_WHEEL, RIGHT); }
 void upOff() { setServo(MX_MODE_JOINT, RIGHT); }
 
 /* Servo error decoding function */
-String* error_decode(uint8_t error_code) {
-	String errors[8] = {
-		(error_code & (1<0) ? "Vlt" : ""),	// 1
-		(error_code & (1<1) ? "Ang" : ""),	// 2
-		(error_code & (1<2) ? "oHt" : ""),	// 4
-		(error_code & (1<3) ? "Rng" : ""),	// 8
-		(error_code & (1<4) ? "Som" : ""),	// 16
-		(error_code & (1<5) ? "oLd" : ""),	// 32
-		(error_code & (1<6) ? "Ins" : "") };// 64
-	for (uint8_t i=0; i<8; i++) {
-		printSerial(errors[i], i);
-	}
-	return errors;
+char* decodeErrorShort(uint8_t errorCode) {
+		char buffer[6];
+		sprintf(buffer, "%s%s%s%s%s%s", 
+			(errorCode & (1<0)) ? "Vlt " : "",
+			(errorCode & (1<1)) ? "Ang " : "",
+			(errorCode & (1<2)) ? "OvH " : "",
+			(errorCode & (1<3)) ? "Rng " : "",
+			(errorCode & (1<4)) ? "Sum " : "",
+			(errorCode & (1<5)) ? "OvL " : "",
+			(errorCode & (1<6)) ? "Ins " : "");
+	return buffer;
+}
+/* Servo error decoding function */
+char* decodeErrorLong(uint8_t errorCode) {
+		char* buffer;
+		sprintf(buffer, "%s%s%s%s%s%s", 
+			(errorCode & (1<0)) ? "Input Voltage Error\n\r" : "",
+			(errorCode & (1<1)) ? "Angle Limit Error\n\r" : "",
+			(errorCode & (1<2)) ? "Overheating Error\n\r" : "",
+			(errorCode & (1<3)) ? "Range Error\n\r" : "",
+			(errorCode & (1<4)) ? "Checksum Error\n\r" : "",
+			(errorCode & (1<5)) ? "Overload Error\n\r" : "",
+			(errorCode & (1<6)) ? "Instruction Error\n\r" : "");
+	return buffer;
 }
 /*
  *  |0xFF|0xFF|ID|LENGTH|INSTRUCTION|PARAM_1|...|PARAM_N|CHECKSUM
@@ -550,16 +541,16 @@ void printDataLCD() {
 			error_byte = Serial1.read();
 			error_byte_old = error_byte ? error_byte : error_byte_old;
 
-			lcd.setCursor(6,0);
+			lcd.setCursor(10,0);
 			if (error_byte || error_counter) {
 				error_counter = error_counter > 10 ? 0 : error_counter + 1;
-				String* er;
-				er = error_decode(error_byte);
-				lcd.print("ER:");
+				char* er;
+				er = decodeErrorShort(error_byte);
 				//char buff[7];
 				//sprintf(buff, "BYTE_TO_BINARY_PATTERN", BYTE_TO_BINARY(error_byte));
 				lcd.print(error_byte_old);
-				lcd.print("   ");
+				lcd.print(":");
+				lcd.print(er);
 			} else { // No Error :)
 				lcd.print("          ");
 				if (msgLength > 2) {
@@ -641,18 +632,21 @@ void printDataLCD() {
 					/* Update the Global variables tracking the servos */
 					currPos = servoID_old == servoID ? currPos : position;
 					servoID_old = servoID;
-				}
-			}
-			while(Serial1.available() > 0) {
-				//Serial.println(Serial1.read());
-				Serial1.read();
-			}
+				} /* if (msgLength > 2) */
+			} /* (error_byte || error_counter) else */
+			if (every4th==20) { printLCD(18, 2, cycle_counter, 2); }
+			while(Serial1.available() > 0) { Serial1.read(); }
+			delay(1);			
+		} /* if (msgStarted && (Serial1.read() == 0xFF)) */
 
-			delay(1);
-			cycle_counter = cycle_counter > 999 ? 0 : cycle_counter + 1;
-			printLCD(16, 0, cycle_counter, 4);
-		}
-	}
+	} /* if (available > 0) */
+	every4th = every4th < 20 ? every4th + 1 : 0;
+	cycle_counter = every4th
+		? cycle_counter
+		: cycle_counter < 9
+			? cycle_counter + 1
+			: 0;
+	if (every4th==20) { printLCD(18, 3, cycle_counter, 2); }
 	serialReading = NO;
 }
 void printBufferLCD() {
@@ -709,8 +703,8 @@ void setup() {
 	setModeJoint(4);
 	setModeJoint(5);
 	/* Set the speeds of the servos */
-	arm.servos[1].speed = 500;
-	arm.servos[2].speed = 100;
+	arm.servos[1].speed = 400;
+	arm.servos[2].speed = 400;
 	arm.servos[3].speed = 30;
 	arm.servos[4].speed = 15;
 	arm.servos[5].speed = 20;

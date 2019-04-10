@@ -1,3 +1,10 @@
+/*
+ * General.h
+ *
+ * Created: 02/04/2019 11:11:56
+ * Author: Marek Kujawa
+ */ 
+
 #ifndef GENERAL_H
 #define GENERAL_H
 
@@ -22,4 +29,4 @@
 	(Byte & 0x02 ? '1' : ' '), \
 	(Byte & 0x01 ? '1' : ' ')
 
-#endif
+#endif /* GENERAL_H_ */

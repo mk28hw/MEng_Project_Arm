@@ -95,5 +95,4 @@
 #define MX_MODE_WHEEL 1
 #define MX_MODE_MULTI 2
 
-#endif
-
+#endif /* MX64AR_H */

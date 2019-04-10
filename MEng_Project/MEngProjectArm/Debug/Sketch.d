@@ -1,4 +1,5 @@
-Main.d Main.o: .././Main.cpp ..\\..\ArduinoCore\include\core/Arduino.h \
+Sketch.d Sketch.o: .././Sketch.cpp \
+ ..\\..\ArduinoCore\include\core/Arduino.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
@@ -37,12 +38,7 @@ Main.d Main.o: .././Main.cpp ..\\..\ArduinoCore\include\core/Arduino.h \
  ..\\..\ArduinoCore\include\libraries\Wire/Wire.h \
  ..\\..\ArduinoCore\include\core/Stream.h \
  ..\\..\ArduinoCore\include\libraries\liquidcrystal_i2c/LiquidCrystal_I2C.h \
-<<<<<<< HEAD
- ..\\..\ArduinoCore\include\core/Print.h .././General.h .././MX-64AR.h \
- .././Arm.h
-=======
  ..\\..\ArduinoCore\include\core/Print.h .././MX-64AR.h
->>>>>>> parent of 075f925... Updated Main.cpp + Added Arm.h
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -125,5 +121,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ..\\..\ArduinoCore\include\core/Print.h:
 
 .././MX-64AR.h:
-
-.././Arm.h:
