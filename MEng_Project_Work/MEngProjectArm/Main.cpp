@@ -11,7 +11,8 @@
  *   2. stopping servos (1 and 2) when button 1 pressed [DONE]
  *   3. getting data (load) from ID 4 and 5 at the same time [DONE]
  *   4. control servo 1 and 2 by giving number of turns
- *   5. rearrange LCD layout (2nd and 3rd row last remove)
+ *   5. rearrange LCD layout (2nd and 3rd row last remove) [DONE]
+ *   6. dump data to serial in csv format
  *
  * Version 0.32 (01/04/2019) - UNSTABLE:
  * 	 Changed global variables to global stucts.
