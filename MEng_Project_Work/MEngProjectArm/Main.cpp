@@ -10,9 +10,10 @@
  *   1. turn number when changing ID [DONE]
  *   2. stopping servos (1 and 2) when button 1 pressed [DONE]
  *   3. getting data (load) from ID 4 and 5 at the same time [DONE]
- *   4. control servo 1 and 2 by giving number of turns
+ *   4. control servo 1 and 2 by giving number of turns [ABANDONED - REPLACED with 7]
  *   5. rearrange LCD layout (2nd and 3rd row last remove) [DONE]
  *   6. dump data to serial in csv format
+ *   7. proportional self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5
  *
  * Version 0.32 (01/04/2019) - UNSTABLE:
  * 	 Changed global variables to global stucts.
@@ -138,6 +139,7 @@ bool serialWriting = NO;
 bool serialReading = NO;
 
 uint16_t load_4, load_5;
+bool load_4_dir, load_5_dir;
 
 /* LCD Helping to print Function */
 void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
@@ -153,6 +155,19 @@ void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
 int getRealValue(int rawValue) { return (rawValue > 0x3FF) ? rawValue - 0x400 : rawValue; }
 /* Get Direction from Raw Value. Works for Speed and Load */ 
 bool getDirection(int rawValue) { return (rawValue > 0x3FF) ? CW : CCW; }
+
+String padNumber(int value, uint8_t padding) {
+	uint8_t response;
+	char buffer[padding];
+	char tmp[5];
+	/* if the value is greater than number of digits it will be maxed out, e.g. pad=2, val=200 => val=99 */
+	//value = (value < pow(10, padding)) ? value : (pow(10, padding)) - 1;
+	response = sprintf(tmp, "%%%dd", padding);
+	response = sprintf(buffer, tmp, value);
+	return buffer;
+}
+
+int combineBytes(uint8_t byte_1, uint8_t byte_2) { return byte_1 + (byte_2<<8); }
 
 /* Setup the Switches (Pin Change Interrupts) */
 void setupSwitches() {
@@ -289,54 +304,7 @@ void readServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t resLength) {
 }
 void readServo(uint8_t pcktID, uint8_t pcktCmnd) { readServo(pcktID, pcktCmnd, 1); }
 
-/* Request and Capture data from servo with given ID */
-int getData(uint8_t id, uint8_t ctrlData) {
-	uint8_t msgByte;
-	bool startOne = NO, startTwo = NO, msgStarted, msgOK = NO;
-	uint8_t byteCount = 0;
-	uint8_t msgId, msgLength, msgError, msgChecksum, Checksum, msgData_1, msgData_2;
-	int msgData;
-	
-	readServo(id, ctrlData, 2);
-	delay(10);
-	serialReading = YES;
-	//do { msgByte = Serial1.read(); } while (msgByte != 0xFF);	// 01 : Start 1/2
-	msgByte = Serial1.read();
-	//Serial1.availableForWrite();
-	startOne = msgByte == 0xFF ? YES : NO;
-	msgByte = Serial1.read();									// 02 : Start 2/2
-	startTwo = msgByte == 0xFF ? YES : NO;
-	//while (msgByte == 0xFF) { msgByte = Serial1.read(); }
-	msgStarted = startOne && startTwo ? YES : NO;
-	Serial.print("## Start 01: ");
-	Serial.print(Serial1.available());
-	Serial.println(" ####################");
-	if (msgStarted) {
-		msgId = Serial1.read();
-		printSerial("Servo ID   ", msgId);
-		msgLength = Serial1.read();
-		printSerial("Msg Length ", msgLength);
-		msgError = Serial1.read();
-		printSerial("Msg Error  ", msgError);
-		msgData_1 = Serial1.read();
-		printSerial("Msg Data L ", msgData_1);
-		msgData_2 = Serial1.read();
-		printSerial("Msg Data H ", msgData_2);
-		msgData = msgData_1 + (msgData_2<<8);
-		printSerial("Msg Data   ", msgData);
-		msgChecksum = Serial1.read();
-		printSerial("Checksum   ", msgChecksum);
-		Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1 + msgData_2);
-		printSerial("Checksum~  ", Checksum);
-		msgOK = msgChecksum == Checksum ? YES : NO;
-	}
-	while(Serial1.available()) { msgByte = Serial1.read(); }
-	serialReading = NO;
-    /*  Check if the returned data is not corrupted and there are no errors
-            Return -255 if the data is corrupted (Checksum error)
-            Return -ErrorCode if there is error from servo */
-	return msgOK ? msgError ? -msgError : msgData : -255;
-}
+
 int checkPosition(uint8_t id, int Position) {
     if (id < 3) { // Wheel Mode Unlimited
 	        return Position > ARM_ID1_ANGLE_MAX
@@ -509,6 +477,63 @@ void printSerial(String title, int value) {
 	Serial.print(": ");
 	Serial.println(value);
 }
+/* Request and Capture data from servo with given ID */
+int getData(uint8_t id, uint8_t ctrlData) {
+	uint8_t msgByte;
+	bool startOne = NO, startTwo = NO, msgStarted, msgOK = NO;
+	uint8_t byteCount = 0;
+	uint8_t msgId, msgLength, msgError, msgChecksum, Checksum, msgData_1, msgData_2;
+	int msgData;
+	String line;
+	
+	readServo(id, ctrlData, 2);
+	delay(10);
+	serialReading = YES;
+	//do { msgByte = Serial1.read(); } while (msgByte != 0xFF);	// 01 : Start 1/2
+	msgByte = Serial1.read();
+	//Serial1.availableForWrite();
+	startOne = msgByte == 0xFF ? YES : NO;
+	msgByte = Serial1.read();									// 02 : Start 2/2
+	startTwo = msgByte == 0xFF ? YES : NO;
+	//while (msgByte == 0xFF) { msgByte = Serial1.read(); }
+	msgStarted = startOne && startTwo ? YES : NO;
+	//Serial.print("## Start 01: ");
+	//Serial.print(Serial1.available());
+	//Serial.println(" ####################");
+	if (msgStarted) {
+		msgId = Serial1.read();
+		line = "ID:" + padNumber(msgId, 6);	//1
+		//printSerial("Servo ID   ", msgId);
+		msgLength = Serial1.read();
+		line = line + ", MsgLegth:" + padNumber(msgLength, 6);   //2
+		//printSerial("Msg Length ", msgLength);
+		msgError = Serial1.read();
+		line = line + ", Error:" + padNumber(msgError, 6);    //3
+		//printSerial("Msg Error  ", msgError);
+		msgData_1 = Serial1.read();
+		//printSerial("Msg Data L ", msgData_1);
+		msgData_2 = Serial1.read();
+		//printSerial("Msg Data H ", msgData_2);
+		msgData = combineBytes(msgData_1, msgData_2);
+		line = line + ", Data:" + padNumber(msgData, 6);		//4
+		//printSerial("Msg Data   ", msgData);
+		msgChecksum = Serial1.read();
+		line = line + ", MsgCheckSum:" + padNumber(msgChecksum, 6); //5
+		//printSerial("Checksum   ", msgChecksum);
+		Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1 + msgData_2);
+		line = line + ", CalCheckSum:" + padNumber(Checksum, 6); //6
+		//printSerial("Checksum~  ", Checksum);
+		msgOK = msgChecksum == Checksum ? YES : NO;
+	}
+	while(Serial1.available()) { msgByte = Serial1.read(); }
+	serialReading = NO;
+	Serial.println(line);
+    /*  Check if the returned data is not corrupted and there are no errors
+            Return -255 if the data is corrupted (Checksum error)
+            Return -ErrorCode if there is error from servo */
+	return msgOK ? msgError ? -msgError : msgData : -255;
+}
+
 void printDataLCD() {
 	delay(10);
 	int data;
@@ -719,18 +744,77 @@ void setup() {
 /* LOOP                                                                 */
 /************************************************************************/
 void loop() {
-
+	int incomingByte = 0;
 	readServo(arm.id, 0x24, 34);
 	printDataLCD();
 	int new_reading;
+	bool new_direction;
+	int speedo;
+	
+	/* Load 4  - Reading */
 	new_reading = getData(4, MX_PRESENT_LOAD_L);
-	load_4 = new_reading > 0 ? new_reading : load_4; 
+	if (new_reading > 0) {
+		load_4_dir = getDirection(new_reading);
+		load_4 = getRealValue(new_reading);
+	} else { // use the old values
+		load_4_dir = load_4_dir;
+		load_4 = load_4; 
+	}
+	/* Load 4  - Controlling */
+	if (load_4 > 30) {
+		speedo = load_4 < 30 ? 0
+			: load_4 > 250 ? 500 : 2*load_4;
+		if (load_4_dir) {
+			//printLCD(18, 2, 2, 2);
+			speedo = speedo;
+		} else {
+			speedo = 0x0400 + speedo;
+		}
+		moveSpeed(1, 100, speedo);
+	} else {
+		moveSpeed(1, 100, 0);
+	}
+	
+	/* Load 5 */
 	new_reading = getData(5, MX_PRESENT_LOAD_L);
-	load_5 = new_reading > 0 ? new_reading : load_5; 
-	printSerial("Load 4: ", getRealValue(load_4));
-	printSerial("Load 5: ", getRealValue(load_5));
-	printLCD(10, 3, getRealValue(load_4), 4);
-	printLCD(15, 3, getRealValue(load_5), 4);
+	if (new_reading > 0) {
+		load_5_dir = getDirection(new_reading);
+		load_5 = getRealValue(new_reading);
+	} else { // use the old values
+		load_5_dir = load_5_dir;
+		load_5 = load_5;
+	}
+	/* Load 5  - Controlling */
+	if (load_5 > 30) {
+		speedo = load_5 < 30 ? 0
+			: load_5 > 250 ? 500 : 2*load_5;
+		if (load_5_dir) {
+			//printLCD(18, 2, 2, 2);
+			speedo = speedo;
+		} else {
+			speedo = 0x0400 + speedo;
+		}
+		moveSpeed(2, 100, speedo);
+	} else {
+		moveSpeed(2, 100, 0);
+	}	
+	
+	printLCD(10, 3, load_4, 4);
+	printLCD(15, 3, load_5, 4);
+	/* Reading Serial */
+	if (Serial.available() > 0) {
+		// read the incoming byte:
+		lcd.setCursor(15, 1);
+		lcd.print(incomingByte, 10);
+		incomingByte = Serial.read();
+
+		// say what you got:
+		Serial.print("I received: ");
+		Serial.println(incomingByte, DEC);
+		lcd.setCursor(15, 2);
+		//lcd.print((String)incomingByte);
+		lcd.print((unsigned long)incomingByte, 10);
+	}
 	//printDataLCD();
 	//delay(200);
 }

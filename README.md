@@ -21,6 +21,10 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 
 ##### TODOs
 
+* [ ] self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5.
+  * [x] proportional.
+  * [ ] integral.
+  * [ ] differential.
 * [ ] dump data to serial in csv format.
 * [ ] control servo 1 and 2 by giving number of turns.
 * [x] rearrange LCD layout (2nd and 3rd row last remove). [11/04/2019]
