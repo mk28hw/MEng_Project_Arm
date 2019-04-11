@@ -14,11 +14,13 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
     * Initial directory: (leave it empty)
 
 ***
+
 ### Version 0.34 (10/04/2019)
 
- * [x] Getting data (load) from ID 4 and 5 at the same time.
+* [x] Getting data (load) from ID 4 and 5 at the same time.
 
 ##### TODOs
+
 * [ ] dump data to serial in csv format.
 * [ ] control servo 1 and 2 by giving number of turns.
 * [x] rearrange LCD layout (2nd and 3rd row last remove). [11/04/2019]
