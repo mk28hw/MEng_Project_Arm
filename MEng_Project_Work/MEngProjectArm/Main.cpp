@@ -5,20 +5,22 @@
  *   Serial (Port 0) for monitoring and troubleshooting
  *   Serial 1 (Port 1) for communication with MX-64ARs
  
- * Last Commit: 48dd8595667305a6ae43577c2539d786c88b6437
+ * Last Commit:	e608c66f07eb9e3d64fcf5b4aaa1c5a76aa0a600
  * TODO:
+ *   1. dump data to serial in csv format for the main data (positions, speeds, loads) 
+ *   2. Integral and Differential self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5
+
+ * Version 0.35 (11/04/2019):
  *   1. turn number when changing ID [DONE]
  *   2. stopping servos (1 and 2) when button 1 pressed [DONE]
  *   3. getting data (load) from ID 4 and 5 at the same time [DONE]
- *   4. control servo 1 and 2 by giving number of turns [ABANDONED - REPLACED with 7]
- *   5. rearrange LCD layout (2nd and 3rd row last remove) [DONE]
- *   6. dump data to serial in csv format
- *   7. proportional self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5 [DONE]
- *   8. Adding Manual and Automatic Mode. [DONE]
+ *   4. rearrange LCD layout (2nd and 3rd row last remove) [DONE]
+ *   5. proportional self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5 [DONE]
+ *   6. dump data to serial in csv format for getData function.
+ *   7. Adding Manual and Automatic Mode. [DONE]
  *		Long press (1s) [select] button to toggle between Automatic and Manual. [DONE]
  *      It indicates it on LCD (top right corner). [DONE]
  *      Once change from Automatic to Manual both servos 1 and 2 stop. [DONE]
- *
  * Version 0.32 (01/04/2019) - UNSTABLE:
  * 	 Changed global variables to global stucts.
  *   Added getData function for requesting and capturing the data (message) returned from (by) the requested servo.
