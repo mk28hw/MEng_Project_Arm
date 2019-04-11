@@ -20,7 +20,7 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 
 ##### TODOs
 * [ ] control servo 1 and 2 by giving number of turns.
-* [ ] rearrange LCD layout (2nd and 3rd row last remove).
+* [x] rearrange LCD layout (2nd and 3rd row last remove). [11/04/2019]
 * [ ] Inverse Kinematics.
 * [ ] Redesign the `PrintDataLCD` function (as separate github branch `Better_Update_LCD_version`).
   * [ ] Pull the servo Data and store it in the `arm` struct in one function and (`updateArmData` function),

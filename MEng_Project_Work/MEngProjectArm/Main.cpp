@@ -127,7 +127,6 @@ int currSpeed;
 uint8_t lastButtonPressed = 0;
 bool buttonsFlip[3] = {0, 0, 0};
 
-
 Arm arm;
 
 uint8_t error_byte_old;
@@ -219,18 +218,15 @@ ISR(PCINT0_vect) {
 	}
 	if (BUTTON_3_PRESSED) {
 		LED_TOGGLE;
-		delay(20);
-		//int tmpq;
 		while (BUTTON_3_PRESSED) delay(1);
-		if (id < 3) { moveSpeed(id, arm.servos[id].position, 0); }
+		delay(20);
+		/* Stop Servo 1 or 2 if you press button 3 */
+		if (id < 3) { moveSpeed(id, arm.servos[id].position, 0); } 
 		id = id > 4 ? 1 : id + 1;
 		arm.id = id;
 		if (id>3) setModeJoint(id);
 		else if (id==3) setModeMultiTurn(id);
 		else setModeWheel(id);
-		//tmpq = getData(id, MX_PRESENT_POSITION_L, 2);
-		//printSerial("Button [3]", tmpq);
-		//currPos = tmpq>0 ? tmpq : currPos;
 		buttonsFlip[3] = !buttonsFlip[3];
 		lastButtonPressed = 3;
 	}
@@ -241,17 +237,18 @@ ISR(PCINT0_vect) {
 void writeServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t* pcktPars, uint8_t parsNo) {
 	uint8_t Checksum = ~lowByte(pcktID + parsNo + 3 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd + sumBytes(pcktPars, parsNo));
 
-	RS485_TX_ON
+	
 	while (serialWriting) { delay(1); }
 	serialWriting = YES;
+	RS485_TX_ON
 	Serial1.write(pcktID);						// Servo ID
 	Serial1.write(parsNo + 3);					// Length of message (number of Parameters + 3 (1 Command + 2))
 	Serial1.write(MX_INSTRUCTION_WRITE_DATA);	// Write message type (write)
 	Serial1.write(pcktCmnd);					// Write Command
 	Serial1.write(pcktPars, parsNo);			// Write Parameters
 	Serial1.write(Checksum);					// Write Checksum
-	serialWriting = NO;
 	RS485_RX_ON
+	serialWriting = NO;
 }
 
 /* Write to Servo a command with only one Parameter */
@@ -260,16 +257,15 @@ void writeServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t pcktPar) { writeServo(
 /* Reset the Servo with given ID */
 void resetServo(uint8_t id) {
 	uint8_t Checksum = ~lowByte(id + MX_INSTRUCTION_RESET_LENGTH + MX_INSTRUCTION_RESET);
-
-	RS485_TX_ON
 	//while (serialWriting || serialReading) { delay(1); }
 	serialWriting = YES;
+	RS485_TX_ON
 	Serial1.write(id);							// ID is 0xFE, which broadcast mode (all Servos hear this message)
 	Serial1.write(MX_INSTRUCTION_RESET_LENGTH);	// Length of message (number of Parameters + 3 (1 Command + 2))
 	Serial1.write(MX_INSTRUCTION_RESET);		// Write message type (write)
 	Serial1.write(Checksum);					// Write Checksum
-	serialWriting = NO;
 	RS485_RX_ON
+	serialWriting = NO;
 }
 
 /* Reset All Servos */
@@ -599,32 +595,25 @@ void printDataLCD() {
 					arm.servos[servoID].position = position;
 					arm.servos[servoID].speed;
 					arm.servos[servoID].load = load;
-					//Serial.println("================");
-					//lcd.clear();
-					//char buffer[16];
-					//sprintf(buffer, "Servo ID: %d", servoID);
+		
+					/* LCD Line 1 */
 					printLCD(LCD_COL1, 0, servoID, 1);
 					lcd.print(arm.servos[servoID].mode == 1 ? " Whl" : arm.servos[servoID].mode == 2 ? " Mlt" : " Jnt");
-					printLCD(LCD_COL1, 1, position * MX_PRESENT_POSITION_DEGREE, 4);
+					/* LCD Line 2 */
+					printLCD(LCD_COL1, 1, arm.servos[servoID].position * MX_PRESENT_POSITION_DEGREE, 4);
 					lcd.print((char)CH_DEG);
-					printLCD(11, 1, arm.servos[servoID].turns,3);
-					lcd.print("turns");
-					printLCD(LCD_COL2+5, 1, arm.servos[servoID].position * MX_PRESENT_POSITION_DEGREE, 4);
-					lcd.print((char)CH_DEG);
-					// 			lcd.setCursor(LCD_COL2 ,1);
-					// 			lcd.print((int)(currPos));
-					//lcd.setCursor(10,1);
-					//lcd.print(rotations);
+					printLCD(LCD_COL2, 1, arm.servos[servoID].turns,3);
+					lcd.print("t");
+					/* LCD Line 3 */
 					printLCD(LCD_COL1, 2, speed, 4);
 					lcd.print(speedDirection ? (char)CH_ARR : (char)CH_ARL);
-					printLCD(LCD_COL1+5, 2, arm.servos[servoID].speed, 4);
-					printLCD(LCD_COL1+10, 2, lastButtonPressed, 4);
-					printLCD(LCD_COL1+10, 2, lastButtonPressed, 4);
-					lcd.print(buttonsFlip[2]);
-					lcd.print(buttonsFlip[1]);
+					printLCD(LCD_COL2, 2, arm.servos[servoID].speed, 4);
+					//printLCD(LCD_COL1+10, 2, lastButtonPressed, 4);
+					//lcd.print(buttonsFlip[2]);
+					//lcd.print(buttonsFlip[1]);
+					
+					/* LCD Line 4 */
 					printLCD(LCD_COL1, 3, load, 4);
-					//lcd.setCursor(LCD_COL1, 3);
-					//lcd.print(load);
 					lcd.print(loadDirection ? (char)CH_ARR : (char)CH_ARL);
 					//printLCD3(LCD_COL2, 3, (45*(current-2048)));
 					/* Update the Global variables tracking the servos */
@@ -638,8 +627,8 @@ void printDataLCD() {
 			}
 
 			delay(1);
-			cycle_counter = cycle_counter > 999 ? 0 : cycle_counter + 1;
-			printLCD(16, 0, cycle_counter, 4);
+			cycle_counter = cycle_counter > 99 ? 0 : cycle_counter + 1;
+			printLCD(17, 0, cycle_counter, 3);
 		}
 	}
 	serialReading = NO;
