@@ -13,7 +13,11 @@
  *   4. control servo 1 and 2 by giving number of turns [ABANDONED - REPLACED with 7]
  *   5. rearrange LCD layout (2nd and 3rd row last remove) [DONE]
  *   6. dump data to serial in csv format
- *   7. proportional self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5
+ *   7. proportional self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5 [DONE]
+ *   8. Adding Manual and Automatic Mode. [DONE]
+ *		Long press (1s) [select] button to toggle between Automatic and Manual. [DONE]
+ *      It indicates it on LCD (top right corner). [DONE]
+ *      Once change from Automatic to Manual both servos 1 and 2 stop. [DONE]
  *
  * Version 0.32 (01/04/2019) - UNSTABLE:
  * 	 Changed global variables to global stucts.
@@ -140,6 +144,7 @@ bool serialReading = NO;
 
 uint16_t load_4, load_5;
 bool load_4_dir, load_5_dir;
+bool autoBalanceOn = OFF;
 
 /* LCD Helping to print Function */
 void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
@@ -150,6 +155,11 @@ void printLCD(uint8_t col, uint8_t row, int value, uint8_t padding) {
 	sprintf(buffer, tmp, value);
 	lcd.setCursor(col, row);
 	lcd.print(buffer);
+}
+/* LCD Helping to print Function */
+void printLCD(uint8_t col, uint8_t row, const char* text) {
+	lcd.setCursor(col, row);
+	lcd.print(text);
 }
 /* Get Real Value from Raw Value. Works for Speed and Load */ 
 int getRealValue(int rawValue) { return (rawValue > 0x3FF) ? rawValue - 0x400 : rawValue; }
@@ -183,6 +193,7 @@ void setupSwitches() {
 ISR(PCINT0_vect) {
 	int speed;
 	uint8_t id = arm.id;
+	uint16_t i;
 	if (BUTTON_1_PRESSED) { // Speed CHange
 		LED_ON;
 		//setEndless(id, OFF);
@@ -234,15 +245,24 @@ ISR(PCINT0_vect) {
 	}
 	if (BUTTON_3_PRESSED) {
 		LED_TOGGLE;
-		while (BUTTON_3_PRESSED) delay(1);
+		i = 0;
+		while (BUTTON_3_PRESSED) {
+			delay(1);
+			i++;
+		} 
+		if (i>1000) { 
+			autoBalanceOn = !autoBalanceOn;
+		} else {
+			if (id < 3) { moveSpeed(id, arm.servos[id].position, 0); }
+			id = id > 4 ? 1 : id + 1;
+			arm.id = id;
+			if (id>3) setModeJoint(id);
+			else if (id==3) setModeMultiTurn(id);
+			else setModeWheel(id);
+		}
 		delay(20);
 		/* Stop Servo 1 or 2 if you press button 3 */
-		if (id < 3) { moveSpeed(id, arm.servos[id].position, 0); } 
-		id = id > 4 ? 1 : id + 1;
-		arm.id = id;
-		if (id>3) setModeJoint(id);
-		else if (id==3) setModeMultiTurn(id);
-		else setModeWheel(id);
+
 		buttonsFlip[3] = !buttonsFlip[3];
 		lastButtonPressed = 3;
 	}
@@ -253,7 +273,6 @@ ISR(PCINT0_vect) {
 void writeServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t* pcktPars, uint8_t parsNo) {
 	uint8_t Checksum = ~lowByte(pcktID + parsNo + 3 + MX_INSTRUCTION_WRITE_DATA + pcktCmnd + sumBytes(pcktPars, parsNo));
 
-	
 	while (serialWriting) { delay(1); }
 	serialWriting = YES;
 	RS485_TX_ON
@@ -273,7 +292,8 @@ void writeServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t pcktPar) { writeServo(
 /* Reset the Servo with given ID */
 void resetServo(uint8_t id) {
 	uint8_t Checksum = ~lowByte(id + MX_INSTRUCTION_RESET_LENGTH + MX_INSTRUCTION_RESET);
-	//while (serialWriting || serialReading) { delay(1); }
+	
+	while (serialWriting || serialReading) { delay(1); }
 	serialWriting = YES;
 	RS485_TX_ON
 	Serial1.write(id);							// ID is 0xFE, which broadcast mode (all Servos hear this message)
@@ -291,7 +311,8 @@ void resetServo() { resetServo(MX_ALL_SERVOS); }
 void readServo(uint8_t pcktID, uint8_t pcktCmnd, uint8_t resLength) {
 	uint8_t Checksum = ~lowByte(pcktID + 4 + MX_INSTRUCTION_READ_DATA + pcktCmnd + resLength);
 	RS485_TX_ON
-	//while (serialWriting || serialReading) { delay(1); }
+	
+	while (serialWriting || serialReading) { delay(1); }
 	serialWriting = YES;
 	Serial1.write(pcktID);					// Servo ID
 	Serial1.write(4);						// Length of message (number of Parameters + 3 (1 Command + 2))
@@ -491,38 +512,26 @@ int getData(uint8_t id, uint8_t ctrlData) {
 	serialReading = YES;
 	//do { msgByte = Serial1.read(); } while (msgByte != 0xFF);	// 01 : Start 1/2
 	msgByte = Serial1.read();
-	//Serial1.availableForWrite();
 	startOne = msgByte == 0xFF ? YES : NO;
 	msgByte = Serial1.read();									// 02 : Start 2/2
 	startTwo = msgByte == 0xFF ? YES : NO;
 	//while (msgByte == 0xFF) { msgByte = Serial1.read(); }
 	msgStarted = startOne && startTwo ? YES : NO;
-	//Serial.print("## Start 01: ");
-	//Serial.print(Serial1.available());
-	//Serial.println(" ####################");
 	if (msgStarted) {
 		msgId = Serial1.read();
-		line = "ID:" + padNumber(msgId, 6);	//1
-		//printSerial("Servo ID   ", msgId);
+		line = "ID:" + padNumber(msgId, 6);							//1
 		msgLength = Serial1.read();
-		line = line + ", MsgLegth:" + padNumber(msgLength, 6);   //2
-		//printSerial("Msg Length ", msgLength);
+		line = line + ", MsgLegth:" + padNumber(msgLength, 6);		//2
 		msgError = Serial1.read();
-		line = line + ", Error:" + padNumber(msgError, 6);    //3
-		//printSerial("Msg Error  ", msgError);
+		line = line + ", Error:" + padNumber(msgError, 6);			//3
 		msgData_1 = Serial1.read();
-		//printSerial("Msg Data L ", msgData_1);
 		msgData_2 = Serial1.read();
-		//printSerial("Msg Data H ", msgData_2);
 		msgData = combineBytes(msgData_1, msgData_2);
-		line = line + ", Data:" + padNumber(msgData, 6);		//4
-		//printSerial("Msg Data   ", msgData);
+		line = line + ", Data:" + padNumber(msgData, 6);			//4
 		msgChecksum = Serial1.read();
 		line = line + ", MsgCheckSum:" + padNumber(msgChecksum, 6); //5
-		//printSerial("Checksum   ", msgChecksum);
 		Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1 + msgData_2);
-		line = line + ", CalCheckSum:" + padNumber(Checksum, 6); //6
-		//printSerial("Checksum~  ", Checksum);
+		line = line + ", CalCheckSum:" + padNumber(Checksum, 6);	//6
 		msgOK = msgChecksum == Checksum ? YES : NO;
 	}
 	while(Serial1.available()) { msgByte = Serial1.read(); }
@@ -653,8 +662,8 @@ void printDataLCD() {
 			}
 
 			delay(1);
-			cycle_counter = cycle_counter > 99 ? 0 : cycle_counter + 1;
-			printLCD(17, 0, cycle_counter, 3);
+			cycle_counter = cycle_counter < 9 ? cycle_counter + 1 : 0;
+			printLCD(18, 0, cycle_counter, 1);
 		}
 	}
 	serialReading = NO;
@@ -737,6 +746,7 @@ void setup() {
 	delay(2);
 	int somthe = getData(5, MX_CURRENT_L);
 	printSerial("return: ", getRealValue(somthe));
+	printLCD(19, 0, autoBalanceOn ? "A" : "M" );
 	//printBuffer();
 }
 
@@ -750,7 +760,6 @@ void loop() {
 	int new_reading;
 	bool new_direction;
 	int speedo;
-	
 	/* Load 4  - Reading */
 	new_reading = getData(4, MX_PRESENT_LOAD_L);
 	if (new_reading > 0) {
@@ -760,22 +769,7 @@ void loop() {
 		load_4_dir = load_4_dir;
 		load_4 = load_4; 
 	}
-	/* Load 4  - Controlling */
-	if (load_4 > 30) {
-		speedo = load_4 < 30 ? 0
-			: load_4 > 250 ? 500 : 2*load_4;
-		if (load_4_dir) {
-			//printLCD(18, 2, 2, 2);
-			speedo = speedo;
-		} else {
-			speedo = 0x0400 + speedo;
-		}
-		moveSpeed(1, 100, speedo);
-	} else {
-		moveSpeed(1, 100, 0);
-	}
-	
-	/* Load 5 */
+	/* Load 5 - Reading */
 	new_reading = getData(5, MX_PRESENT_LOAD_L);
 	if (new_reading > 0) {
 		load_5_dir = getDirection(new_reading);
@@ -784,24 +778,39 @@ void loop() {
 		load_5_dir = load_5_dir;
 		load_5 = load_5;
 	}
-	/* Load 5  - Controlling */
-	if (load_5 > 30) {
-		speedo = load_5 < 30 ? 0
-			: load_5 > 250 ? 500 : 2*load_5;
-		if (load_5_dir) {
-			//printLCD(18, 2, 2, 2);
-			speedo = speedo;
-		} else {
-			speedo = 0x0400 + speedo;
-		}
-		moveSpeed(2, 100, speedo);
-	} else {
-		moveSpeed(2, 100, 0);
-	}	
+	if (autoBalanceOn) {
+		/* Load 4  - Controlling */
+		speedo = load_4 < 30
+			? 0
+			: load_4 > 250
+				? 500
+				: load_4<<1;
+		moveSpeed(1, 100, load_4_dir ? speedo : 0x0400 + speedo);
+
+		/* Load 5  - Controlling */
+		speedo = load_5 < 30
+			? 0
+			: load_5 > 250
+				? 500
+				: load_5<<1;
+		moveSpeed(2, 100, load_5_dir ? speedo : 0x0400 + speedo);
 	
+	} else { /* if (autoBalanceOn) */
+		//moveSpeed(1, 100, 0);
+		//moveSpeed(2, 100, 0);
+	}
+	if (!arm.autoBalance == autoBalanceOn) {
+		printLCD(19, 0, autoBalanceOn ? "A" : "M" );
+		if (!autoBalanceOn) {
+			moveSpeed(1, 100, load_4_dir ? 0 : 0x04000);
+			moveSpeed(2, 100, load_5_dir ? 0 : 0x04000);
+		}
+		arm.autoBalance = autoBalanceOn;
+	}
 	printLCD(10, 3, load_4, 4);
 	printLCD(15, 3, load_5, 4);
 	/* Reading Serial */
+	/*
 	if (Serial.available() > 0) {
 		// read the incoming byte:
 		lcd.setCursor(15, 1);
@@ -815,6 +824,7 @@ void loop() {
 		//lcd.print((String)incomingByte);
 		lcd.print((unsigned long)incomingByte, 10);
 	}
+	*/
 	//printDataLCD();
 	//delay(200);
 }

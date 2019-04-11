@@ -32,6 +32,7 @@ struct Servo {
 };
 struct Arm {
 	uint8_t id;
+	bool autoBalance = OFF;
 	struct Servo servos[6];
 };
 

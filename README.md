@@ -20,14 +20,19 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 * [x] Getting data (load) from ID 4 and 5 at the same time.
 
 ##### TODOs
-
-* [ ] self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5.
+ * [x] Add `Manual` and `Automatic` Mode. [11/04/2019]
+   * [x] Long press (1s) `[select]` button to toggle between `Automatic` and `Manual`. [11/04/2019]
+   * [x] Indicate the mode on LCD (top right corner) `A` for `Automatic` and `M` for `Manual`. [11/04/2019]
+   * [x] Program starts in `Manual` mode. [11/04/2019]   
+   * [x] Once change from Automatic to Manual both servos 1 and 2 stop. [11/04/2019]
+* [ ] Self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5.
   * [x] proportional.
   * [ ] integral.
   * [ ] differential.
-* [ ] dump data to serial in csv format.
-* [ ] control servo 1 and 2 by giving number of turns.
-* [x] rearrange LCD layout (2nd and 3rd row last remove). [11/04/2019]
+* [ ] Dump data to serial in `csv` format.
+* [x] For `getData` fucntion. [11/04/2019]
+* [ ] Dontrol servo 1 and 2 by giving number of turns.
+* [x] Dearrange LCD layout (2nd and 3rd row last remove). [11/04/2019]
 * [ ] Inverse Kinematics.
 * [ ] Redesign the `PrintDataLCD` function (as separate github branch `Better_Update_LCD_version`).
   * [ ] Pull the servo Data and store it in the `arm` struct in one function and (`updateArmData` function),
