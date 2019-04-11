@@ -17,11 +17,11 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 
 ### Version 0.35 (11/04/2019)
 
-* [x] Add `Manual` and `Automatic` Mode.
+* [x] Add `Manual` and `Automatic` Mode. In `Automatic` mode the `Robotic Arm` will automatically balance itself by adjusting the tension of the springs with servo `1` and `2`.
   * [x] Long press (1s) `[select]` button to toggle between `Automatic` and `Manual`.
   * [x] Indicate the mode on LCD (top right corner) `A` for `Automatic` and `M` for `Manual`.
   * [x] Program starts in `Manual` mode.
-  * [x] Once change from Automatic to Manual both servos 1 and 2 stop.
+  * [x] Once change from `Automatic` to `Manual` both servos `1` and `2` stop.
 * [x] Self adjusting balance (by controlling servo `1` and `2`) using load reading from servo `4` and `5`.
   * [x] proportional.
 * [X] Dump data to serial in `csv` format.
