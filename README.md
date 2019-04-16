@@ -21,19 +21,16 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
   * [x] Long press (1s) `[select]` button to toggle between `Automatic` and `Manual`.
   * [x] Indicate the mode on LCD (top right corner) `A` for `Automatic` and `M` for `Manual`.
   * [x] Program starts in `Manual` mode.
-  * [x] Once mode change from `Automatic` to `Manual` both servos `1` and `2` stop.
+  * [x] Once change from `Automatic` to `Manual` both servos `1` and `2` stop.
 * [x] Self adjusting balance (by controlling servo `1` and `2`) using load reading from servo `4` and `5`.
   * [x] proportional.
 * [X] Dump data to serial in `csv` format.
-  * [x] For `getData` function.
+  * [x] For `getData` fucntion.
 * [x] Rearrange LCD layout (2nd and 3rd row last remove).
 
 ##### TODOs
 
-* [ ] Forward Kinematics. This is required for calculation of the extension length of the springs.
-* [ ] Tracking the position of the spring trays. This is also required for calculation of the extension length of the springs.
-* [ ] Limit switches for the spring trays (servo `1` and `2`).
-* [ ] Self adjusting balance (by controlling servo `1` and `2`) using load reading from servo `4` and `5`.
+* [ ] Self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5.
   * [ ] integral.
   * [ ] differential.
 * [ ] Dump data to serial in `csv` format.
@@ -60,7 +57,7 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
   * [ ] integral.
   * [ ] differential.
 * [ ] Dump data to serial in `csv` format.
-* [x] For `getData` function. [11/04/2019]
+* [x] For `getData` fucntion. [11/04/2019]
 * [ ] Control servo 1 and 2 by giving number of turns.
 * [x] Rearrange LCD layout (2nd and 3rd row last remove). [11/04/2019]
 * [ ] Inverse Kinematics.

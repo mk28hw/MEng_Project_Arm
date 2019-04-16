@@ -14,9 +14,9 @@
 /* LCD Related Defines */
 #define LCD_ADDRESS 0x27
 #define LCD_COLS 20
-#define LCD_COL1 4
-#define LCD_COL2 10
-#define LCD_COL3 15
+#define LCD_COL1 3
+#define LCD_COL2 8
+#define LCD_COL3 13
 #define LCD_ROWS 4
 #define LCD_ROW1 0
 #define LCD_ROW2 1
