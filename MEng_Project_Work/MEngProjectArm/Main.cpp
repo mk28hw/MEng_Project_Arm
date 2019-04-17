@@ -953,7 +953,7 @@ void loop() {
 	uint8_t number = 13;
 	uint32_t timo = millis();
 	int data[number] = { 
-		(int)((timo - timo_start)/1000),
+		(int)((timo - timo_start)/100),
 		arm.servos[4].position,
 		arm.servos[4].load,
 		arm.servos[4].loadDirection,
