@@ -14,6 +14,19 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
    * Initial directory: (leave it empty)
 
 ***
+### Version 0.4 (19/04/2019) Report Version
+
+* [x] Dump data to serial in `csv` format.
+  * [x] For the main data (positions, speeds, loads)
+* [x] Trimmed the Comments for the Report.
+
+##### TODOs
+
+* [ ] Self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5.
+  * [ ] integral.
+  * [ ] differential.
+* [ ] Inverse Kinematics for Arm Manipulatin.
+* [ ] Forward Kinematics for Adaptive Arm Balancing.
 
 ### Version 0.35 (11/04/2019)
 
@@ -33,13 +46,13 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 * [ ] Self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5.
   * [ ] integral.
   * [ ] differential.
-* [ ] Dump data to serial in `csv` format.
-  * [ ] For the main data (positions, speeds, loads)
-* [ ] Control servo `1` and `2` by giving number of turns.
+* [x] Dump data to serial in `csv` format.
+  * [x] For the main data (positions, speeds, loads)
+* [ ] Control servo `1` and `2` by giving number of turns. [canceled]
 * [ ] Inverse Kinematics.
-* [ ] Redesign the `PrintDataLCD` function (as separate github branch `Better_Update_LCD_version`).
-  * [ ] Pull the servo Data and store it in the `arm` struct in one function and (`updateArmData` function),
-  * [ ] Print the Data from `arm` struct to `LCD` or/and to `Serial port` in the next function (`printArmDataLCD` and `printArmDataSerial` fucntions).
+* [ ] Redesign the `PrintDataLCD` function (as separate github branch `Better_Update_LCD_version`) [canceled]
+  * [ ] Pull the servo Data and store it in the `arm` struct in one function and (`updateArmData` function) [canceled]
+  * [ ] Print the Data from `arm` struct to `LCD` or/and to `Serial port` in the next function (`printArmDataLCD` and `printArmDataSerial` fucntions) [canceled]
 
 ### Version 0.34 (10/04/2019)
 
@@ -99,12 +112,12 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 ### Version 0.3 (22/03/2019)
 
 * [x] The code got optimised (size-wise), from original 683 lines it got reduced to 542 (exluding `MX-64AR.h` file but including lots of comments). This translates to over 20% reduction.
-* [x] The 3-Button controller now control all 5 servos. Button `[select]` (3) selects (rotates) between all 5 servos. The other 2 buttons control the direction of the rotation of selected servo, `[down/CCW]` `[up/CW]`  
+* [x] The 3-Button controller now control all 5 servos. Button `[select]` (3) selects (rotates) between all 5 servos. The other 2 buttons control the direction of the rotation of selected servo, `[down/CCW]` `[up/CW]`
 * [x] Button `[select]` was fixed and now it does not skip servos.
 
 ### Version 0.2
 
-* [x] Implemented 3 buttons that control the movement of the robotic arm. The first 2 buttons, `[down]` and `[up]` adjust the angle down and up of the connected segment (link) and the 3rd button, `[select]` toggles between two motors:  
+* [x] Implemented 3 buttons that control the movement of the robotic arm. The first 2 buttons, `[down]` and `[up]` adjust the angle down and up of the connected segment (link) and the 3rd button, `[select]` toggles between two motors:
 `[down]` `[up]` `[select]`
 
 ![3-button controller](./images/IMG_2213_lc.jpg)
