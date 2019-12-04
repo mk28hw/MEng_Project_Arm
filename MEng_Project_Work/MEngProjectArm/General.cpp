@@ -18,9 +18,9 @@ String padNumber(int value, uint8_t padding) {
 	return buffer;
 }
 
-int combineBytes(uint8_t byte_L, uint8_t byte_H) { return byte_L + (byte_H<<8); }
+int16_t combineBytes(uint8_t byte_L, uint8_t byte_H) { return byte_L + (byte_H<<8); }
 
-int sumBytes(uint8_t* bytes, uint8_t parsNo) {
+int16_t sumBytes(uint8_t* bytes, uint8_t parsNo) {
 	int sum = 0;
 	for (uint8_t i=0; i<parsNo; i++) sum +=bytes[i];
 	return sum;
