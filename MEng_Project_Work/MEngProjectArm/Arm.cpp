@@ -285,16 +285,15 @@ bool Arm::checkAngle(uint8_t id, uint16_t Position) {
 }
 
 /* Request and Capture given Data from servo with given ID */
-int Arm::getData(uint8_t id, uint8_t ctrlData, bool doubleByte) {
-	
+int Arm::getDataOne(uint8_t id, uint8_t ctrlData) {
 	uint8_t msgByte;
 	bool startOne = NO, startTwo = NO, msgStarted, msgOK = NO;
 	uint8_t byteCount = 0;
 	uint8_t msgId, msgLength, msgError, msgChecksum, Checksum, msgData_1, msgData_2;
-	int msgData, result;
+	int msgData;
 	String line;
 
-	readServo(id, ctrlData, (doubleByte ? 2 : 1));
+	readServo(id, ctrlData, 1);
 	delay(5);
 	serialReading = YES;
 
@@ -305,32 +304,59 @@ int Arm::getData(uint8_t id, uint8_t ctrlData, bool doubleByte) {
 
 	msgStarted = startOne && startTwo ? YES : NO;
 	if (msgStarted) {
-		msgId = Serial1.read();						//1
+		msgId = Serial1.read();
 		msgLength = Serial1.read();
 		msgError = Serial1.read();
-		msgData_1 = Serial1.read();
-		if (doubleByte) {
-			msgData_2 = Serial1.read();
-			msgData = combineBytes(msgData_1, msgData_2);
-			Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1 + msgData_2);
-		} else {
-			msgData = msgData_1;
-			Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1);
-		}
-		msgChecksum = Serial1.read();	
+		msgData = Serial1.read();
+		msgChecksum = Serial1.read();
+		Checksum = ~lowByte(msgId + msgLength + msgError + msgData);
 		msgOK = msgChecksum == Checksum ? YES : NO;
 	}
 	while(Serial1.available()) { msgByte = Serial1.read(); }
 	serialReading = NO;
-	
+
 	/*  Check if the returned data is not corrupted and there are no errors
 			Return -255 if the data is corrupted (Checksum error)
 			Return -ErrorCode if there is error from servo */
-	result = msgOK ? msgError ? -msgError : msgData : -255;
-	Serial.println((String)"getData( "+id+", "+ctrlData+", "+doubleByte+" ) => "+result);
-	return result;
+	return msgOK ? msgError ? -msgError : msgData : -255;
 }
-int Arm::getData(uint8_t id, uint8_t ctrlData) { getData(id, ctrlData, YES); }
+int Arm::getData(uint8_t id, uint8_t ctrlData) {
+	uint8_t msgByte;
+	bool startOne = NO, startTwo = NO, msgStarted, msgOK = NO;
+	uint8_t byteCount = 0;
+	uint8_t msgId, msgLength, msgError, msgChecksum, Checksum, msgData_1, msgData_2;
+	int msgData;
+	String line;
+
+	readServo(id, ctrlData, 2);
+	delay(5);
+	serialReading = YES;
+
+	msgByte = Serial1.read();
+	startOne = msgByte == 0xFF ? YES : NO;
+	msgByte = Serial1.read();									// 02 : Start 2/2
+	startTwo = msgByte == 0xFF ? YES : NO;
+
+	msgStarted = startOne && startTwo ? YES : NO;
+	if (msgStarted) {
+		msgId = Serial1.read();
+		msgLength = Serial1.read();
+		msgError = Serial1.read();
+		msgData_1 = Serial1.read();
+		msgData_2 = Serial1.read();
+		msgData = combineBytes(msgData_1, msgData_2);
+		msgChecksum = Serial1.read();
+		Checksum = ~lowByte(msgId + msgLength + msgError + msgData_1 + msgData_2);
+		msgOK = msgChecksum == Checksum ? YES : NO;
+	}
+	while(Serial1.available()) { msgByte = Serial1.read(); }
+	serialReading = NO;
+
+	/*  Check if the returned data is not corrupted and there are no errors
+			Return -255 if the data is corrupted (Checksum error)
+			Return -ErrorCode if there is error from servo */
+	return msgOK ? msgError ? -msgError : msgData : -255;
+}
 	
 /* Forward Kinematics of the Tool Position (Pose), X value */
 int Arm::fkX(float S4pos_rad, float S5pos_rad) {
@@ -381,18 +407,12 @@ float Arm::ikAngleServo5(int16_t x, int16_t y) {
 }
 float Arm::ikAngleServo5() { ikAngleServo5(this->toolPoseX, this->toolPoseY); }
 	
-void Arm::calculateAngles(float angle_1_now, float angle_2_now, float angle_1_goal, float angle_2_goal) {
-	Serial.println((String)"calculateAngles( "+angle_1_now+", "+angle_2_now+", "+angle_1_goal+", "+angle_2_goal+" )");
-	float angle_1_dif, angle_2_dif, denominator;
-	int angle_int_1 = 0, angle_int_2 = 0;
-	angle_1_now = CONVERT_POSITION_RADIANS;
-	angle_2_now = (float)getData(5, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS;
+void Arm::calculateAngles(float angle_1_goal, float angle_2_goal) {
+	Serial.println((String)"calculateAngles( "+angle_1_goal+", "+angle_2_goal+" )");
+	float angle_1_now, angle_2_now, angle_1_dif, angle_2_dif, denominator;
+	angle_1_now = getData(4, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS;
+	angle_2_now = getData(5, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS;
 	Serial.println((String)"Angles Now: "+angle_1_now+", "+angle_2_now);
-	angle_int_1 = getData(4, MX_PRESENT_POSITION_L);
-	angle_int_2 = Arm::getData(5, MX_PRESENT_POSITION_L);
-	Serial.println((String)"Angles int Now: "+angle_int_1+", "+angle_int_1);
-	angle_1_now = 0;
-	angle_2_now = 0;
 	angle_1_dif = abs(angle_1_goal - angle_1_now);
 	angle_2_dif = abs(angle_2_goal - angle_2_now);
 	Serial.println((String)"Angles Dif: "+angle_1_dif+", "+angle_2_dif);
@@ -402,14 +422,10 @@ void Arm::calculateAngles(float angle_1_now, float angle_2_now, float angle_1_go
 	Serial.println((String)"Ratio of Angles: "+this->ratioServo4+"/"+this->ratioServo5);
 }	
 void Arm::calculate(int x, int y) { 
-	this->calculateAngles(getData(4, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS,
-	getData(5, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS, this->ikAngleServo4(x, y), this->ikAngleServo5(x, y)); }
+	this->calculateAngles(this->ikAngleServo4(x, y), this->ikAngleServo5(x, y)); }
 /* Take both Servos (4 and 5) to 90° position */
 void Arm::goHome(float speed_per) {
-	this->calculateAngles(
-		getData(4, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS,
-		getData(5, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS,
-		M_PI_2, M_PI_2);
+	this->calculateAngles(M_PI_2, M_PI_2);
 	this->moveSpeedEasy(5, 90, speed_per*ratioServo5);
 	this->moveSpeedEasy(4, 90, speed_per*ratioServo4);
 }	
@@ -422,8 +438,7 @@ int8_t Arm::goToXY(int16_t x, int16_t y) {
 	}
 	position_S4 = this->ikAngleServo4(x, y);
 	position_S5 = this->ikAngleServo5(x, y);
-	this->calculateAngles(getData(4, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS,
-	getData(5, MX_PRESENT_POSITION_L)*CONVERT_POSITION_RADIANS, position_S4, position_S5);
+	this->calculateAngles(position_S4, position_S5);
 	position_S4 = position_S4*CONVERT_RADIANS_POSITION;
 	position_S5 = position_S5*CONVERT_RADIANS_POSITION;		
 	if (this->checkAngle(4, position_S4)) {

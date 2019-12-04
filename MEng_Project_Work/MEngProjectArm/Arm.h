@@ -106,7 +106,7 @@ struct Arm {
 	float ikAngleS5, ikAngleS4;
 	uint8_t joy_x_last, joy_y_last;
 
-	void calculateAngles(float angle_1_now, float angle_2_now, float angle_1_goal, float angle_2_goal);
+	void calculateAngles(float angle_1_goal, float angle_2_goal);
 	void calculate(int x, int y);
 	int checkPosition(uint8_t id, int16_t Position);
 	bool checkAngle(uint8_t id, uint16_t Position);
@@ -114,7 +114,7 @@ struct Arm {
 	int fkX();
 	int fkY(float S4pos_rad, float S5pos_rad);
 	int fkY();
-	int getData(uint8_t id, uint8_t ctrlData, bool doubleByte);
+	int getDataOne(uint8_t id, uint8_t ctrlData);
 	int getData(uint8_t id, uint8_t ctrlData);
 	bool getDirection(int rawValue);
 	int getRealValue(int rawValue);

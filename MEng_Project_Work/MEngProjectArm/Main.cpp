@@ -459,12 +459,12 @@ void setup() {
 		Serial.println((String)".     CW Angle Limit: "+angle_limit_cw+" => "+(angle_limit_cw*CONVERT_POSITION_DEGREE)+"°"); 
 		Serial.println((String)".    CCW Angle Limit: "+angle_limit_ccw+" => "+(angle_limit_ccw*CONVERT_POSITION_DEGREE)+"°"); 
 		Serial.println((String)".         Servo Mode: "+servo_mode);
-		Serial.println((String)".    Max Temp. Limit: "+arm.getData(i, MX_MAX_TEMP_LIMIT, NO)+"°C");
-		Serial.println((String)".     Min Volt Limit: "+((float)arm.getData(i, MX_MIN_VOLT_LIMIT, NO)/10)+"V");
-		Serial.println((String)".     Max Volt Limit: "+((float)arm.getData(i, MX_MAX_VOLT_LIMIT, NO)/10)+"V");
+		Serial.println((String)".    Max Temp. Limit: "+arm.getDataOne(i, MX_MAX_TEMP_LIMIT)+"°C");
+		Serial.println((String)".     Min Volt Limit: "+((float)arm.getDataOne(i, MX_MIN_VOLT_LIMIT)/10)+"V");
+		Serial.println((String)".     Max Volt Limit: "+((float)arm.getDataOne(i, MX_MAX_VOLT_LIMIT)/10)+"V");
 		Serial.println((String)".         Max Torque: "+(arm.getData(i, MX_MAX_TORQUE_L)*CONVERT_TORQUE_PERCENT)+"%");
 		Serial.println((String)".  Multi-turn Offset: "+arm.getData(i, MX_MULTI_TURN_OFFSET_L));
-		Serial.println((String)". Resolution Divider: "+arm.getData(i, MX_RESOLUTION_DIVIDER, NO));
+		Serial.println((String)". Resolution Divider: "+arm.getDataOne(i, MX_RESOLUTION_DIVIDER));
 		Serial.println((String)"----------------------------------------------"); 		
 		Serial.println((String)".   Present Position: "+arm.getData(i, MX_PRESENT_POSITION_L)+" => "+(arm.servos[i].position)+" : "+(arm.servos[i].position_deg)+"°");
 	}
