@@ -14,6 +14,34 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
    * Initial directory: (leave it empty)
 
 ***
+### CAD Models list - `CAD models` folder:
+* 2 x PLA Servo #1 Insert
+* 2 x Aluminium Servo #1 L Profile Base Bracket
+* 2 x PLA Servo #2 Base Mount
+* 2 x PLA Servo #3 Base Mount
+* PLA botton and top mounts
+* 2 x PLA Servo #4 and #5 Arm Bracket
+* 2 x PLA Servo #5 Insert
+* Aluminium C Profile Bracket
+
+***
+### Version 0.5 (29/11/2019) Final Report Version
+
+* [x] Added Inverse Kinematics for Arm Manipulatin.
+* [x] Added Forward Kinematics for Adaptive Arm Balancing.
+* [x] Added eperiments `Experiments.cpp` and `Experiments.h`
+* [x] Added joystick control code.
+* [x] Code tided up:
+    * [x] Arm related functions moved to the arm structure - `Arm.cpp` and `Arm.h`
+    * [x] General use function moved to `Main.cpp`, `General.cpp` and `General.h`
+
+##### TODOs
+
+* [ ] Self adjusting balance (by controlling servo 1 and 2) using load reading from servo 4 and 5.
+  * [ ] integral.
+  * [ ] differential.
+* [ ] Control the move of end-effector with use of joystick (IK and FK)
+
 ### Version 0.4 (19/04/2019) Report Version
 
 * [x] Dump data to serial in `csv` format.
