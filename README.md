@@ -14,7 +14,7 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
    * Initial directory: (leave it empty)
 
 ***
-### CAD Models list - `CAD models` folder:
+### CAD Models list - `\CAD models` folder:
 * 2 x PLA Servo #1 Insert
 * 2 x Aluminium Servo #1 L Profile Base Bracket
 * 2 x PLA Servo #2 Base Mount
@@ -33,7 +33,7 @@ The purpose of this code is to control (and monitor) Dynamixel MX-64AR smart ser
 * [x] Added joystick control code.
 * [x] Code tided up:
     * [x] Arm related functions moved to the arm structure - `Arm.cpp` and `Arm.h`
-    * [x] General use function moved to `Main.cpp`, `General.cpp` and `General.h`
+    * [x] General use function moved to `Main.h`, `General.cpp` and `General.h`
 
 ##### TODOs
 
